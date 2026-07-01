@@ -18,6 +18,7 @@ java {
 
 dependencies {
     implementation("commons-io:commons-io:2.22.0")
+    implementation("org.antlr:antlr4:4.13.2")
     //implementation("net.sourceforge.plantuml:plantuml:8059")
     //свежий plantuml придётся брать локально
     implementation(
