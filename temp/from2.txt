@@ -1,0 +1,28 @@
+from("seda:ordersInput")
+    .to("seda:outputQueueA")
+    .to("seda:outputQueueA");
+
+from("timer:tick");
+
+api("sapabap:ABD100");
+    
+config("sapnwa:destination:XI_SOAP_RECEIVER_ABD")
+.set("targetUrl", "http://abd100/sap/xi/engine")
+.set("auth", "BASIC")
+.set("login", "techuser")
+.secstore("в кипасе лежит как XI_SOAP_RECEIVER_ABD_USER");
+
+poae("POD");
+poae("PODMZ");
+
+/*  */
+ico("|BS_OTKUDA|{urn:rsug.io}SI_OutAsync|P_TUDA|BS_IDI")
+  .poae("POD")
+  .channel("CC_FileSender")
+  ;
+
+//ss
+ico("|INTEGRATION_ENGINE_POD|{urn:none}SI_AbsAsync")
+  .poae("PODMZ")
+  .channel("CC_XISender")
+  ;

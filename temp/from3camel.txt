@@ -1,0 +1,109 @@
+﻿
+# DeepSeek
+
+Для Camel 3 (и актуальных версий) структура RouteBuilder строго иерархическая, но с гибкими вложенными EIP (Enterprise Integration Patterns). Все блокирующие/условные конструкции (choice, split, multicast, circuitBreaker, onException и т.д.) могут содержать внутри себя вложенные process(), transform(), setBody(), а также другие EIP-блоки.
+
+Ниже — строгая схема вложенности (BNF/синтаксис) и готовый ANTLR4-фрагмент для парсинга таких роутов.
+
+
+RouteBuilder
+└── configure()
+    ├── from(uri)                         // Входная точка
+    │   ├── .onException(Exception.class) // (опционально) глобальный для роута
+    │   │   └── ... (цепочка EIP/процессоров)
+    │   ├── .transacted()                 // Транзакционный контекст
+    │   ├── .policy(...)                  // Политика (например, retry)
+    │   ├── .doTry()                      // Блок try
+    │   │   ├── .process()                // или process(bean)
+    │   │   ├── .to(...)
+    │   │   ├── .choice()                 // ВЛОЖЕННЫЙ choice внутри doTry
+    │   │   │   ├── .when(predicate)
+    │   │   │   │   ├── .process()
+    │   │   │   │   ├── .to()
+    │   │   │   │   ├── .split()          // ВЛОЖЕННЫЙ split внутри when
+    │   │   │   │   │   └── ... (цепочка)
+    │   │   │   │   └── .choice()         // даже choice внутри when (глубоко)
+    │   │   │   ├── .when(...)
+    │   │   │   └── .otherwise()
+    │   │   │       └── .process()
+    │   │   ├── .doCatch()                // Обработка исключений в doTry
+    │   │   │   └── .process()
+    │   │   └── .doFinally()
+    │   │       └── .process()
+    │   ├── .choice()                     // ОСНОВНОЙ choice (на уровне from)
+    │   │   ├── .when(predicate)
+    │   │   │   ├── .process()
+    │   │   │   ├── .to()
+    │   │   │   ├── .split()
+    │   │   │   │   └── .process()
+    │   │   │   ├── .multicast()
+    │   │   │   │   └── .to(...)
+    │   │   │   ├── .circuitBreaker()
+    │   │   │   │   └── ... (onFallback, process)
+    │   │   │   └── .choice()             // Два уровня choice (вложенный)
+    │   │   ├── .when(...)
+    │   │   └── .otherwise()
+    │   │       └── .process()
+    │   ├── .split(bodyExpression)        // Разбиение
+    │   │   └── .process() / .to() / .choice() / .aggregate()
+    │   ├── .aggregate(expression, strategy)
+    │   │   └── .process() / .to()
+    │   ├── .resequence(expression)
+    │   │   └── .process()
+    │   ├── .multicast()                  // Параллельная маршрутизация
+    │   │   └── .to(...) / .process()
+    │   ├── .routingSlip(header)
+    │   │   └── .process()
+    │   ├── .dynamicRouter(bean)
+    │   │   └── .process()
+    │   ├── .loadBalance()                // Балансировка
+    │   │   └── .process() / .to()
+    │   ├── .circuitBreaker()             // Защита от сбоев
+    │   │   ├── .onFallback()
+    │   │   │   └── .process()
+    │   │   └── .process()                // основной обработчик
+    │   ├── .delay(1000)                  // Задержка
+    │   │   └── .process()
+    │   ├── .throttle(10)                 // Ограничение пропускной
+    │   │   └── .process()
+    │   ├── .filter(predicate)            // Условный фильтр
+    │   │   └── .process()
+    │   ├── .removeHeader(...)
+    │   ├── .setHeader(...)
+    │   ├── .setBody(...)
+    │   ├── .transform(expression)
+    │   ├── .process(processor)           // Обычный процессор
+    │   ├── .bean(beanRef, method)
+    │   ├── .to(uri)                      // Отправка
+    │   └── .toD(uri)                     // Динамический uri
+    └── (конец роута)
+
+Важное правило (Camel 3):
+
+Внутри when(), otherwise(), doTry, doCatch, doFinally, split, multicast, aggregate, circuitBreaker, filter, routingSlip и т.д. можно ставить любые процессоры, включая choice() (вложенные условия).
+
+choice() всегда состоит из одного или нескольких when() и опционального otherwise().
+
+Нельзя поставить choice() непосредственно внутри другого choice() без обёртки в when/otherwise.
+
+
+
+
+from("direct:start")
+    .choice()
+        .when(header("type").isEqualTo("A"))
+            .process(p -> System.out.println("A"))
+            .split(body())
+                .choice()
+                    .when(simple("${body.size} > 5"))
+                        .process(p -> System.out.println("Big"))
+                    .otherwise()
+                        .process(p -> System.out.println("Small"))
+                .end()
+        .when(header("type").isEqualTo("B"))
+            .process(p -> System.out.println("B"))
+        .otherwise()
+            .process(p -> System.out.println("Other"))
+    .end()
+    .to("mock:result");
+
