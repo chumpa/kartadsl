@@ -18,7 +18,7 @@ java {
 
 dependencies {
     implementation("commons-io:commons-io:2.22.0")
-    implementation("org.antlr:antlr4:4.13.2")
+//    implementation("org.antlr:antlr4:4.13.2")
     //implementation("net.sourceforge.plantuml:plantuml:8059")
     //свежий plantuml придётся брать локально
     implementation(
@@ -28,12 +28,10 @@ dependencies {
             )
         )
     )
-
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
-
 
 tasks.test {
     useJUnitPlatform()
