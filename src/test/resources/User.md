@@ -18,7 +18,7 @@
 Карта_ООО это две площадки: офис + осн.склады и площадка "Весна" с небольшим складом.
 
 ### Шаблоны названий
-Короткие имена, <sid>### для абапа, <NAME>_suffix для прикладных, INTEGRATION_ENGINE_JAVA_<sid> по стандарту PO.
+Короткие имена, `<sid>###` для абапа, `<NAME>_suffix` для прикладных, INTEGRATION_ENGINE_JAVA_<sid> по стандарту PO.
 Имена интерфейсов вида: {urn:rsugio-karta:erp}SI_019Payments_OutAsync где 019 это условный номер разработки.
 
 ### Список
@@ -38,8 +38,8 @@ hostdb<sid> - БД, hostapp<sid> - приложение -- для ABAP, PO.
 hostapp<suffix> -- для прочих (суффикс произвольный).
 
 ## Схема tcp-соединений
-UserCallGraph.uml
-![UserCallGraph.uml](UserCallGraph.png "123")
+UserCallGraph.uml: ![UserCallGraph.uml](UserCallGraph.png "123")
+
 Самая обычная схема с DMZ.
 
 ## Подход к объектам Directory
@@ -49,7 +49,8 @@ PO 7.5, отдельные SA/RA/ReceiverRule не используются.
 * |ABD100|CC_XISender, |ABD100|CC_IDocSender -- отправка из ABD100
 * |ABD100|CC_XIReceiver, |ABD100|CC_IDocReceiver -- приём в ABD100
 * |INTEGRATION_ENGINE_JAVA_POD|CC_XIReceiver_DMZ - из POD -> PO1, на стороне центрального
-
+* |CRM_D|CC_RESTReceiver_019Payments
+* 
 Каналы на af.po1.hostdppo1:
 * |INTEGRATION_ENGINE_JAVA_PO1|CC_XISender - из POD -> PO1, на стороне DMZ
 * |INTEGRATION_ENGINE_JAVA_POD|CC_XIReceiver - из PO1 -> POD, на стороне DMZ
