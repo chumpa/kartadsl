@@ -1,0 +1,25 @@
+@startdot
+digraph callGraph {
+rankdir=LR;
+ABD [shape=component]
+POD [shape=component]
+FTP []
+CRM_D [shape=component]
+EDI_D[];
+"P_SANDBOX|EDI_D"[];
+FACTURY_D[];
+"P_STORE|WMS_D"[];
+"P_VESNA|WMS_D"[];
+
+ABD -> POD; POD -> ABD;
+ABD -> FTP;
+POD -> FTP;
+POD -> PO1; PO1->POD;
+POD -> CRM_D; CRM_D -> POD;
+PO1 -> EDI_D; PO1 -> "P_SANDBOX|EDI_D";
+PO1 -> FACTURY_D;
+
+POD -> "P_STORE|WMS_D"; "P_STORE|WMS_D" -> POD;
+POD -> "P_VESNA|WMS_D"; "P_VESNA|WMS_D" -> POD;
+}
+@enddot
