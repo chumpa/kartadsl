@@ -59,7 +59,7 @@ public class TpzContainer {
         return ok;
     }
 
-    public void makeFragments(boolean alsoBinaries) throws XMLStreamException, IOException {
+    public void extractFragments(boolean alsoBinaries) throws XMLStreamException, IOException {
         TptFragments ztp2 = new TptFragments(Objects.requireNonNull(pathTpt));
         ztp2.extractFragments(alsoBinaries);
         listXiObjFiles.addAll(ztp2.xiObjects);

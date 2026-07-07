@@ -18,6 +18,9 @@ java {
 
 dependencies {
     implementation("commons-io:commons-io:2.22.0")
+    implementation("javax.xml.bind:jaxb-api:2.3.1")
+    implementation("com.sun.xml.bind:jaxb-impl:2.3.1")
+    implementation("com.sun.xml.bind:jaxb-core:2.3.0.1")
 //    implementation("org.antlr:antlr4:4.13.2")
     //implementation("net.sourceforge.plantuml:plantuml:8059")
     //свежий plantuml придётся брать локально
