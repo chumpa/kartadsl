@@ -3,8 +3,10 @@ package io.rsug.kartadsl;
 import io.rsug.zatupka.TptFragments;
 import io.rsug.zatupka.TpzContainer;
 import io.rsug.zatupka.XiObjParser;
+import io.rsug.zatupka.allinone.AllInOne;
 import io.rsug.zatupka.xiobj.Texts;
 import io.rsug.zatupka.xiobj.XiObj;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 
 import javax.xml.bind.*;
@@ -31,11 +33,14 @@ public class AnyTests {
                 String typeID = xiObj.getIdInfo().getKey().getTypeID();
                 Texts texts = xiObj.getGeneric().getTextInfo().getTextObj().getTexts();
                 String text = (texts==null) ? "" : texts.getText().getValue();
-                String dynamic = xiObj.getContent().dynamicContent.toString();
+                String dynamic = xiObjParser.dynamicContent;
+                Path pathDynamic = pathXiObj.resolveSibling(pathXiObj.getFileName() + "." + typeID + ".xml");
+                IOUtils.write(dynamic, Files.newOutputStream(pathDynamic));
+
                 if (!xiObjParser.validationEvents.isEmpty()) {
                     System.out.printf("%s: typeID=%s [%s] (%s)\n", pathXiObj.getFileName(), typeID, text, xiObjParser.validationEvents);
                 } else {
-                    System.out.printf("%s: typeID=%s [%s], dynamic=%s\n", pathXiObj.getFileName(), typeID, text, dynamic);
+                    System.out.printf("%s: typeID=%s [%s]\n", pathXiObj.getFileName(), typeID, text);
                 }
             }
         }
@@ -95,5 +100,12 @@ public class AnyTests {
         });
         XiObj t1 = (XiObj) unmarshaller.unmarshal(xsr2);
         System.out.println(t1);
+    }
+
+    @Test
+    public void allinoneTests() throws Exception {
+        XiObjParser xiObjParser = new XiObjParser();
+        AllInOne ico1 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/ico1.xml")));
+        AllInOne ico2 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/ico2.xml")));
     }
 }

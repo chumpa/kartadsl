@@ -1,7 +1,7 @@
 package io.rsug.zatupka;
 
+import io.rsug.zatupka.allinone.AllInOne;
 import io.rsug.zatupka.xiobj.XiObj;
-import org.w3c.dom.Node;
 
 import javax.xml.bind.*;
 import javax.xml.stream.StreamFilter;
@@ -60,7 +60,7 @@ public class XiObjParser {
         return xiObj;
     }
 
-    String elementToString(org.w3c.dom.Element element) throws Exception {
+    public String elementToString(org.w3c.dom.Element element) throws Exception {
         final Transformer transformer = tf.newTransformer();
         transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
         StringWriter writer = new StringWriter();
@@ -68,5 +68,16 @@ public class XiObjParser {
         DOMSource source = new DOMSource(element);
         transformer.transform(source, result);
         return writer.toString();
+    }
+
+    public AllInOne parseAllInOne(InputStream is) throws JAXBException, XMLStreamException {
+        JAXBContext jc = JAXBContext.newInstance(AllInOne.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        XMLStreamReader xsr = xif.createXMLStreamReader(is);
+        AllInOne ico = (AllInOne) unmarshaller.unmarshal(xsr);
+        if (ico.getVersion() != null) {
+
+        }
+        return ico;
     }
 }

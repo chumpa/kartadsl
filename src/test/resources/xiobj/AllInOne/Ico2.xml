@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AllInOne version="130">
+    <SenderConnectivity>
+        <ValidationMode>1</ValidationMode>
+        <VirusScanMode>AD</VirusScanMode>
+        <AllInOneAttributes>
+            <AdapterTypeData>
+                <Attribute xmlns="">
+                    <Name>propagatePrincipal</Name>
+                    <Namespace/>
+                    <Value>1</Value>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>securityProfileValidateAndDecrypt</Name>
+                    <Namespace/>
+                    <Value>verifySignatureHeaderAndManifestWithSameCertificate</Value>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifyEncryptionAlias</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifyEncryptionKeyStore</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifyEncryptionSignatureAlias</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifyEncryptionSignatureKeyStore</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifySignatureEncryptionIssuerDN</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifySignatureEncryptionKeyStore</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifySignatureEncryptionSubjectDN</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifySignatureIssuerDN</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifySignatureKeyStore</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>verifySignatureSubjectDN</Name>
+                    <Namespace/>
+                    <Value/>
+                </Attribute>
+                <Attribute xmlns="">
+                    <Name>wsse.xinamespace</Name>
+                    <Namespace/>
+                    <Value>
+                        http://www.docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd
+                    </Value>
+                </Attribute>
+            </AdapterTypeData>
+        </AllInOneAttributes>
+        <Users>
+            <Name>2</Name>
+            <Name>USER1</Name>
+        </Users>
+    </SenderConnectivity>
+    <NamespaceMapping>
+        <p2:NSM xmlns:p2="http://sap.com/xi/ib/prefix">
+            <definition prefix="karta" uri="urn:kartadsl"/>
+            <definition prefix="_XPath_" uri="SIMPLE"/>
+        </p2:NSM>
+    </NamespaceMapping>
+    <NoReceiverBehaviour>
+        <IfNoReceiverFound>1</IfNoReceiverFound>
+    </NoReceiverBehaviour>
+    <ReceiverConfigurations>
+        <ReceiverConfiguration>
+            <ReceiverId>cbebe0ce7a8711f19083000007572072</ReceiverId>
+            <Receiver>
+                <PartyExtractor>
+                    <TRD_EXTRACTOR>
+                        <EXTRACTORID>cbe18e377a8711f190b2000007572072</EXTRACTORID>
+                        <TYPE>KO</TYPE>
+                        <VALUE>P_TEST</VALUE>
+                        <DATATYPE>xsd:string</DATATYPE>
+                        <MULTLINE></MULTLINE>
+                        <COBJNS/>
+                        <COBJNAME/>
+                    </TRD_EXTRACTOR>
+                </PartyExtractor>
+                <PartyAgencyExtractor>
+                    <TRD_EXTRACTOR>
+                        <EXTRACTORID>cbe18e397a8711f186cb000007572072</EXTRACTORID>
+                        <TYPE>KO</TYPE>
+                        <VALUE>http://sap.com/xi/XI</VALUE>
+                        <DATATYPE>xsd:string</DATATYPE>
+                        <MULTLINE></MULTLINE>
+                        <COBJNS/>
+                        <COBJNAME/>
+                    </TRD_EXTRACTOR>
+                </PartyAgencyExtractor>
+                <PartySchemaExtractor>
+                    <TRD_EXTRACTOR>
+                        <EXTRACTORID>cbe18e3a7a8711f1be6b000007572072</EXTRACTORID>
+                        <TYPE>KO</TYPE>
+                        <VALUE>XIParty</VALUE>
+                        <DATATYPE>xsd:string</DATATYPE>
+                        <MULTLINE></MULTLINE>
+                        <COBJNS/>
+                        <COBJNAME/>
+                    </TRD_EXTRACTOR>
+                </PartySchemaExtractor>
+                <ServiceExtractor>
+                    <TRD_EXTRACTOR>
+                        <EXTRACTORID>cbe18e387a8711f1cb2a000007572072</EXTRACTORID>
+                        <TYPE>KO</TYPE>
+                        <VALUE>BC_Test</VALUE>
+                        <DATATYPE>xsd:string</DATATYPE>
+                        <MULTLINE></MULTLINE>
+                        <COBJNS/>
+                        <COBJNAME/>
+                    </TRD_EXTRACTOR>
+                </ServiceExtractor>
+            </Receiver>
+            <QualityOfService>BE</QualityOfService>
+            <InterfaceDeterminations>
+                <InterfaceDetermination>
+                    <InterfaceConditionId/>
+                    <Interfaces>
+                        <Interface>
+                            <InterfaceName>SI_Demo_InSync</InterfaceName>
+                            <InterfaceNamespace>urn:demo</InterfaceNamespace>
+                            <ReceiverConnectivityId>f64a3b52a22c0b2ee8da6a8e2d98edef</ReceiverConnectivityId>
+                        </Interface>
+                    </Interfaces>
+                    <Counter>0</Counter>
+                    <Operation>SI_Demo_OutSync</Operation>
+                    <MappingRequired>2</MappingRequired>
+                    <SplitItems>
+                        <SplitItem>
+                            <SplitCounter>0</SplitCounter>
+                            <Multiplicity>1</Multiplicity>
+                        </SplitItem>
+                    </SplitItems>
+                </InterfaceDetermination>
+            </InterfaceDeterminations>
+        </ReceiverConfiguration>
+    </ReceiverConfigurations>
+    <ReceiverAssignmentList mode="standard">
+        <ReceiverAssignment>
+            <ReceiverIds>
+                <ReceiverId>cbebe0ce7a8711f19083000007572072</ReceiverId>
+            </ReceiverIds>
+        </ReceiverAssignment>
+    </ReceiverAssignmentList>
+    <ReceiverConnectivityList>
+        <ReceiverConnectivity>
+            <ReceiverConnectivityId>f64a3b52a22c0b2ee8da6a8e2d98edef</ReceiverConnectivityId>
+            <ValidationMode>0</ValidationMode>
+            <VirusScanMode>NO</VirusScanMode>
+            <AllInOneAttributes/>
+        </ReceiverConnectivity>
+    </ReceiverConnectivityList>
+    <Conditions/>
+    <ScenarioConfiguration>
+        <Parameters>
+            <Parameter>
+                <UseGlobal>false</UseGlobal>
+                <Name>stage.conf</Name>
+                <Value>BI=1,VI=0,MS=3,AM=0,VO=0</Value>
+            </Parameter>
+            <Parameter>
+                <UseGlobal>false</UseGlobal>
+                <Name>logger.conf</Name>
+                <Value>BI=0,MS=6,AM=0</Value>
+            </Parameter>
+        </Parameters>
+    </ScenarioConfiguration>
+</AllInOne>
