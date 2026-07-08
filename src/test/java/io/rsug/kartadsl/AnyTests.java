@@ -4,9 +4,13 @@ import io.rsug.zatupka.TptFragments;
 import io.rsug.zatupka.TpzContainer;
 import io.rsug.zatupka.XiObjParser;
 import io.rsug.zatupka.allinone.AllInOne;
+import io.rsug.zatupka.channel.Channel;
+import io.rsug.zatupka.dir.Party;
+import io.rsug.zatupka.dir.Service;
 import io.rsug.zatupka.xiobj.Texts;
 import io.rsug.zatupka.xiobj.XiObj;
 import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.xml.bind.*;
@@ -32,10 +36,37 @@ public class AnyTests {
                 XiObj xiObj = xiObjParser.parse(Files.newInputStream(pathXiObj));
                 String typeID = xiObj.getIdInfo().getKey().getTypeID();
                 Texts texts = xiObj.getGeneric().getTextInfo().getTextObj().getTexts();
-                String text = (texts==null) ? "" : texts.getText().getValue();
+                String text = (texts == null) ? "" : texts.getText().getValue();
+                if (text.length()>40) text = text.substring(0, 40).trim();
+
                 String dynamic = xiObjParser.dynamicContent;
                 Path pathDynamic = pathXiObj.resolveSibling(pathXiObj.getFileName() + "." + typeID + ".xml");
                 IOUtils.write(dynamic, Files.newOutputStream(pathDynamic));
+
+                switch (typeID) {
+                    case "AllInOne":
+                        AllInOne ico = xiObjParser.parseAllInOne(Files.newInputStream(pathDynamic));
+                        Assertions.assertNotNull(ico.getVersion().toString());
+                        break;
+                    case "Channel":
+                        Channel cc = xiObjParser.parseChannel(Files.newInputStream(pathDynamic));
+                        Assertions.assertTrue(cc.getChannelDirection().matches("[OI]"));
+                        break;
+                    case "Party":           // могут быть интересные Agency
+                        Party party = xiObjParser.parseParty(Files.newInputStream(pathDynamic));
+                        Assertions.assertFalse(party.getPartyIdentifier().isEmpty());
+                        break;
+                    case "Service":         // минимум инфы - только BS или SR
+                        Service service = xiObjParser.parseService(Files.newInputStream(pathDynamic));
+                        Assertions.assertTrue(service.getServiceType().matches("BS|SR"));
+                        break;
+                    case "AlertRule":       // пока не парсим
+                    case "DirectoryView":   // бесполезная динамика (нет внутри ничего?)
+                    case "DOCU":            // вся документация внутри <p1:texts>, нет отдельного объекта
+                        break;
+                    default:
+                        System.err.println("Unexpected typeID: " + typeID);
+                }
 
                 if (!xiObjParser.validationEvents.isEmpty()) {
                     System.out.printf("%s: typeID=%s [%s] (%s)\n", pathXiObj.getFileName(), typeID, text, xiObjParser.validationEvents);
@@ -106,6 +137,9 @@ public class AnyTests {
     public void allinoneTests() throws Exception {
         XiObjParser xiObjParser = new XiObjParser();
         AllInOne ico1 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/ico1.xml")));
+        Assertions.assertEquals(2, ico1.getConditions().getRDSCONDSHORT().size());
         AllInOne ico2 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/ico2.xml")));
+        Assertions.assertTrue(ico2.getConditions().getRDSCONDSHORT().isEmpty());
+
     }
 }

@@ -1,6 +1,9 @@
 package io.rsug.zatupka;
 
 import io.rsug.zatupka.allinone.AllInOne;
+import io.rsug.zatupka.channel.Channel;
+import io.rsug.zatupka.dir.Party;
+import io.rsug.zatupka.dir.Service;
 import io.rsug.zatupka.xiobj.XiObj;
 
 import javax.xml.bind.*;
@@ -17,6 +20,7 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 public class XiObjParser {
     static final String namespace = "urn:sap-com:xi";
@@ -75,9 +79,36 @@ public class XiObjParser {
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         XMLStreamReader xsr = xif.createXMLStreamReader(is);
         AllInOne ico = (AllInOne) unmarshaller.unmarshal(xsr);
-        if (ico.getVersion() != null) {
-
-        }
+        Objects.requireNonNull(ico.getVersion());
         return ico;
     }
+
+    public Channel parseChannel(InputStream is) throws JAXBException, XMLStreamException {
+        JAXBContext jc = JAXBContext.newInstance(Channel.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        XMLStreamReader xsr = xif.createXMLStreamReader(is);
+        Channel cc = (Channel) unmarshaller.unmarshal(xsr);
+        Objects.requireNonNull(cc);
+        return cc;
+    }
+
+    public Party parseParty(InputStream is) throws JAXBException, XMLStreamException {
+        JAXBContext jc = JAXBContext.newInstance(Party.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        XMLStreamReader xsr = xif.createXMLStreamReader(is);
+        Party party = (Party) unmarshaller.unmarshal(xsr);
+        Objects.requireNonNull(party);
+        return party;
+    }
+
+    public Service parseService(InputStream is) throws JAXBException, XMLStreamException {
+        JAXBContext jc = JAXBContext.newInstance(Service.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        XMLStreamReader xsr = xif.createXMLStreamReader(is);
+        Service service = (Service) unmarshaller.unmarshal(xsr);
+        Objects.requireNonNull(service);
+        return service;
+    }
+
+
 }
