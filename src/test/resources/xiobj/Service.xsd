@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:sap-com:xi:xiService" xmlns:cp="urn:sap-com:xi:xiService">
+    <xs:element name="Service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:ServiceType"/>
+                <xs:element ref="cp:IsThirdParty"/>
+                <xs:element ref="cp:isNWBPMProcess"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ServiceType" type="xs:NCName"/>
+    <xs:element name="IsThirdParty" type="xs:boolean"/>
+    <xs:element name="isNWBPMProcess" type="xs:boolean"/>
+</xs:schema>

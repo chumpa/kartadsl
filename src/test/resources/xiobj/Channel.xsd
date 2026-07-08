@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:sap-com:xi:xiChannel" xmlns:cp="urn:sap-com:xi:xiChannel">
+    <xs:element name="Channel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:EngineType"/>
+                <xs:element ref="cp:EngineName"/>
+                <xs:element ref="cp:ChannelDirection"/>
+                <xs:element ref="cp:MessageProtocol"/>
+                <xs:element ref="cp:MessageProtocolVersion"/>
+                <xs:element ref="cp:TransportProtocol"/>
+                <xs:element ref="cp:TransportProtocolVersion"/>
+                <xs:element ref="cp:FromPartyAgency"/>
+                <xs:element ref="cp:FromPartySchema"/>
+                <xs:element ref="cp:ToPartyAgency"/>
+                <xs:element ref="cp:ToPartySchema"/>
+                <xs:element ref="cp:ChannelAttributes"/>
+                <xs:element ref="cp:PipelineAttributes"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EngineType" type="xs:NCName"/>
+    <xs:element name="EngineName">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="ChannelDirection" type="xs:NCName"/>
+    <xs:element name="MessageProtocol" type="xs:NCName"/>
+    <xs:element name="MessageProtocolVersion" type="xs:NMTOKEN"/>
+    <xs:element name="TransportProtocol" type="xs:NCName"/>
+    <xs:element name="TransportProtocolVersion" type="xs:NMTOKEN"/>
+    <xs:element name="FromPartyAgency">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="FromPartySchema">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="ToPartyAgency">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="ToPartySchema">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="ChannelAttributes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="AdapterTypeData" form="unqualified">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="Attribute" form="unqualified">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Name" form="unqualified" type="xs:NCName"/>
+                                        <xs:element name="Namespace" form="unqualified">
+                                            <xs:complexType/>
+                                        </xs:element>
+                                        <xs:element name="Value" form="unqualified">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:anyURI">
+                                                        <xs:attribute name="isTable" type="xs:boolean"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PipelineAttributes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:PipelineData"/>
+                <xs:element ref="cp:ModuleData"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PipelineData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="cp:PipelineConfig"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PipelineConfig">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:Position"/>
+                <xs:element ref="cp:ModuleName"/>
+                <xs:element ref="cp:ModuleType"/>
+                <xs:element ref="cp:ModuleNs"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Position" type="xs:integer"/>
+    <xs:element name="ModuleName" type="xs:string"/>
+    <xs:element name="ModuleType" type="xs:NCName"/>
+    <xs:element name="ModuleData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="cp:ModuleConfig"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ModuleConfig">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:ModuleNs"/>
+                <xs:element ref="cp:ParamName"/>
+                <xs:element ref="cp:ParamValue"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ParamName" type="xs:NCName"/>
+    <xs:element name="ParamValue" type="xs:string"/>
+    <xs:element name="ModuleNs" type="xs:NCName"/>
+</xs:schema>

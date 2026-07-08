@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:sap-com:xi:xiParty" xmlns:cp="urn:sap-com:xi:xiParty">
+    <xs:element name="Party">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="cp:PartyIdentifier"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PartyIdentifier">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cp:Agency"/>
+                <xs:element ref="cp:Schema"/>
+                <xs:element ref="cp:Identifier"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Agency" type="xs:anyURI"/>
+    <xs:element name="Schema" type="xs:NCName"/>
+    <xs:element name="Identifier" type="xs:NMTOKEN"/>
+</xs:schema>
