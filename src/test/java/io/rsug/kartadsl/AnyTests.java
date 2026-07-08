@@ -3,6 +3,7 @@ package io.rsug.kartadsl;
 import io.rsug.zatupka.TptFragments;
 import io.rsug.zatupka.TpzContainer;
 import io.rsug.zatupka.XiObjParser;
+import io.rsug.zatupka.xiobj.Texts;
 import io.rsug.zatupka.xiobj.XiObj;
 import org.junit.jupiter.api.Test;
 
@@ -27,25 +28,30 @@ public class AnyTests {
             for (Path pathXiObj : ztp2.xiObjects) {
                 XiObjParser xiObjParser = new XiObjParser();
                 XiObj xiObj = xiObjParser.parse(Files.newInputStream(pathXiObj));
+                String typeID = xiObj.getIdInfo().getKey().getTypeID();
+                Texts texts = xiObj.getGeneric().getTextInfo().getTextObj().getTexts();
+                String text = (texts==null) ? "" : texts.getText().getValue();
+                String dynamic = xiObj.getContent().dynamicContent.toString();
                 if (!xiObjParser.validationEvents.isEmpty()) {
-                    //System.out.printf("Events when parse %s: %s\n", pathXiObj, xiObjParser.validationEvents);
+                    System.out.printf("%s: typeID=%s [%s] (%s)\n", pathXiObj.getFileName(), typeID, text, xiObjParser.validationEvents);
+                } else {
+                    System.out.printf("%s: typeID=%s [%s], dynamic=%s\n", pathXiObj.getFileName(), typeID, text, dynamic);
                 }
-                System.out.printf("%s: typeID=%s\n", pathXiObj, xiObj.getIdInfo().getKey().getTypeID());
             }
         }
     }
 
     @Test
     public void ztpTest() throws Exception {
-        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
+        extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
+//        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_BYD_CRM_ON_DEMAND_3.0.tpz"));
 //        extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_ENERGY.tpz"));
-//        extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
     }
 
-    void extractTpt(Path tpz) throws IOException, XMLStreamException, JAXBException {
+    void extractTpt(Path tpz) throws Exception {
         Objects.requireNonNull(tpz);
         if (!Files.exists(tpz)) return;
         TpzContainer tpzContainer = new TpzContainer();
@@ -74,7 +80,7 @@ public class AnyTests {
                 String localName = reader.getLocalName();
                 String ns = reader.getNamespaceURI();
                 boolean b = "content".equals(localName) && "urn:sap-com:xi".equals(ns);
-                return !b;
+//                return !b;
             }
             return true;
         });

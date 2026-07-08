@@ -100,7 +100,9 @@
             </xs:simpleContent>
         </xs:complexType>
     </xs:element>
-    <xs:element name="content" type="xs:anyType"/>
+    <xs:element name="content">
+        <xs:complexType/>
+    </xs:element>
     <xs:element name="vc">
         <xs:complexType>
             <xs:sequence>
