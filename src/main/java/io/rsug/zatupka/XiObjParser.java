@@ -83,6 +83,14 @@ public class XiObjParser {
         return ico;
     }
 
+    public AllInOne parseAllInOne(org.w3c.dom.Element element) throws JAXBException, XMLStreamException {
+        JAXBContext jc = JAXBContext.newInstance(AllInOne.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        AllInOne ico = (AllInOne) unmarshaller.unmarshal(element);
+        Objects.requireNonNull(ico.getVersion());
+        return ico;
+    }
+
     public Channel parseChannel(InputStream is) throws JAXBException, XMLStreamException {
         JAXBContext jc = JAXBContext.newInstance(Channel.class);
         Unmarshaller unmarshaller = jc.createUnmarshaller();

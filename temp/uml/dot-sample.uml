@@ -1,0 +1,232 @@
+
+@startuml
+
+digraph G {
+    // ============================================
+    // 1. ГЛОБАЛЬНЫЕ НАСТРОЙКИ ГРАФА
+    // ============================================
+    rankdir=LR;                 // Горизонтальное расположение (слева-направо)
+    bgcolor="#F5F5F5";          // Светло-серый фон
+    fontname="Arial";
+    fontsize=12;
+    label="Схема микросервисной архитектуры";
+    labelloc="t";               // Метка сверху
+    fontcolor="#333333";
+    compound=true;              // Разрешить ребрам соединять кластеры
+
+    // ============================================
+    // 2. ГЛОБАЛЬНЫЕ НАСТРОЙКИ УЗЛОВ (шаблон)
+    // ============================================
+    node [
+        fontname="Arial",
+        fontsize=11,
+        shape=box,
+        style="rounded, filled",
+        fillcolor="#E8E8E8",
+        color="#666666",
+        penwidth=1.5
+    ];
+
+    // ============================================
+    // 3. ГЛОБАЛЬНЫЕ НАСТРОЙКИ РЕБЕР (шаблон)
+    // ============================================
+    edge [
+        fontname="Arial",
+        fontsize=10,
+        color="#555555",
+        penwidth=1.5,
+        arrowsize=0.8
+    ];
+
+A [label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD>Заголовок</TD></TR>
+            <TR><TD>Строка 1</TD></TR>
+            <TR><TD>Строка 2 с <BR/>переносом</TD></TR>
+        </TABLE>
+    >, xlabel="выноска"];
+
+    B [label="Левая строка\lЦентр\nПравая строка\r"];
+
+
+    // ============================================
+    // 4. КЛАСТЕР: ВХОДНАЯ ТОЧКА
+    // ============================================
+    subgraph cluster_ingress {
+        label="Входной слой";
+        style="dashed";
+        color="#3498DB";
+        bgcolor="#EBF5FB";
+        fontcolor="#2980B9";
+
+        // Узел с формой круга (старт)
+        START [shape=circle, label="🔄", fillcolor="#3498DB", fontcolor="white", width=0.6, fixedsize=true];
+        // Узел в виде облака (API Gateway)
+        API_Gateway [
+            shape=component,
+            label="API Gateway\n(шлюз)",
+            fillcolor="#5DADE2",
+            fontcolor="white"
+        ];
+    }
+
+    // ============================================
+    // 5. КЛАСТЕР: БИЗНЕС-ЛОГИКА (основной)
+    // ============================================
+    subgraph cluster_core {
+        label="Бизнес-слой";
+        style="filled";
+        color="#27AE60";
+        bgcolor="#E9F7EF";
+        fontcolor="#1E8449";
+        fontname="Arial";
+
+        // Подкластер: Сервисы
+        subgraph cluster_services {
+            label="Сервисы";
+            style="dashed";
+            color="#2ECC71";
+            bgcolor="#D5F5E3";
+
+            // Узел с формой диска (хранилище)
+            Core_Service [
+                shape=box3d,
+                label="Core\nService",
+                fillcolor="#58D68D",
+                fontcolor="#1E8449"
+            ];
+
+            // Узел с формой документа
+            Order_Service [
+                shape=note,
+                label="Order\nService",
+                fillcolor="#82E0AA",
+                fontcolor="#1E8449"
+            ];
+        }
+
+        // Подкластер: Очереди
+        subgraph cluster_queue {
+            label="Очереди сообщений";
+            style="dashed";
+            color="#F39C12";
+            bgcolor="#FEF9E7";
+
+            Queue [
+                shape=box,
+                label="RabbitMQ",
+                fillcolor="#F5B041",
+                fontcolor="#7E5109",
+                style="rounded"
+            ];
+        }
+
+        // Узел в форме ромба (решение)
+        Decision [
+            shape=diamond,
+            label="Маршрутизатор",
+            fillcolor="#F1948A",
+            fontcolor="#78281F",
+            color="#C0392B"
+        ];
+    }
+
+    // ============================================
+    // 6. КЛАСТЕР: ВНЕШНИЕ СИСТЕМЫ
+    // ============================================
+    subgraph cluster_external {
+        label="Внешние системы";
+        style="dotted";
+        color="#8E44AD";
+        bgcolor="#F4ECF7";
+        fontcolor="#6C3483";
+
+        // Узел с изображением (база данных)
+        Database [
+            shape=cylinder,
+            label="PostgreSQL",
+            fillcolor="#C39BD3",
+            fontcolor="#4A235A"
+        ];
+
+        // Узел-облако (внешний API)
+        External_API [
+            shape=component,
+            label="Сторонний\nAPI",
+            fillcolor="#AF7AC5",
+            fontcolor="#4A235A"
+        ];
+    }
+
+    // ============================================
+    // 7. КЛАСТЕР: МОНИТОРИНГ
+    // ============================================
+    subgraph cluster_monitoring {
+        label="Мониторинг";
+        style="filled";
+        color="#E74C3C";
+        bgcolor="#FDEDEC";
+        fontcolor="#922B21";
+
+        // Точка (маленький узел)
+        Metrics [
+            shape=point,
+            label="",
+            fillcolor="#E74C3C",
+            width=0.3,
+            fixedsize=true
+        ];
+
+        Logs [
+            shape=tab,
+            label="ELK Stack",
+            fillcolor="#F1948A",
+            fontcolor="#641E16"
+        ];
+    }
+
+    // ============================================
+    // 8. РЕБРА: СВЯЗИ МЕЖДУ УЗЛАМИ
+    // ============================================
+
+    // --- Потоки внутри кластеров ---
+    START -> API_Gateway [label="запрос", color="#2980B9", penwidth=2];
+    API_Gateway -> Core_Service [label="маршрут", color="#1E8449", penwidth=2];
+    Core_Service -> Order_Service [label="вызов", color="#1E8449", penwidth=2];
+    Order_Service -> Queue [label="отправить", color="#7E5109", penwidth=2, style=dashed];
+    Queue -> Decision [label="получить", color="#78281F", penwidth=2];
+
+    // --- Связи между кластерами (compound=true) ---
+    // Ребро от Decision к Database, но чтобы начиналось от кластера core
+    Decision -> Database [label="сохранить", lhead=cluster_external, color="#4A235A", penwidth=2];
+
+    // Ребро от Database к Core_Service (возврат) с пометкой
+    Database -> Core_Service [label="результат", color="#4A235A", penwidth=2, style=dashed];
+
+    // --- Внешний вызов ---
+    Core_Service -> External_API [label="HTTP", color="#6C3483", penwidth=2, style=dotted];
+    External_API -> Core_Service [label="ответ", color="#6C3483", penwidth=2, style=dotted];
+
+    // --- Мониторинг ---
+    Decision -> Metrics [label="метрики", color="#922B21", penwidth=1.5, style=dashed];
+    Order_Service -> Logs [label="логи", color="#641E16", penwidth=1.5, style=dashed];
+
+    // --- Обратная связь с мониторингом (пунктир) ---
+    Logs -> Core_Service [label="алерт", color="#E74C3C", penwidth=1.5, style=dashed, arrowhead=diamond];
+
+    // ============================================
+    // 9. КОММЕНТАРИИ И НОТЫ
+    // ============================================
+    // (В DOT нет встроенных нот, но можно использовать узлы с label)
+    Note [
+        shape=plaintext,
+        label="Схема взаимодействия\nсервисов",
+        fontcolor="#888888",
+        fontsize=10
+    ];
+    // Привязка ноты через невидимое ребро
+    Note -> API_Gateway [style=invis];
+}
+
+@enduml
+

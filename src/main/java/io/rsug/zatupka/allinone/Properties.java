@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{}definition" maxOccurs="unbounded"/>
+ *         &lt;element ref="{}property" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,41 +38,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "definition"
+    "property"
 })
-@XmlRootElement(name = "NSM", namespace = "http://sap.com/xi/ib/prefix")
-public class NSM {
+@XmlRootElement(name = "properties")
+public class Properties {
 
     @XmlElement(required = true)
-    protected List<Definition> definition;
+    protected List<Property> property;
 
     /**
-     * Gets the value of the definition property.
+     * Gets the value of the property property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the definition property.
+     * This is why there is not a <CODE>set</CODE> method for the property property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getDefinition().add(newItem);
+     *    getProperty().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Definition }
+     * {@link Property }
      * 
      * 
      */
-    public List<Definition> getDefinition() {
-        if (definition == null) {
-            definition = new ArrayList<Definition>();
+    public List<Property> getProperty() {
+        if (property == null) {
+            property = new ArrayList<Property>();
         }
-        return this.definition;
+        return this.property;
     }
 
 }

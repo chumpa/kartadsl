@@ -10,6 +10,7 @@ package io.rsug.zatupka.allinone;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -23,6 +24,9 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element ref="{}properties"/>
+ *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -31,9 +35,37 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
-@XmlRootElement(name = "Multiplicity")
-public class Multiplicity {
+@XmlType(name = "", propOrder = {
+    "properties"
+})
+@XmlRootElement(name = "Binding")
+public class Binding {
 
+    @XmlElement(required = true)
+    protected Properties properties;
+
+    /**
+     * Gets the value of the properties property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Properties }
+     *     
+     */
+    public Properties getProperties() {
+        return properties;
+    }
+
+    /**
+     * Sets the value of the properties property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Properties }
+     *     
+     */
+    public void setProperties(Properties value) {
+        this.properties = value;
+    }
 
 }

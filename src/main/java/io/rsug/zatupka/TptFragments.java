@@ -23,8 +23,15 @@ public class TptFragments {
     }
 
     public final StringBuilder log = new StringBuilder();
-    // Сперва идут 0x100000 байт, затем 8 байт CRC
+    // Сперва идут 0x100000 байт, затем 8 байт java.util.zip.CRC32
     // 8 байт с конца TPT-файла это ссылка на начало XML-каталога, в котором есть ссылки на фрагменты
+    // см. tc_dtr_pvc.jar
+    //  com.tssap.dtr.pvc.propagation.server.ChecksumGenerator
+    //  com.tssap.dtr.pvc.propagation.server.ImportChecksumGenerator
+    //  com.tssap.dtr.pvc.propagation.server.ExportChecksumGenerator
+    //  com.tssap.dtr.pvc.propagation.util.SegmentedInputStream
+    //  соль == "DCF68E99-B34D-47A1-8F8F-B18F2AE8E250"
+    //  также com.tssap.dtr.pvc.propagation.server.BlobChecksumProvider
     final static int portion = 0x100000;
     private final Path pathTpt, pathNoCRC;
     public final List<Path> xiObjects = new LinkedList<>();
