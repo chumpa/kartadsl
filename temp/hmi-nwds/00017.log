@@ -1,0 +1,30 @@
+method=GET, path=/rep/cae/system/com.sap.aii.ibrep.server.mme.swcv, query=null, counter=00017
+
+Content-Type: application/binary;charset=UTF-8
+Authorization: Basic BASIC===
+User-Agent: Java/1.8.0_391
+Host: localhost:8080
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+BODY request: 
+***********************
+
+
+http://sappod:50000/rep/cae/system/com.sap.aii.ibrep.server.mme.swcv GET
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Content-Type: application/binary;charset=UTF-8
+User-Agent: Java/1.8.0_391
+==============================
+response code: 200
+content-length: 1
+content-type: text/html;charset=ISO-8859-1
+date: Fri, 10 Jul 2026 05:44:45 GMT
+BODY: 
+
+
+
+
+
+
+
+

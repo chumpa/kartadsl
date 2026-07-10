@@ -1,0 +1,31 @@
+method=GET, path=/rep/cae/packages/0050568f0aac1ed4a6e56926325e2eb3/asset/AllCustomEntities, query=null, counter=00034
+
+Content-Type: application/binary;charset=UTF-8
+Authorization: Basic BASIC===
+User-Agent: Java/1.8.0_391
+Host: localhost:8080
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+BODY request: 
+***********************
+
+
+http://sappod:50000/rep/cae/packages/0050568f0aac1ed4a6e56926325e2eb3/asset/AllCustomEntities GET
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Content-Type: application/binary;charset=UTF-8
+User-Agent: Java/1.8.0_391
+==============================
+response code: 200
+content-length: 135
+content-type: application/xml
+date: Fri, 10 Jul 2026 05:44:50 GMT
+set-cookie: JSESSIONMARKID=mKDu9Q-y02GHOsNtdYCYqtXtCaw7QvlhgPUHIgVwc; Version=1; Path=/
+BODY: <?xml version="1.0" encoding="UTF-8"?><soagov:all_custom_entities ID="AllCustomEntities" xmlns:soagov="http://www.sap.com/ns/soagov"/>
+
+
+
+
+
+
+
+

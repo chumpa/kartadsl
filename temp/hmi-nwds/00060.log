@@ -1,0 +1,125 @@
+method=POST, path=/rep/auth/int, query=container=any, counter=00060
+
+hmiXSRFToken: Fetch
+Authorization: Basic BASIC===
+Content-Type: text/xml; charset=utf-8
+User-Agent: Java/1.8.0_391
+Host: localhost:8080
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+Content-Length: 4427
+BODY request: <?xml version="1.0" encoding="UTF-8" ?>
+<instance typeid="com.sap.aii.util.hmi.core.msg.HmiRequest"><attribute isleave="true" leave_typeid="string" name="ClientId"><value index="0" isnull="false">7b81e69b7c2211f1947f00155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="ClientLanguage"><value index="0" isnull="false">EN</value></attribute><attribute isleave="false" name="ClientLevel"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.applcomp.ApplCompLevel"><attribute isleave="true" leave_typeid="string" name="Release"><value index="0" isnull="false">7.0</value></attribute><attribute isleave="true" leave_typeid="string" name="SupportPackage"><value index="0" isnull="false">0</value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="ClientPassword"><value index="0" isnull="false">dummy</value></attribute><attribute isleave="true" leave_typeid="string" name="ClientUser"><value index="0" isnull="false">ikuznetsov</value></attribute><attribute isleave="true" leave_typeid="string" name="ControlFlag"><value index="0" isnull="false">0</value></attribute><attribute isleave="true" leave_typeid="string" name="HmiSpecVersion"><value index="0" isnull="false">1.0</value></attribute><attribute isleave="true" leave_typeid="string" name="MethodId"><value index="0" isnull="false">haspermissions</value></attribute><attribute isleave="false" name="MethodInput"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.hmi.api.HmiMethodInput"><attribute isleave="false" name="Parameters"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">release</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">7.0</value></attribute></instance></value><value index="1" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">body</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xiobject actionName=&quot;EDIT&quot;&gt;&lt;ref&gt;&lt;vc vcType=&quot;S&quot; swcGuid=&quot;0050568f0aac1ed4a6e56926325e2eb3&quot; /&gt;&lt;key typeID=&quot;ifmtypedef&quot;&gt;&lt;elem&gt;SearchAnalyticalView&lt;/elem&gt;&lt;elem&gt;http://sap.com/xi/BASIS&lt;/elem&gt;&lt;/key&gt;&lt;/ref&gt;&lt;/xiobject&gt;</value></attribute></instance></value><value index="2" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">VC</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">SWC</value></attribute></instance></value><value index="3" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">SP</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">-1</value></attribute></instance></value><value index="4" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">UC</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">true</value></attribute></instance></value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="RequestId"><value index="0" isnull="false">7b81e69c7c2211f1954000155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="RequiresSession"><value index="0" isnull="false">false</value></attribute><attribute isleave="true" leave_typeid="string" name="ServerApplicationId"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="ServerLogicalSystemName"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="ServiceId"><value index="0" isnull="false">auth</value></attribute></instance>
+
+***********************
+
+
+http://sappod:50000/rep/auth/int?container=any POST
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Content-Type: text/xml; charset=utf-8
+hmiXSRFToken: Fetch
+User-Agent: Java/1.8.0_391
+==============================
+response code: 200
+content-length: 10042
+content-type: text/xml; charset=UTF-8
+date: Fri, 10 Jul 2026 05:44:56 GMT
+set-cookie: JSESSIONMARKID=rdXibQgUXSX4epGnD8HppFjZfMNN9sN6UQUHIgVwc; Version=1; Path=/
+BODY: <?xml version="1.0" encoding="UTF-8" ?>
+<instance typeid="com.sap.aii.utilxi.hmi.core.msg.HmiResponse"><attribute isleave="true" leave_typeid="string" name="ClientId"><value index="0" isnull="false">7b81e69c7c2211f1954000155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="ControlFlag"><value index="0" isnull="false">0</value></attribute><attribute isleave="false" name="CoreException"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="HmiSpecVersion"><value index="0" isnull="false">1.0</value></attribute><attribute isleave="false" name="MethodFault"><value index="0" isnull="true"></value></attribute><attribute isleave="false" name="MethodOutput"><value index="0" isnull="false"><instance typeid="com.sap.aii.utilxi.hmi.api.HmiMethodOutput"><attribute isleave="true" leave_typeid="string" name="ContentType"><value index="0" isnull="false">text/xml</value></attribute><attribute isleave="true" leave_typeid="string" name="Return"><value index="0" isnull="false">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;authResponse granted=&quot;false&quot;&gt;&lt;exception type=&quot;com.sap.aii.ib.core.oa.ObjectAccessException&quot;&gt;&lt;message&gt;Software component version cannot be changed&lt;/message&gt;&lt;stackTrace&gt;com.sap.aii.ib.core.oa.ObjectAccessException: Software component version cannot be changed
+	at com.sap.aii.ib.server.oa.ServerObjectAccess.checkIsModifyableInSWC(ServerObjectAccess.java:2563)
+	at com.sap.aii.ib.server.oa.ServerObjectAccess.checkAccessSWCV(ServerObjectAccess.java:3529)
+	at com.sap.aii.ib.server.oa.ServerObjectAccess.hasPermission(ServerObjectAccess.java:3396)
+	at com.sap.aii.ib.server.oa.ServerObjectAccess.hasPermission(ServerObjectAccess.java:3372)
+	at com.sap.aii.ib.server.oa.ServerObjectAccess.hasPermission(ServerObjectAccess.java:3350)
+	at com.sap.aii.ibrep.server.auth.acl.AuthorizationsHMIService.process(AuthorizationsHMIService.java:199)
+	at com.sap.aii.utilxi.hmis.server.HmisServiceImpl.invokeMethod(HmisServiceImpl.java:139)
+	at com.sap.aii.utilxi.hmis.server.HmisServer.process(HmisServer.java:224)
+	at com.sap.aii.utilxi.hmis.sbeans.HmisBeanImpl.process(HmisBeanImpl.java:105)
+	at sun.reflect.GeneratedMethodAccessor767.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.sap.engine.services.ejb3.runtime.impl.RequestInvocationContext.proceedFinal(RequestInvocationContext.java:47)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:166)
+	at com.sap.engine.services.ejb3.runtime.impl.Interceptors_StatesTransition.invoke(Interceptors_StatesTransition.java:19)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:179)
+	at com.sap.engine.services.ejb3.runtime.impl.Interceptors_Resource.invoke(Interceptors_Resource.java:50)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:179)
+	at com.sap.engine.services.ejb3.runtime.impl.Interceptors_Transaction.doWorkWithAttribute(Interceptors_Transaction.java:37)
+	at com.sap.engine.services.ejb3.runtime.impl.Interceptors_Transaction.invoke(Interceptors_Transaction.java:21)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:179)
+	at com.sap.engine.services.ejb3.runtime.impl.Interceptors_MethodRetry.invoke(Interceptors_MethodRetry.java:46)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:179)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:191)
+	at com.sap.engine.services.ejb3.runtime.impl.Interceptors_StatelessInstanceGetter.invoke(Interceptors_StatelessInstanceGetter.java:23)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:179)
+	at com.sap.engine.services.ejb3.runtime.impl.Interceptors_SecurityCheck.invoke(Interceptors_SecurityCheck.java:25)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:179)
+	at com.sap.engine.services.ejb3.runtime.impl.Interceptors_ExceptionTracer.invoke(Interceptors_ExceptionTracer.java:17)
+	at com.sap.engine.services.ejb3.runtime.impl.AbstractInvocationContext.proceed(AbstractInvocationContext.java:179)
+	at com.sap.engine.services.ejb3.runtime.impl.DefaultInvocationChainsManager.startChain(DefaultInvocationChainsManager.java:138)
+	at com.sap.engine.services.ejb3.runtime.impl.DefaultEJBProxyInvocationHandler.invoke(DefaultEJBProxyInvocationHandler.java:176)
+	at com.sap.engine.services.ejb3.runtime.impl.DefaultEJBProxyInvocationHandler.invoke(DefaultEJBProxyInvocationHandler.java:100)
+	at com.sun.proxy.$Proxy2637.process(Unknown Source)
+	at com.sap.aii.utilxi.hmis.web.HmisServletImpl.processRequestByHmiServer(HmisServletImpl.java:365)
+	at com.sap.aii.utilxi.hmis.web.HmisServletImpl.processRequestByHmiServer(HmisServletImpl.java:272)
+	at com.sap.aii.utilxi.hmis.web.workers.HmisInternalClient.doWork(HmisInternalClient.java:70)
+	at com.sap.aii.utilxi.hmis.web.HmisServletImpl.doWork(HmisServletImpl.java:571)
+	at com.sap.aii.utilxi.hmis.web.HmisServletImpl.doPost(HmisServletImpl.java:721)
+	at com.sap.aii.ib.web.hmi.HmiServlet.doPost(HmiServlet.java:40)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:754)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847)
+	at com.sap.engine.services.servlets_jsp.server.runtime.FilterChainImpl.runServlet(FilterChainImpl.java:202)
+	at com.sap.engine.services.servlets_jsp.server.runtime.FilterChainImpl.doFilter(FilterChainImpl.java:103)
+	at com.sap.engine.services.servlets_jsp.server.servlet.AuthenticationFilter.doFilter(AuthenticationFilter.java:126)
+	at com.sap.engine.services.servlets_jsp.server.runtime.FilterChainImpl.doFilter(FilterChainImpl.java:79)
+	at com.sap.xsrf.filter.XSRFProtectorFilter.doFilter(XSRFProtectorFilter.java:62)
+	at com.sap.engine.services.servlets_jsp.server.runtime.FilterChainImpl.doFilter(FilterChainImpl.java:79)
+	at com.sap.engine.services.servlets_jsp.server.HttpHandlerImpl.runServlet(HttpHandlerImpl.java:441)
+	at com.sap.engine.services.servlets_jsp.server.HttpHandlerImpl.handleRequest(HttpHandlerImpl.java:210)
+	at com.sap.engine.services.httpserver.server.RequestAnalizer.startServlet(RequestAnalizer.java:439)
+	at com.sap.engine.services.httpserver.server.RequestAnalizer.startServlet(RequestAnalizer.java:428)
+	at com.sap.engine.services.servlets_jsp.filters.DSRWebContainerFilter.process(DSRWebContainerFilter.java:38)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.servlets_jsp.filters.ServletSelector.process(ServletSelector.java:81)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.servlets_jsp.filters.ApplicationSelector.process(ApplicationSelector.java:278)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.httpserver.filters.WebContainerInvoker.process(WebContainerInvoker.java:85)
+	at com.sap.engine.services.httpserver.chain.HostFilter.process(HostFilter.java:9)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.httpserver.filters.ResponseLogWriter.process(ResponseLogWriter.java:60)
+	at com.sap.engine.services.httpserver.chain.HostFilter.process(HostFilter.java:9)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.httpserver.filters.DefineHostFilter.process(DefineHostFilter.java:27)
+	at com.sap.engine.services.httpserver.chain.ServerFilter.process(ServerFilter.java:12)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.httpserver.filters.MonitoringFilter.process(MonitoringFilter.java:35)
+	at com.sap.engine.services.httpserver.chain.ServerFilter.process(ServerFilter.java:12)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.httpserver.filters.SessionSizeFilter.process(SessionSizeFilter.java:26)
+	at com.sap.engine.services.httpserver.chain.ServerFilter.process(ServerFilter.java:12)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.httpserver.filters.MemoryStatisticFilter.process(MemoryStatisticFilter.java:57)
+	at com.sap.engine.services.httpserver.chain.ServerFilter.process(ServerFilter.java:12)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.httpserver.filters.DSRHttpFilter.process(DSRHttpFilter.java:43)
+	at com.sap.engine.services.httpserver.chain.ServerFilter.process(ServerFilter.java:12)
+	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:78)
+	at com.sap.engine.services.httpserver.server.Processor.chainedRequest(Processor.java:468)
+	at com.sap.engine.services.httpserver.server.Processor$FCAProcessorThread.process(Processor.java:262)
+	at com.sap.engine.services.httpserver.server.rcm.RequestProcessorThread.run(RequestProcessorThread.java:56)
+	at com.sap.engine.core.thread.execution.Executable.run(Executable.java:122)
+	at com.sap.engine.core.thread.execution.Executable.run(Executable.java:101)
+	at com.sap.engine.core.thread.execution.CentralExecutor$SingleThread.run(CentralExecutor.java:328)
+&lt;/stackTrace&gt;&lt;/exception&gt;&lt;/authResponse&gt;</value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="RequestId"><value index="0" isnull="false">7b81e69b7c2211f1947f00155d001a19</value></attribute></instance>
+
+
+
+
+
+
+
+

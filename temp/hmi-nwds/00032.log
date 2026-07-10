@@ -1,0 +1,40 @@
+method=POST, path=/rep/query/int, query=container=any, counter=00032
+
+hmiXSRFToken: Fetch
+Authorization: Basic BASIC===
+Content-Type: text/xml; charset=utf-8
+User-Agent: Java/1.8.0_391
+Host: localhost:8080
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+Content-Length: 3317
+BODY request: <?xml version="1.0" encoding="UTF-8" ?>
+<instance typeid="com.sap.aii.util.hmi.core.msg.HmiRequest"><attribute isleave="true" leave_typeid="string" name="ClientId"><value index="0" isnull="false">74edd70b7c2211f1b93200155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="ClientLanguage"><value index="0" isnull="false">EN</value></attribute><attribute isleave="false" name="ClientLevel"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.applcomp.ApplCompLevel"><attribute isleave="true" leave_typeid="string" name="Release"><value index="0" isnull="false">7.0</value></attribute><attribute isleave="true" leave_typeid="string" name="SupportPackage"><value index="0" isnull="false">0</value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="ClientPassword"><value index="0" isnull="false">dummy</value></attribute><attribute isleave="true" leave_typeid="string" name="ClientUser"><value index="0" isnull="false">ikuznetsov</value></attribute><attribute isleave="true" leave_typeid="string" name="ControlFlag"><value index="0" isnull="false">0</value></attribute><attribute isleave="true" leave_typeid="string" name="HmiSpecVersion"><value index="0" isnull="false">1.0</value></attribute><attribute isleave="true" leave_typeid="string" name="MethodId"><value index="0" isnull="false">GENERIC</value></attribute><attribute isleave="false" name="MethodInput"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.hmi.api.HmiMethodInput"><attribute isleave="false" name="Parameters"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">QUERY_REQUEST_XML</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;generalQueryRequest&gt;&lt;types&gt;&lt;type id=&quot;rfc&quot; /&gt;&lt;type id=&quot;idoc&quot; /&gt;&lt;/types&gt;&lt;qc qcType=&quot;S&quot; delMode=&quot;N&quot;&gt;&lt;clCxt consider=&quot;A&quot; user=&quot;ikuznetsov&quot; /&gt;&lt;swcListDef def=&quot;G&quot;&gt;&lt;swcInfoList&gt;&lt;swc id=&quot;00109b36bc1e1edbb0dcbe0b3c22e0e8&quot; sp=&quot;-1&quot; underL=&quot;false&quot; /&gt;&lt;/swcInfoList&gt;&lt;/swcListDef&gt;&lt;/qc&gt;&lt;condition /&gt;&lt;result&gt;&lt;attrib&gt;NAME&lt;/attrib&gt;&lt;attrib&gt;RA_XILINK&lt;/attrib&gt;&lt;/result&gt;&lt;/generalQueryRequest&gt;</value></attribute></instance></value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="RequestId"><value index="0" isnull="false">76ef04727c2211f18dc400155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="RequiresSession"><value index="0" isnull="false">false</value></attribute><attribute isleave="true" leave_typeid="string" name="ServerApplicationId"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="ServerLogicalSystemName"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="ServiceId"><value index="0" isnull="false">QUERY</value></attribute></instance>
+
+***********************
+
+
+http://sappod:50000/rep/query/int?container=any POST
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Content-Type: text/xml; charset=utf-8
+hmiXSRFToken: Fetch
+User-Agent: Java/1.8.0_391
+==============================
+response code: 200
+content-length: 2101
+content-type: text/xml; charset=UTF-8
+date: Fri, 10 Jul 2026 05:44:49 GMT
+set-cookie: JSESSIONMARKID=9bpV7gGLym8MXeLplz6mnNVY5hQSLDndsOUHIgVwc; Version=1; Path=/
+BODY: <?xml version="1.0" encoding="UTF-8" ?>
+<instance typeid="com.sap.aii.utilxi.hmi.core.msg.HmiResponse"><attribute isleave="true" leave_typeid="string" name="ClientId"><value index="0" isnull="false">76ef04727c2211f18dc400155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="ControlFlag"><value index="0" isnull="false">0</value></attribute><attribute isleave="false" name="CoreException"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="HmiSpecVersion"><value index="0" isnull="false">1.0</value></attribute><attribute isleave="false" name="MethodFault"><value index="0" isnull="true"></value></attribute><attribute isleave="false" name="MethodOutput"><value index="0" isnull="false"><instance typeid="com.sap.aii.utilxi.hmi.api.HmiMethodOutput"><attribute isleave="true" leave_typeid="string" name="ContentType"><value index="0" isnull="false">text/xml</value></attribute><attribute isleave="true" leave_typeid="string" name="Return"><value index="0" isnull="false">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;queryResult&gt;&lt;headerInfo xmlns=&quot;&quot;&gt;&lt;rows count=&quot;0&quot; /&gt;&lt;cols count=&quot;0&quot; /&gt;&lt;colDef&gt;&lt;def type=&quot;NAME&quot; pos=&quot;0&quot; /&gt;&lt;def type=&quot;RA_XILINK&quot; pos=&quot;1&quot; /&gt;&lt;/colDef&gt;&lt;/headerInfo&gt;&lt;typeInfo xmlns=&quot;&quot;&gt;&lt;type id=&quot;rfc&quot;&gt;&lt;keyElem name=&quot;NAME&quot; pos=&quot;0&quot; /&gt;&lt;keyElem name=&quot;NAMESPACE&quot; pos=&quot;1&quot; /&gt;&lt;/type&gt;&lt;type id=&quot;idoc&quot;&gt;&lt;keyElem name=&quot;NAME&quot; pos=&quot;0&quot; /&gt;&lt;keyElem name=&quot;NAMESPACE&quot; pos=&quot;1&quot; /&gt;&lt;/type&gt;&lt;/typeInfo&gt;&lt;matrix xmlns=&quot;&quot; /&gt;&lt;messages xmlns=&quot;&quot;&gt;
+&lt;/messages&gt;&lt;/queryResult&gt;</value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="RequestId"><value index="0" isnull="false">74edd70b7c2211f1b93200155d001a19</value></attribute></instance>
+
+
+
+
+
+
+
+

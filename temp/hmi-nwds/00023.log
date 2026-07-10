@@ -1,0 +1,37 @@
+method=POST, path=/rep/transport_auth_service/int, query=container=any, counter=00023
+
+hmiXSRFToken: Fetch
+Authorization: Basic BASIC===
+Content-Type: text/xml; charset=utf-8
+User-Agent: Java/1.8.0_391
+Host: localhost:8080
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+Content-Length: 3039
+BODY request: <?xml version="1.0" encoding="UTF-8" ?>
+<instance typeid="com.sap.aii.util.hmi.core.msg.HmiRequest"><attribute isleave="true" leave_typeid="string" name="ClientId"><value index="0" isnull="false">751457bd7c2211f1af4800155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="ClientLanguage"><value index="0" isnull="false">EN</value></attribute><attribute isleave="false" name="ClientLevel"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.applcomp.ApplCompLevel"><attribute isleave="true" leave_typeid="string" name="Release"><value index="0" isnull="false">7.31</value></attribute><attribute isleave="true" leave_typeid="string" name="SupportPackage"><value index="0" isnull="false">*</value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="ClientPassword"><value index="0" isnull="false">dummy</value></attribute><attribute isleave="true" leave_typeid="string" name="ClientUser"><value index="0" isnull="false">ikuznetsov</value></attribute><attribute isleave="true" leave_typeid="string" name="ControlFlag"><value index="0" isnull="false">0</value></attribute><attribute isleave="true" leave_typeid="string" name="HmiSpecVersion"><value index="0" isnull="false">1.0</value></attribute><attribute isleave="true" leave_typeid="string" name="MethodId"><value index="0" isnull="false">canExecute</value></attribute><attribute isleave="false" name="MethodInput"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.hmi.api.HmiMethodInput"><attribute isleave="false" name="Parameters"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">spLabel</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">-1</value></attribute></instance></value><value index="1" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">functionName</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">EXPORT</value></attribute></instance></value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="RequestId"><value index="0" isnull="false">751457be7c2211f19d3e00155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="RequiresSession"><value index="0" isnull="false">true</value></attribute><attribute isleave="true" leave_typeid="string" name="ServerApplicationId"><value index="0" isnull="false">localhost</value></attribute><attribute isleave="true" leave_typeid="string" name="ServerLogicalSystemName"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="ServiceId"><value index="0" isnull="false">transport_auth_service</value></attribute></instance>
+
+***********************
+
+
+http://sappod:50000/rep/transport_auth_service/int?container=any POST
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Content-Type: text/xml; charset=utf-8
+hmiXSRFToken: Fetch
+User-Agent: Java/1.8.0_391
+==============================
+response code: 200
+content-length: 1270
+content-type: text/xml; charset=UTF-8
+date: Fri, 10 Jul 2026 05:44:46 GMT
+set-cookie: JSESSIONMARKID=0pgN4gnZgGXcw8FQvuvMfanEblh_elGSIOUHIgVwc; Version=1; Path=/
+BODY: <?xml version="1.0" encoding="UTF-8" ?>
+<instance typeid="com.sap.aii.utilxi.hmi.core.msg.HmiResponse"><attribute isleave="true" leave_typeid="string" name="ClientId"><value index="0" isnull="false">751457be7c2211f19d3e00155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="ControlFlag"><value index="0" isnull="false">0</value></attribute><attribute isleave="false" name="CoreException"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="HmiSpecVersion"><value index="0" isnull="false">1.0</value></attribute><attribute isleave="false" name="MethodFault"><value index="0" isnull="true"></value></attribute><attribute isleave="false" name="MethodOutput"><value index="0" isnull="false"><instance typeid="com.sap.aii.utilxi.hmi.api.HmiMethodOutput"><attribute isleave="true" leave_typeid="string" name="ContentType"><value index="0" isnull="false">text/xml</value></attribute><attribute isleave="true" leave_typeid="string" name="Return"><value index="0" isnull="false">true</value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="RequestId"><value index="0" isnull="false">751457bd7c2211f1af4800155d001a19</value></attribute></instance>
+
+
+
+
+
+
+
+

@@ -1,0 +1,209 @@
+method=POST, path=/rep/getregisteredhmimethods/int, query=container=any, counter=00015
+
+hmiXSRFToken: Fetch
+Authorization: Basic BASIC===
+Content-Type: text/xml; charset=utf-8
+User-Agent: Java/1.8.0_391
+Host: localhost:8080
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Connection: keep-alive
+Content-Length: 4058
+BODY request: <?xml version="1.0" encoding="UTF-8" ?>
+<instance typeid="com.sap.aii.util.hmi.core.msg.HmiRequest"><attribute isleave="true" leave_typeid="string" name="ClientId"><value index="0" isnull="false">74f2539c7c2211f1b5cb00155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="ClientLanguage"><value index="0" isnull="false">EN</value></attribute><attribute isleave="false" name="ClientLevel"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.applcomp.ApplCompLevel"><attribute isleave="true" leave_typeid="string" name="Release"><value index="0" isnull="false">7.0</value></attribute><attribute isleave="true" leave_typeid="string" name="SupportPackage"><value index="0" isnull="false">0</value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="ClientPassword"><value index="0" isnull="false">dummy</value></attribute><attribute isleave="true" leave_typeid="string" name="ClientUser"><value index="0" isnull="false">ikuznetsov</value></attribute><attribute isleave="true" leave_typeid="string" name="ControlFlag"><value index="0" isnull="false">0</value></attribute><attribute isleave="true" leave_typeid="string" name="HmiSpecVersion"><value index="0" isnull="false">1.0</value></attribute><attribute isleave="true" leave_typeid="string" name="MethodId"><value index="0" isnull="false">DEFAULT</value></attribute><attribute isleave="false" name="MethodInput"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.hmi.api.HmiMethodInput"><attribute isleave="false" name="Parameters"><value index="0" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">release</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">7.0</value></attribute></instance></value><value index="1" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">body</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false"></value></attribute></instance></value><value index="2" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">VC</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">SWC</value></attribute></instance></value><value index="3" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">SP</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">-1</value></attribute></instance></value><value index="4" isnull="false"><instance typeid="com.sap.aii.util.hmi.core.gdi2.EntryStringString"><attribute isleave="true" leave_typeid="string" name="Key"><value index="0" isnull="false">UC</value></attribute><attribute isleave="true" leave_typeid="string" name="Value"><value index="0" isnull="false">true</value></attribute></instance></value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="RequestId"><value index="0" isnull="false">74f29b407c2211f1b02700155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="RequiresSession"><value index="0" isnull="false">false</value></attribute><attribute isleave="true" leave_typeid="string" name="ServerApplicationId"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="ServerLogicalSystemName"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="ServiceId"><value index="0" isnull="false">getregisteredhmimethods</value></attribute></instance>
+
+***********************
+
+
+http://sappod:50000/rep/getregisteredhmimethods/int?container=any POST
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+Content-Type: text/xml; charset=utf-8
+hmiXSRFToken: Fetch
+User-Agent: Java/1.8.0_391
+==============================
+response code: 200
+content-length: 32097
+content-type: text/xml; charset=UTF-8
+date: Fri, 10 Jul 2026 05:44:45 GMT
+set-cookie: JSESSIONMARKID=gMy7kwmOEBj0oW85q0JHviq65zSZztDxUOUHIgVwc; Version=1; Path=/
+BODY: <?xml version="1.0" encoding="UTF-8" ?>
+<instance typeid="com.sap.aii.utilxi.hmi.core.msg.HmiResponse"><attribute isleave="true" leave_typeid="string" name="ClientId"><value index="0" isnull="false">74f29b407c2211f1b02700155d001a19</value></attribute><attribute isleave="true" leave_typeid="string" name="ControlFlag"><value index="0" isnull="false">0</value></attribute><attribute isleave="false" name="CoreException"><value index="0" isnull="true"></value></attribute><attribute isleave="true" leave_typeid="string" name="HmiSpecVersion"><value index="0" isnull="false">1.0</value></attribute><attribute isleave="false" name="MethodFault"><value index="0" isnull="true"></value></attribute><attribute isleave="false" name="MethodOutput"><value index="0" isnull="false"><instance typeid="com.sap.aii.utilxi.hmi.api.HmiMethodOutput"><attribute isleave="true" leave_typeid="string" name="ContentType"><value index="0" isnull="false">text/xml</value></attribute><attribute isleave="true" leave_typeid="string" name="Return"><value index="0" isnull="false">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Services&gt;
+   &lt;service serviceid=&quot;texttransport&quot; methodid=&quot;setobject&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;xsd&quot; release=&quot;2.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;write&quot; methodid=&quot;container&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;getdeliverychannels&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transitionconstraintshmiserviceid&quot; methodid=&quot;addtransitionshmimethodid&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;query&quot; methodid=&quot;generic&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;acl&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;readws&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transitionconstraintshmiserviceid&quot; methodid=&quot;removetransitionshmimethodid&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transportservice&quot; methodid=&quot;releasetransfer&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_cache_refresh_service&quot; methodid=&quot;cacherefresh&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_channel_templates&quot; methodid=&quot;delete&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;importr3object&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;webui&quot; methodid=&quot;unsubscribe&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;writecad&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;internaldocumentationservice&quot; methodid=&quot;_getinternaldocumentation&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;texttransport&quot; methodid=&quot;listobjects&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;getxiobjects&quot; methodid=&quot;default&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;schemacomputation&quot; methodid=&quot;getserviceinterfaceschemas&quot; release=&quot;7.2&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;checkobjectsserviceid&quot; methodid=&quot;picchecks&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;contextobjects&quot; methodid=&quot;getcontextinformation&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;auth&quot; methodid=&quot;haspermissions&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_service_swc_manager&quot; methodid=&quot;hmi_method_get_underlying&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;changelistpartialservice&quot; methodid=&quot;retrieveobjectcontainer&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_read_authorization&quot; methodid=&quot;read_authactions&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;wsdl&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;schemacomputation&quot; methodid=&quot;getschemadir&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;checkobjectsserviceid&quot; methodid=&quot;checkactiveobject&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;customattribute_hmiservice&quot; methodid=&quot;_getcustomattribute_allowedvalues&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;version_history_service&quot; methodid=&quot;read_version_history&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;conntest&quot; methodid=&quot;start_test&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;irmf&quot; methodid=&quot;currentrelease&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;containeraccess&quot; methodid=&quot;getcontainer&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;wsdl&quot; release=&quot;3.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;texttransport&quot; methodid=&quot;getobject&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_read_authorization&quot; methodid=&quot;read_principals&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;repositoryentity&quot; methodid=&quot;default&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmidiag&quot; methodid=&quot;testrollback&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;customattribute_hmiservice&quot; methodid=&quot;_getcustomattributes&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;plain&quot; release=&quot;3.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;getdcvariants&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;getprincipals&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;processdefinition&quot; methodid=&quot;getxmlrep&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;publicwsdl&quot; methodid=&quot;serviceinterface&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;readcadstate&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;interfaceinfo&quot; methodid=&quot;getmatchingsifs&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;getakhroot&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;setcadsfortype&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;_unsubscribe&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;query&quot; methodid=&quot;generic&quot; release=&quot;3.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_channel_templates&quot; methodid=&quot;create&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmidiag&quot; methodid=&quot;tl&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;getxikeyservice&quot; methodid=&quot;getxikeymethod&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;texttransport&quot; methodid=&quot;getserverversion&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;interfaceinfo&quot; methodid=&quot;getrootmap&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;webui&quot; methodid=&quot;search&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;interfaceinfo&quot; methodid=&quot;queryissensitiveforset&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmidiag&quot; methodid=&quot;ts&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;texttransport&quot; methodid=&quot;translation&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;docu&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;checkobjectsserviceid&quot; methodid=&quot;checkobjectsmethodid&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transportservice&quot; methodid=&quot;read_transport_log&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;changelistpartialservice&quot; methodid=&quot;_moveacrosschangelist&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transport_auth_service&quot; methodid=&quot;canexecute&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;query&quot; methodid=&quot;special&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;applcomp&quot; methodid=&quot;content_languages&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;getdestinations&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;test&quot; methodid=&quot;cleanup&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;folderupdateservice&quot; methodid=&quot;updatefolderrefmethod&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;plain&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;schemacomputation&quot; methodid=&quot;getschemaundir&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmidiag&quot; methodid=&quot;tc.register&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;conntest&quot; methodid=&quot;get_last_info&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_operations&quot; methodid=&quot;read_operations&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;wsdl&quot; release=&quot;7.2&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;esrtypedetail&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;applcomp&quot; methodid=&quot;support_package&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;getdcvmetadata&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;texttransport&quot; methodid=&quot;getallworkspaces&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;applcomp&quot; methodid=&quot;release&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;mappingdisplayqueueservice&quot; methodid=&quot;executedisplayqueuemethod&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;xim&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;checkobjectsserviceid&quot; methodid=&quot;clusers&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;mappingtestservice&quot; methodid=&quot;executeoperationmappingmethod&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;texttransport&quot; methodid=&quot;triggertransport&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;checkobjectsserviceid&quot; methodid=&quot;changelist&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;conntest&quot; methodid=&quot;cleanup&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transitionconstraintshmiserviceid&quot; methodid=&quot;getalltransitionshmimethodid&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;solman&quot; methodid=&quot;loadmodels&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;_subscribe&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_mappingsif&quot; methodid=&quot;read_mappingsif&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;getsubscriptionsforobject&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;test&quot; methodid=&quot;import&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;classificationservice&quot; methodid=&quot;_getclassificationsystemsgreaterthanversion&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;getemailforuser&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_mapping&quot; methodid=&quot;read_mapping&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;interfaceinfo&quot; methodid=&quot;queryissensitiveforall&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;irmf&quot; methodid=&quot;getchanges&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;getrfcmodules&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;webui&quot; methodid=&quot;saveobject&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;cmstransport&quot; methodid=&quot;transport&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;customtypes&quot; methodid=&quot;default&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;getisakhsupported&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;editsubscription&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;xsd&quot; release=&quot;3.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;wsdl&quot; release=&quot;7.1&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;checkmmeswcv&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;wsdl&quot; release=&quot;2.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmidiag&quot; methodid=&quot;logins&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;plain&quot; release=&quot;2.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;logindetailshmi&quot; methodid=&quot;getdetails&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;xihtml&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_user_roles&quot; methodid=&quot;user_role_methods&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;classificationservice&quot; methodid=&quot;_getclassificationsystemvalues&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;getregisteredhmimethods&quot; methodid=&quot;default&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_read_authorization&quot; methodid=&quot;read_authorization&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;getauthorizations&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;containeraccess&quot; methodid=&quot;getcontainers&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;remoteobjectaccess&quot; methodid=&quot;readobjects&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;setauthorizations&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_read_pism_details&quot; methodid=&quot;read_pism_details&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;getidocobjectsfordest&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;interfaceinfo&quot; methodid=&quot;queryissensitive&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;webui&quot; methodid=&quot;subscribe&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;wsdl&quot; release=&quot;7.11&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;cads&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;isuseresradmin&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;mappingtestservice&quot; methodid=&quot;getheaderparameters&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;goa&quot; methodid=&quot;naviquery&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;webui&quot; methodid=&quot;lockobject&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;webui&quot; methodid=&quot;home&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmidiag&quot; methodid=&quot;info&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;readcacount&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;texttransport&quot; methodid=&quot;getseqnr&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;rwbnotificationtablerepaccess&quot; methodid=&quot;select&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transportservice&quot; methodid=&quot;read_transport_log_details&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_authorization&quot; methodid=&quot;save_authorization&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;goa&quot; methodid=&quot;readobject&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transitionconstraintshmiserviceid&quot; methodid=&quot;removetransitionconstrainthmimethodid&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;conntest&quot; methodid=&quot;about_last_test&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;xsd&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;refreshsldcache&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transportservice&quot; methodid=&quot;read_transport_log_log&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmidiag&quot; methodid=&quot;failsession&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;crossreferencehmiservice&quot; methodid=&quot;getcrossreferences&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;getakhchildren&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;readsldlinks&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;workspacehmi&quot; methodid=&quot;definesupportpackage&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;wsdl&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;mappingtestservice&quot; methodid=&quot;executemappingmethod&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;getdcmetadata&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;changelistpartialservice&quot; methodid=&quot;_changelistpartialmethod&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;transportservice&quot; methodid=&quot;transportmethods&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;read&quot; methodid=&quot;options&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;deletecads&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;compiler_service_id&quot; methodid=&quot;compiler_method_id&quot; release=&quot;7.0&quot; subrelease=&quot;*&quot; SP=&quot;0&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;webui&quot; methodid=&quot;readobject&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;copyobjectservice&quot; methodid=&quot;copyobjectmethod&quot; release=&quot;7.31&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;goa&quot; methodid=&quot;readsingleobject&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;applcomp&quot; methodid=&quot;level&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;esrtypes&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;_subscription&quot; methodid=&quot;getsubscriptionsforuser&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;readcad&quot; methodid=&quot;default&quot; release=&quot;7.3&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;query&quot; methodid=&quot;generic&quot; release=&quot;2.0&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;checkservices&quot; methodid=&quot;checkobjectsmethodid&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmidiag&quot; methodid=&quot;session&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;hmi_db_timestamp_service&quot; methodid=&quot;gettimestamp&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;write&quot; methodid=&quot;object&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;version_history_service&quot; methodid=&quot;read_version_origin&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+   &lt;service serviceid=&quot;checkservices&quot; methodid=&quot;checkmatchinginterfacesassignmentmethodid&quot; release=&quot;*&quot; subrelease=&quot;*&quot; SP=&quot;*&quot; patchlevel=&quot;*&quot;/&gt;
+&lt;/Services&gt;</value></attribute></instance></value></attribute><attribute isleave="true" leave_typeid="string" name="RequestId"><value index="0" isnull="false">74f2539c7c2211f1b5cb00155d001a19</value></attribute></instance>
+
+
+
+
+
+
+
+
