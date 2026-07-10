@@ -1,5 +1,5 @@
 
 Get-ChildItem -Path "." -Filter "*.log" | ForEach-Object {
     $content = Get-Content $_.FullName -Raw
-    $content -replace ':company:', ':rsugio:' | Set-Content $_.FullName
+    $content -replace 'realuser', 'poduser' | Set-Content $_.FullName
 }

@@ -4,8 +4,6 @@ import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.util.Objects;
 
 
