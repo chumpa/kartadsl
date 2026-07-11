@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://sap.com/xi/ib/prefix" xmlns:p2="http://sap.com/xi/ib/prefix">
+  <xs:element name="NSM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="definition" form="unqualified" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="prefix" form="unqualified" type="xs:string" />
+            <xs:attribute name="uri" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

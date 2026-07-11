@@ -1,6 +1,32 @@
 ﻿
-Ico1.xml - версия 130, асинхрон, большой набор условий
-Ico2.xml - версия 130, синхрон
+Ico1.xml - версия 130, асинхрон, большой набор условий, Value@isTable=true
+Ico2.xml - версия 130, синхрон, нет /ReceiverAssignmentList@mode
 Ico3.xml - версия 130, параметры меппинга
 Ico4.xml - version 100, missing noReceiverBehaviour
+Ico5.xml - version 130, extended RD
+Ico6.xml - version 100, //ReceiverConnectivityList/ReceiverConnectivity пустой -- странная икоха, может быть битая
+Ico7.xml - version 110, нет //ReceiverAssignmentList/@mode
 
+makexsd.bat - генерация схем через Microsoft Windows SDK .Net xsd.exe, удобно смотреть варианты
+trang.bat - генерация одной схемы по списку файлов через trang.jar, работает отлично но для xs:import требует напильника
+
+Важные замечания:
+
+* В src/main/resources/io.rsug.zatupka.xsd сюда складываем очищенное после тестов.
+  Если есть проблемы с валидацией, пишем новый XML-пример в Ico#.xml, вносим в trang.bat 
+
+* эти xsd используются в рантайме в валидации, без которой уверенности в результате нет
+
+* trang.jar генерирует /AllInOne/NamespaceMapping/p2:NSM/definition не 0..unbounded а 1..1, надо не забывать руками проставить
+
+* все ссылающиеся друг на друга схемы надо грузить вместе, причём порядок важен (ds2 NSM.xsd первым):
+  javax.xml.validation.Schema schemas = factory.newSchema(new DOMSource[]{new DOMSource(ds2),new DOMSource(ds1)});
+
+* trang.jar сделает p2.xsd, его использовать не надо, эталон в src/main/resources/io.rsug.zatupka.xsd/NSM.xsd, на который
+  в AllInOne.xsd надо сделать ссылку:
+
+  <xs:import namespace="http://sap.com/xi/ib/prefix" schemaLocation="NSM.xsd"/>
+
+* импорт из NSM.xsd схемы AllInOne.xsd не требуется, т.к. <definition ... /> определяется в xmlns="" на месте
+
+* генерация исходников

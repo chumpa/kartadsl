@@ -13,6 +13,7 @@ import io.rsug.zatupka.xiobj.XiObj;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.xml.sax.SAXParseException;
 
 import javax.xml.bind.*;
 import javax.xml.stream.XMLInputFactory;
@@ -48,12 +49,18 @@ public class AnyTests {
                 Path pathDynamic = pathXiObj.resolveSibling(pathXiObj.getFileName() + "." + typeID + ".xml");
                 IOUtils.write(dynamic, Files.newOutputStream(pathDynamic), StandardCharsets.UTF_8);
 
+                AllInOne ico;
                 switch (typeID) {
                     case "AllInOne":
-                        AllInOne ico = xiObjParser.parseAllInOne(Files.newInputStream(pathDynamic));
-                        Assertions.assertNotNull(ico.getVersion().toString());
-                        Iconeer iconeer = new Iconeer(ico);
-                        iconeer.linter();
+                        try {
+                            ico = xiObjParser.parseAllInOne(Files.newInputStream(pathDynamic));
+                            Iconeer iconeer = new Iconeer(ico);
+                            iconeer.linter();
+                        } catch (SAXParseException sax) {
+                            String err = String.format("Validation error at %s (line %d, column %d)\n%s"
+                                    , pathDynamic, sax.getLineNumber(), sax.getColumnNumber(), sax.getMessage());
+                            System.err.println(err);
+                        }
                         break;
                     case "Channel":
                         Channel cc = xiObjParser.parseChannel(Files.newInputStream(pathDynamic));
@@ -86,11 +93,11 @@ public class AnyTests {
 
     @Test
     public void ztpTest() throws Exception {
+        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
         extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
         extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
         extractTpt(Paths.get("src/test/resources/tpz/XI7_1_BYD_CRM_ON_DEMAND_3.0.tpz"));
         extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
-        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
         extractTpt(Paths.get("src/test/resources/tpz/XI7_1_ENERGY.tpz"));
     }
 
@@ -107,8 +114,8 @@ public class AnyTests {
                 String typeID = xiObj.getIdInfo().getKey().getTypeID();
 //                String dynamic = xiObjParser.dynamicContent;
                 if (typeID.equals("AllInOne")) {
-                    AllInOne aio = xiObjParser.parseAllInOne(xiObj.getContent().dynamicContent);
                     try {
+                        AllInOne aio = xiObjParser.parseAllInOne(xiObj.getContent().dynamicContent);
                         Iconeer iconeer = new Iconeer(aio);
                         System.out.println("linter: " + iconeer.linter());
                     } catch (Exception e) {

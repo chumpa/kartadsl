@@ -4,6 +4,11 @@
         <VirusScanMode>AD</VirusScanMode>
         <AllInOneAttributes>
             <AdapterTypeData>
+                <Attribute>
+                    <Name>sampleTable</Name>
+                    <Namespace/>
+                    <Value isTable="true"/>
+                </Attribute>
                 <Attribute xmlns="">
                     <Name>propagatePrincipal</Name>
                     <Namespace/>
@@ -36,7 +41,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE/>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -47,7 +52,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>http://sap.com/xi/XI</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -58,7 +63,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>XIParty</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -69,7 +74,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>AE2100</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -107,7 +112,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE/>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -118,7 +123,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>http://sap.com/xi/XI</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -129,7 +134,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>XIParty</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -140,7 +145,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>AHD100</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -178,7 +183,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE/>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -189,7 +194,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>http://sap.com/xi/XI</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -200,7 +205,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>XIParty</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -211,7 +216,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>BC_Test</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -300,7 +305,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>P_TEST</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -311,7 +316,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>http://sap.com/xi/XI</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -322,7 +327,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>XIParty</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -333,7 +338,7 @@
                         <TYPE>KO</TYPE>
                         <VALUE>BC_Test</VALUE>
                         <DATATYPE>xsd:string</DATATYPE>
-                        <MULTLINE> </MULTLINE>
+                        <MULTLINE></MULTLINE>
                         <COBJNS/>
                         <COBJNAME/>
                     </TRD_EXTRACTOR>
@@ -581,7 +586,8 @@
                     <Attribute xmlns="">
                         <Name>wsse.xinamespace</Name>
                         <Namespace/>
-                        <Value>http://www.docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd</Value>
+                        <Value>http://www.docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd
+                        </Value>
                     </Attribute>
                 </AdapterTypeData>
             </AllInOneAttributes>
@@ -645,7 +651,8 @@
                     <Attribute xmlns="">
                         <Name>wsse.xinamespace</Name>
                         <Namespace/>
-                        <Value>http://www.docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd</Value>
+                        <Value>http://www.docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd
+                        </Value>
                     </Attribute>
                 </AdapterTypeData>
             </AllInOneAttributes>

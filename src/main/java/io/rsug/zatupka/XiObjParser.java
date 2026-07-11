@@ -5,8 +5,14 @@ import io.rsug.zatupka.channel.Channel;
 import io.rsug.zatupka.dir.Party;
 import io.rsug.zatupka.dir.Service;
 import io.rsug.zatupka.xiobj.XiObj;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
+import javax.xml.XMLConstants;
 import javax.xml.bind.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.StreamFilter;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -16,6 +22,9 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.LinkedList;
@@ -24,6 +33,41 @@ import java.util.Objects;
 
 public class XiObjParser {
     static final String namespace = "urn:sap-com:xi";
+    static final SchemaFactory factory;
+    static final Schema schemas;
+    static final javax.xml.validation.Validator validator;
+
+    static {
+        factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        InputStream is1 = XiObjParser.class.getResourceAsStream("/io.rsug.zatupka.xsd/AllInOne.xsd");
+        InputStream is2 = XiObjParser.class.getResourceAsStream("/io.rsug.zatupka.xsd/NSM.xsd");
+        try {
+            Document ds1 = parseDocument(Objects.requireNonNull(is1));
+            Document ds2 = parseDocument(Objects.requireNonNull(is2));
+//            пример резолвера с LSInput, может пригодиться в сложных схемах
+//            Map<String, Document> schemaMap = new HashMap<>();
+//            schemaMap.put("AllInOne.xsd", ds1);
+//            schemaMap.put("NSM.xsd", ds2);
+//            factory.setResourceResolver(new LSResourceResolver() {
+//                @Override
+//                public LSInput resolveResource(String type, String namespaceURI, String publicId, String systemId, String baseURI) {
+//                    // systemId — это имя файла, который импортируется
+//                    if (schemaMap.containsKey(systemId)) {
+//                        Document doc = schemaMap.get(systemId);
+//                        DOMImplementationLS lsImpl = (DOMImplementationLS) doc.getImplementation();
+//                        return lsImpl.createLSInput();
+//                    }
+//                    return null;
+//                }
+//            });
+            // ds2 идёт в массиве первым, это важно!
+            schemas = factory.newSchema(new DOMSource[]{new DOMSource(ds2), new DOMSource(ds1)});
+            validator = schemas.newValidator();
+        } catch (SAXException | ParserConfigurationException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     final XMLInputFactory xif = XMLInputFactory.newFactory();
     final TransformerFactory tf = TransformerFactory.newInstance();
     private final StreamFilter filterContent = new StreamFilter() {
@@ -74,18 +118,30 @@ public class XiObjParser {
         return writer.toString();
     }
 
-    public AllInOne parseAllInOne(InputStream is) throws JAXBException, XMLStreamException {
+    public static Document parseDocument(InputStream inputStream) throws ParserConfigurationException, IOException, SAXException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        return builder.parse(inputStream);
+    }
+
+    public AllInOne parseAllInOne(InputStream is) throws JAXBException, IOException, SAXException, ParserConfigurationException {
         JAXBContext jc = JAXBContext.newInstance(AllInOne.class);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
-        XMLStreamReader xsr = xif.createXMLStreamReader(is);
-        AllInOne ico = (AllInOne) unmarshaller.unmarshal(xsr);
+        // DOMSource позволяет пройтись по InputStream дважды - сперва валидация по схеме, затем JAXB
+        // Если делать new StreamSource(is) то StreamSource читается лишь однажды
+        DOMSource src = new DOMSource(parseDocument(is));
+        validator.validate(src);
+        AllInOne ico = (AllInOne) unmarshaller.unmarshal(src);
         Objects.requireNonNull(ico.getVersion());
         return ico;
     }
 
-    public AllInOne parseAllInOne(org.w3c.dom.Element element) throws JAXBException, XMLStreamException {
+    public AllInOne parseAllInOne(org.w3c.dom.Element element) throws JAXBException, XMLStreamException, IOException, SAXException {
         JAXBContext jc = JAXBContext.newInstance(AllInOne.class);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
+        DOMSource src = new DOMSource(element);
+        validator.validate(src);
         AllInOne ico = (AllInOne) unmarshaller.unmarshal(element);
         Objects.requireNonNull(ico.getVersion());
         return ico;

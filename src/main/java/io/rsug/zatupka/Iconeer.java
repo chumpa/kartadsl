@@ -5,8 +5,6 @@ import io.rsug.zatupka.allinone.*;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Iconeer {
@@ -21,15 +19,15 @@ public class Iconeer {
     public Iconeer(AllInOne allInOne) {
         ico = Objects.requireNonNull(allInOne);
         version = ico.getVersion().intValue();
-        for (Definition def : ico.getNamespaceMapping().getNSM().getDefinition()) {
+        for (NSM.Definition def : ico.getNamespaceMapping().getNSM().getDefinition()) {
             prefixes.put(def.getPrefix(), def.getUri());
         }
-        noReceiverBehaviour = ico.getNoReceiverBehaviour()==null ? 0 : ico.getNoReceiverBehaviour().getIfNoReceiverFound().intValue();
+        noReceiverBehaviour = ico.getNoReceiverBehaviour() == null ? 0 : ico.getNoReceiverBehaviour().getIfNoReceiverFound().intValue();
         for (ReceiverConfiguration recvConf : ico.getReceiverConfigurations().getReceiverConfiguration()) {
             receiverMapById.put(recvConf.getReceiverId(), recvConf);
             qos.add(recvConf.getQualityOfService());
         }
-        if (noReceiverBehaviour==2) {
+        if (noReceiverBehaviour == 2) {
             receiverWhenNotFound = getReceiverWhenNotFound();
         } else {
             receiverWhenNotFound = null;
@@ -40,7 +38,7 @@ public class Iconeer {
         if (noReceiverBehaviour < 0 || noReceiverBehaviour > 2) {
             throw new IllegalStateException("noReceiverBehaviour=" + noReceiverBehaviour);
         }
-        if (qos.size()!=1) {
+        if (qos.size() != 1) {
             throw new IllegalStateException("wrong QoS set=" + qos);
         }
         StringWriter sw = new StringWriter();
@@ -95,10 +93,10 @@ public class Iconeer {
                 "        fontcolor=\"#1E8449\";\n" +
                 "        fontname=\"Arial\";\n");
 
-        for (String id: receiverMapById.keySet()) {
+        for (String id : receiverMapById.keySet()) {
             ReceiverConfiguration rc = receiverMapById.get(id);
             s = simpleReceiverAddress(rc.getReceiver());
-            String color = rc==receiverWhenNotFound ? ", fillcolor=\"red\"" : "";
+            String color = rc == receiverWhenNotFound ? ", fillcolor=\"red\"" : "";
             s = String.format("    %s[label=\"%s\"%s];", id, s, color);
             dot.append(s).append("\n");
 
