@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="instance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="attribute"/>
+      </xs:sequence>
+      <xs:attribute name="typeid" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="attribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="value"/>
+      </xs:sequence>
+      <xs:attribute name="isleave" use="required" type="xs:boolean"/>
+      <xs:attribute name="leave_typeid" type="xs:NCName"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="value">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="instance"/>
+      </xs:sequence>
+      <xs:attribute name="index" use="required" type="xs:int"/>
+      <xs:attribute name="isnull" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

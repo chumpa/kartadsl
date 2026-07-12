@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class Iconeer {
     public final AllInOne ico;
-    public final Map<String, String> prefixes = new LinkedHashMap<>();
+    public final Map<String, String> namespaces = new LinkedHashMap<>();
     public final int noReceiverBehaviour;
     public final Map<String, ReceiverConfiguration> receiverMapById = new LinkedHashMap<>();
     public final ReceiverConfiguration receiverWhenNotFound;
@@ -20,7 +20,7 @@ public class Iconeer {
         ico = Objects.requireNonNull(allInOne);
         version = ico.getVersion().intValue();
         for (NSM.Definition def : ico.getNamespaceMapping().getNSM().getDefinition()) {
-            prefixes.put(def.getPrefix(), def.getUri());
+            namespaces.put(def.getPrefix(), def.getUri());
         }
         noReceiverBehaviour = ico.getNoReceiverBehaviour() == null ? 0 : ico.getNoReceiverBehaviour().getIfNoReceiverFound().intValue();
         for (ReceiverConfiguration recvConf : ico.getReceiverConfigurations().getReceiverConfiguration()) {
