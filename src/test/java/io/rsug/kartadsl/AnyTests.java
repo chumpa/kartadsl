@@ -1,9 +1,7 @@
 package io.rsug.kartadsl;
 
-import io.rsug.zatupka.Iconeer;
-import io.rsug.zatupka.TptFragments;
-import io.rsug.zatupka.TpzContainer;
-import io.rsug.zatupka.XiObjParser;
+import io.rsug.zatupka.*;
+import io.rsug.zatupka.abap.RfcDestination;
 import io.rsug.zatupka.allinone.AllInOne;
 import io.rsug.zatupka.allinone.Binding;
 import io.rsug.zatupka.channel.Channel;
@@ -27,11 +25,13 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Objects;
 
 public class AnyTests {
@@ -58,11 +58,11 @@ public class AnyTests {
                     case "AllInOne":
                         try {
                             ico = xiObjParser.parseAllInOne(Files.newInputStream(pathDynamic));
-                            Iconeer iconeer = new Iconeer(ico);
-                            iconeer.linter();
+                            Iconeer iconeer = new Iconeer(ico, xiObj.getIdInfo().getKey().getElem());
+                            String rez = iconeer.linter();
+                            System.out.println(rez);
                         } catch (SAXParseException sax) {
-                            String err = String.format("Validation error at %s (line %d, column %d)\n%s"
-                                    , pathDynamic, sax.getLineNumber(), sax.getColumnNumber(), sax.getMessage());
+                            String err = String.format("Validation error at %s (line %d, column %d)\n%s", pathDynamic, sax.getLineNumber(), sax.getColumnNumber(), sax.getMessage());
                             System.err.println(err);
                         }
                         break;
@@ -120,7 +120,7 @@ public class AnyTests {
                 if (typeID.equals("AllInOne")) {
                     try {
                         AllInOne aio = xiObjParser.parseAllInOne(xiObj.getContent().dynamicContent);
-                        Iconeer iconeer = new Iconeer(aio);
+                        Iconeer iconeer = new Iconeer(aio, xiObj.getIdInfo().getKey().getElem());
                         System.out.println("linter: " + iconeer.linter());
                     } catch (Exception e) {
                         System.err.println(pathXiObj);
@@ -172,32 +172,32 @@ public class AnyTests {
         AllInOne ico1 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico1.xml")));
         Assertions.assertEquals(2, ico1.getConditions().getRDSCONDSHORT().size());
         renderIco(ico1);
-        System.out.println(new Iconeer(ico1).linter());
+        System.out.println(new Iconeer(ico1, null).linter());
 
         AllInOne ico2 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico2.xml")));
         Assertions.assertTrue(ico2.getConditions().getRDSCONDSHORT().isEmpty());
-        System.out.println(new Iconeer(ico2).linter());
+        System.out.println(new Iconeer(ico2, null).linter());
 
         AllInOne ico3 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico3.xml")));
-        Binding binding3 = ico3.getReceiverConfigurations().getReceiverConfiguration().get(0).getInterfaceDeterminations().getInterfaceDetermination().get(0).getBinding();
-        Assertions.assertEquals("so_timeout", binding3.getProperties().getProperty().get(0).getName());
-        System.out.println(new Iconeer(ico3).linter());
+        Binding binding3 = ico3.getReceiverConfigurations().getReceiverConfiguration().getFirst().getInterfaceDeterminations().getInterfaceDetermination().get(0).getBinding();
+        Assertions.assertEquals("so_timeout", binding3.getProperties().getProperty().getFirst().getName());
+        System.out.println(new Iconeer(ico3, null).linter());
 
         AllInOne ico4 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico4.xml")));
         Assertions.assertEquals(100, ico4.getVersion().intValue());
-        System.out.println(new Iconeer(ico4).linter());
+        System.out.println(new Iconeer(ico4, null).linter());
 
         AllInOne ico5 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico5.xml")));
-        Assertions.assertTrue(new Iconeer(ico5).namespaces.isEmpty());
+        Assertions.assertTrue(new Iconeer(ico5, null).namespaces.isEmpty());
         AllInOne ico6 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico6.xml")));
-        Assertions.assertTrue(new Iconeer(ico6).namespaces.isEmpty());
-        Assertions.assertEquals(100, new Iconeer(ico6).version);
+        Assertions.assertTrue(new Iconeer(ico6, null).namespaces.isEmpty());
+        Assertions.assertEquals(100, new Iconeer(ico6, null).version);
         AllInOne ico7 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico7.xml")));
-        Assertions.assertEquals(110, new Iconeer(ico7).version);
+        Assertions.assertEquals(110, new Iconeer(ico7, null).version);
     }
 
     public void renderIco(AllInOne ico) throws IOException {
-        Iconeer iconeer = new Iconeer(ico);
+        Iconeer iconeer = new Iconeer(ico, null);
         iconeer.linter();
         String dot = iconeer.dot();
         OutputStream os = Files.newOutputStream(Paths.get("src/test/resources/ICo.uml"));
@@ -225,5 +225,25 @@ public class AnyTests {
         Instance i03 = (Instance) unmarshaller.unmarshal(Objects.requireNonNull(getClass().getResourceAsStream("/hmi/03.xml")));
         HmiResponse r03 = new HmiResponse(i03);
         Assertions.assertEquals("text/xml", r03.MethodOutput.ContentType);
+    }
+
+    @Test
+    public void se16Tests() throws Exception {
+        SE16 rfcdes = new SE16(getInputStream("/se16/RFCDES.txt"));
+        List<RfcDestination> list = RfcDestination.parseSE16(rfcdes);
+        for (RfcDestination d : list) {
+            d.toPrettyString();
+        }
+        SE16 sxmsconfvl = new SE16(getInputStream("/se16/SXMSCONFVL.txt"));
+        List<String> is_url = sxmsconfvl.getFieldDistinct(
+                sxmsconfvl.selectAND(sxmsconfvl.rows, "AREA", "RUNTIME", "PARAM", "IS_URL"),
+                "VALUE");
+        Assertions.assertTrue(!is_url.isEmpty());
+        Assertions.assertEquals("dest://PO_AAE_POD", is_url.get(0));
+        SE16 sxmsconfdf = new SE16(getInputStream("/se16/SXMSCONFDF.txt"));
+    }
+
+    static InputStream getInputStream(String name) throws IOException {
+        return Objects.requireNonNull(AnyTests.class.getResourceAsStream(name));
     }
 }

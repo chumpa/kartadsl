@@ -1,0 +1,14 @@
+13.07.2026                                                                                                                                                                                                                                                          Динамический вывод списка                                                                                                                                                                                                                                                                                                               1
+
+
+	RFCDEST	RFCTYPE	RFCOPTIONS	RFCOPTIONT	RFCOPTIONU	RFCOPTIONV	RFCOPTION1	RFCOPTION2	RFCOPTION3	RFCOPTION4	RFCOPTION5	RFCOPTION6	RFCOPTION7	RFCOPTION8	RFCOPTION9	RFCOPTIONA	RFCOPTIONB	RFCDOC1	RFCDOC2	RFCDOC3
+
+	BACK	I	1=1,
+	LOCAL_EXEC	T	N=rfcexec,
+	PO_AAE_POD	G	H=hostpod,D=PIAPPLABD,I=50001,N=/XISOAPAdapter/MessageServlet?ximessage=true,v=%_PWD,W=Y,B=N,C=N,E=N,T=N,K=Y,Q=B,s=Y,u=N,1=00,q=0,b=N,k=N,F=0      0000,j=N,t=DFAULT,/=X,															CONST_PO: отправка сообщений в SAP PO POD	ABD-POD	Группа Базиса
+	PO_IDOC_POD	T	H=%%RFCSERVER%%,G=hostpod,g=3300,N=XI_IDOC_ABD,Y=2,h=2,y=-2,z=-2,W=Y,B=N,C=N,E=N,T=N,K=Y,s=N,u=N,1=00,q=0,i=N,b=N,k=N,d=2,j=N,															CONST_PO: отправка IDOC в SAP PO POD	ABD-POD	Группа Базиса
+	SAP_PROXY_ESR	G	H=hostpod,D=PIREPABD,I=50001,N=/rep,v=%_PWD,W=Y,B=N,C=N,E=N,T=N,K=Y,Q=B,s=Y,u=N,1=00,q=0,b=N,k=N,F=0      0000,j=N,t=DFAULT,/=X,															SAP ABAP to PO ESR
+	SLD_CL_POD	G	H=hostpod,D=SLD_CL_ABD,I=50001,N=/sld/cimom,v=%_PWD,W=Y,B=N,C=N,E=N,T=N,K=Y,Q=B,s=Y,u=N,1=00,q=0,b=N,k=N,F=0      0000,j=N,t=DFAULT,															CONST_SLD: чтение данных из SLD SAP PO POD	ABD-POD	Группа Базиса
+	SLD_DS_POD	G	H=hostpod,D=SLD_DS_ABD,I=50001,v=%_PWD,W=Y,B=N,C=N,E=N,T=N,K=Y,Q=B,s=Y,u=N,1=00,q=0,b=N,k=N,F=0      0000,j=N,t=DFAULT,															CONST_SLD: отправка данных LD в SLD SAP PO POD	ABD-POD	Группа Базиса
+	SLD_NUC	T	H=%%RFCSERVER%%,N=SLD_NUC,															Автоматически сгенерировано для System Landscape Directory (SLD)
+	SLD_UC	T	H=%%RFCSERVER%%,N=SLD_UC,d=2,															Автоматически сгенерировано для System Landscape Directory (SLD)

@@ -38,7 +38,7 @@ hostdb<sid> - БД, hostapp<sid> - приложение -- для ABAP, PO.
 hostapp<suffix> -- для прочих (суффикс произвольный).
 
 ## Схема tcp-соединений
-UserCallGraph.uml: ![UserCallGraph.uml](UserCallGraph.png "123")
+UserCallGraph.uml: ![UserCallGraph.uml](src/test/resources/UserCallGraph.png "123")
 
 Самая обычная схема с DMZ.
 
