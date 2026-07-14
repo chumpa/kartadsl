@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 public class Iconeer {
     public final AllInOne ico;
+    public final String fromParty, fromService, ifaceNS, ifaceName, toParty, toService;
+
     public final Map<String, String> namespaces = new LinkedHashMap<>();
     public final int noReceiverBehaviour;
     public final Map<String, ReceiverConfiguration> receiverMapById = new LinkedHashMap<>();
@@ -16,8 +18,15 @@ public class Iconeer {
     public final Set<String> qos = new HashSet<>();
     public final int version;
 
-    public Iconeer(AllInOne allInOne) {
+    public Iconeer(AllInOne allInOne, List<String> header) {
         ico = Objects.requireNonNull(allInOne);
+        fromParty = (header != null && !header.isEmpty()) ? header.get(0) : null;
+        fromService = (header != null && header.size() > 1) ? header.get(1) : null;
+        ifaceNS = (header != null && header.size() > 2) ? header.get(2) : null;
+        ifaceName = (header != null && header.size() > 3) ? header.get(3) : null;
+        toParty = (header != null && header.size() > 4) ? header.get(4) : null;
+        toService = (header != null && header.size() > 5) ? header.get(5) : null;
+
         version = ico.getVersion().intValue();
         for (NSM.Definition def : ico.getNamespaceMapping().getNSM().getDefinition()) {
             namespaces.put(def.getPrefix(), def.getUri());
@@ -99,8 +108,6 @@ public class Iconeer {
             String color = rc == receiverWhenNotFound ? ", fillcolor=\"red\"" : "";
             s = String.format("    %s[label=\"%s\"%s];", id, s, color);
             dot.append(s).append("\n");
-
-
         }
         dot.append("}\n");
 
@@ -125,8 +132,8 @@ public class Iconeer {
         Objects.requireNonNull(icoReceiver);
         TRDEXTRACTOR partyExtractor = icoReceiver.getPartyExtractor().getTRDEXTRACTOR();
         TRDEXTRACTOR serviceExtractor = icoReceiver.getServiceExtractor().getTRDEXTRACTOR();
-        boolean koParty = "KO".equals(partyExtractor.getTYPE()) && "xsd:string".equals(partyExtractor.getDATATYPE());
-        boolean koService = "KO".equals(serviceExtractor.getTYPE()) && "xsd:string".equals(serviceExtractor.getDATATYPE());
+        boolean koParty = TRDEXTRACTORTYPEENUM.KO.equals(partyExtractor.getTYPE()) && "xsd:string".equals(partyExtractor.getDATATYPE());
+        boolean koService = TRDEXTRACTORTYPEENUM.KO.equals(serviceExtractor.getTYPE()) && "xsd:string".equals(serviceExtractor.getDATATYPE());
         if (koParty && koService) {
             return partyExtractor.getVALUE() + "|" + serviceExtractor.getVALUE();
         }

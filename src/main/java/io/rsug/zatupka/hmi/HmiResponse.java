@@ -1,7 +1,5 @@
 package io.rsug.zatupka.hmi;
 
-import java.util.Objects;
-
 public class HmiResponse {
     public final static String typeID = "com.sap.aii.utilxi.hmi.core.msg.HmiResponse";
     public final String ClientId, ControlFlag, HmiSpecVersion, RequestId;

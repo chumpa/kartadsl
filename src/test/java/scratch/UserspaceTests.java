@@ -1,6 +1,7 @@
 package scratch;
 
 import io.rsug.kartadsl.BackendABAP;
+import io.rsug.kartadsl.IcoHeader;
 import io.rsug.kartadsl.MWPO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -44,6 +45,9 @@ public class UserspaceTests {
                 .setOM1_1("|FTP", null, "{urn:rsugio-kartadsl:erp}SI_018Invoices_OutAsync")
                 .assignCC("{urn:rsugio-kartadsl:erp}SI_018Invoices_OutAsync", "|FTP|CC_SFTPReceiver_018Invoices")
                 .activate();
+
+        new IcoHeader(null, "ABD100", "urn:rsugio-kartadsl:erp", "SI_019Payments_OutAsync")
+                .setSenderChannel("CC_XISender");
 
     }
 

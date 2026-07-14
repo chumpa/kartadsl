@@ -1,0 +1,21 @@
+﻿<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified">
+
+<xs:simpleType name="TRD_EXTRACTOR_TYPEENUM">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="KO"/>
+        <xs:enumeration value="XP"/>
+        <xs:enumeration value="CT"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="CONDLINE_COMPOP_ENUM">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="EX"/>
+        <xs:enumeration value="EQ"/>
+        <xs:enumeration value="NE"/>
+        <xs:enumeration value="CP"/>
+    </xs:restriction>
+</xs:simpleType>
+
+
+</xs:schema>

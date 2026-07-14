@@ -11,7 +11,7 @@ public class MWPOICo {
     private final MWPODir owner;
     private final String senderAddress, senderIFQN, receiverAddressOptional;
     private String senderCC = null;
-    private Map<String, String> receiverIfqnToChannel = new HashMap<>();
+    private final Map<String, String> receiverIfqnToChannel = new HashMap<>();
 
     MWPOICo(MWPODir dir, String senderAddress, String senderIFQN, String receiverAddressOptional) {
         activated = false;

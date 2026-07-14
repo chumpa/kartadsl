@@ -352,7 +352,7 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="EXTRACTORID" type="xs:string"/>
-  <xs:element name="TYPE" type="xs:NCName"/>
+  <xs:element name="TYPE" type="TRD_EXTRACTOR_TYPEENUM"/>
   <xs:element name="VALUE" type="xs:anyURI"/>
   <xs:element name="DATATYPE" type="xs:NMTOKEN"/>
   <xs:element name="MULTLINE" type="xs:string"/>
@@ -381,7 +381,7 @@
   </xs:element>
   <xs:element name="COMPGROUP" type="xs:integer"/>
   <xs:element name="COUNTER" type="xs:integer"/>
-  <xs:element name="COMPOP" type="xs:NCName"/>
+  <xs:element name="COMPOP" type="CONDLINE_COMPOP_ENUM"/>
   <xs:element name="LEXTRACTOR" type="TRD_EXTRACTOR"/>
   <xs:element name="REXTRACTOR" type="TRD_EXTRACTOR"/>
   <xs:element name="Value">
@@ -393,4 +393,23 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
+
+<xs:simpleType name="TRD_EXTRACTOR_TYPEENUM">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="KO"/>
+        <xs:enumeration value="XP"/>
+        <xs:enumeration value="CT"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="CONDLINE_COMPOP_ENUM">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="EX"/>
+        <xs:enumeration value="EQ"/>
+        <xs:enumeration value="NE"/>
+        <xs:enumeration value="CP"/>
+    </xs:restriction>
+</xs:simpleType>
+
+
 </xs:schema>

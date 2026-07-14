@@ -1,3 +1,7 @@
+<!--suppress ALL -->
+
+
+
 <AllInOne version="130">
     <SenderConnectivity>
         <ValidationMode>0</ValidationMode>
@@ -33,6 +37,7 @@
             <ReceiverId>f6539572795d11f1a524000007572072</ReceiverId>
             <Receiver>
                 <PartyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>f64b73b8795d11f1b725000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -44,6 +49,7 @@
                     </TRD_EXTRACTOR>
                 </PartyExtractor>
                 <PartyAgencyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>f64b73ba795d11f1ba4c000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -55,6 +61,7 @@
                     </TRD_EXTRACTOR>
                 </PartyAgencyExtractor>
                 <PartySchemaExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>f64b73bb795d11f1c657000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -66,6 +73,7 @@
                     </TRD_EXTRACTOR>
                 </PartySchemaExtractor>
                 <ServiceExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>f64b73b9795d11f19728000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>

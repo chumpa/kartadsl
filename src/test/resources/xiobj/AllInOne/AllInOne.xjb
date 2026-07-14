@@ -4,6 +4,7 @@
               xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <jxb:bindings schemaLocation="AllInOne.xsd">
+    <!-- Совпадение имён -->
     <jxb:bindings node="//xs:complexType[@name='TRD_EXTRACTOR']">
       <jxb:class name="TRD_EXTRACTORT"/>
     </jxb:bindings>

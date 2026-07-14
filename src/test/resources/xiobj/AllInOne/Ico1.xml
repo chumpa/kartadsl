@@ -1,3 +1,19 @@
+<!--suppress ALL -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <AllInOne version="130">
     <SenderConnectivity>
         <ValidationMode>0</ValidationMode>
@@ -36,6 +52,7 @@
             <ReceiverId>a2da8f537aa911f1cfca000007572072</ReceiverId>
             <Receiver>
                 <PartyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d8846e7aa911f182d0000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -47,6 +64,7 @@
                     </TRD_EXTRACTOR>
                 </PartyExtractor>
                 <PartyAgencyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884707aa911f1b7b0000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -58,6 +76,7 @@
                     </TRD_EXTRACTOR>
                 </PartyAgencyExtractor>
                 <PartySchemaExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884717aa911f189d1000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -69,6 +88,7 @@
                     </TRD_EXTRACTOR>
                 </PartySchemaExtractor>
                 <ServiceExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d8846f7aa911f1c828000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -107,6 +127,7 @@
             <ReceiverId>a2da8f527aa911f1a5ee000007572072</ReceiverId>
             <Receiver>
                 <PartyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884727aa911f1c5a2000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -118,6 +139,7 @@
                     </TRD_EXTRACTOR>
                 </PartyExtractor>
                 <PartyAgencyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884747aa911f1c4b6000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -129,6 +151,7 @@
                     </TRD_EXTRACTOR>
                 </PartyAgencyExtractor>
                 <PartySchemaExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884757aa911f19674000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -140,6 +163,7 @@
                     </TRD_EXTRACTOR>
                 </PartySchemaExtractor>
                 <ServiceExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884737aa911f19a54000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -178,6 +202,7 @@
             <ReceiverId>a2da8f547aa911f19e56000007572072</ReceiverId>
             <Receiver>
                 <PartyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884767aa911f18cdd000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -189,6 +214,7 @@
                     </TRD_EXTRACTOR>
                 </PartyExtractor>
                 <PartyAgencyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884787aa911f19723000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -200,6 +226,7 @@
                     </TRD_EXTRACTOR>
                 </PartyAgencyExtractor>
                 <PartySchemaExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884797aa911f18fe7000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -211,6 +238,7 @@
                     </TRD_EXTRACTOR>
                 </PartySchemaExtractor>
                 <ServiceExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d884777aa911f1b9fb000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -300,6 +328,7 @@
             <ReceiverId>a2da8f557aa911f198ec000007572072</ReceiverId>
             <Receiver>
                 <PartyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d8847a7aa911f18dbb000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -311,6 +340,7 @@
                     </TRD_EXTRACTOR>
                 </PartyExtractor>
                 <PartyAgencyExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d8847c7aa911f1a7e5000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -322,6 +352,7 @@
                     </TRD_EXTRACTOR>
                 </PartyAgencyExtractor>
                 <PartySchemaExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d8847d7aa911f1a612000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>
@@ -333,6 +364,7 @@
                     </TRD_EXTRACTOR>
                 </PartySchemaExtractor>
                 <ServiceExtractor>
+                    <!--suppress CheckTagEmptyBody -->
                     <TRD_EXTRACTOR>
                         <EXTRACTORID>a2d8847b7aa911f1a03e000007572072</EXTRACTORID>
                         <TYPE>KO</TYPE>

@@ -17,14 +17,14 @@ import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.Iterator;
 
-public class HelloServlet extends HttpServlet {
+public class MitmServlet extends HttpServlet {
     private int counter = 1;
     private final String backend;
     private final Authenticator authenticator;
     private final Path logs = Paths.get("logs");
     private final HttpClient client;
 
-    public HelloServlet(String uri, String uname, String passwd) throws IOException, InterruptedException {
+    public MitmServlet(String uri, String uname, String passwd) throws IOException, InterruptedException {
         if (!Files.isDirectory(logs)) Files.createDirectories(logs);
         this.backend = uri;
         Authenticator auth = new Authenticator() {
@@ -118,5 +118,4 @@ public class HelloServlet extends HttpServlet {
         IOUtils.write(s, os, StandardCharsets.UTF_8);
         os.close();
     }
-
 }
