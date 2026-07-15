@@ -249,7 +249,7 @@ public class AnyTests {
         System.out.println(g1.toPrettyString());
         RfcDestination t1 = RfcDestination.newInstanceT("SLD_UC", null, "SLD_UC");
         System.out.println(t1.toPrettyString());
-        RfcDestination t2 = RfcDestination.newInstanceT("PO_IDOC_JXD", "отправка IDOC", "XI_IDOC_ABD", "hostabd", "sapgw3300");
+        RfcDestination t2 = RfcDestination.newInstanceT("PO_IDOC_POD", "отправка IDOC", "XI_IDOC_ABD", "hostabd", "sapgw3300");
         System.out.println(t2.toPrettyString());
     }
 

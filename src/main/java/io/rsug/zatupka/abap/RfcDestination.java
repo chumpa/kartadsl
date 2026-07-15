@@ -125,7 +125,6 @@ public class RfcDestination {
 
     public String toPrettyString() {
         String s = String.format("RFC Destination(%s,%s)%s\t%s", type, explainedType, name, docu);
-//        if (!options.isEmpty()) s += "\n" + options;
         switch (type) {
             case '3':
                 s += String.format("\nHost=%s", host);
@@ -156,12 +155,9 @@ public class RfcDestination {
     public static List<RfcDestination> parseSE16(SE16 rfcdes) {
         List<RfcDestination> rez = new LinkedList<>();
         for (List<String> row : rfcdes.rows) {
+            Map<String, String> opts = rfcdes.getFields(row);
             String name = rfcdes.getField(row, "RFCDEST");
             String type = rfcdes.getField(row, "RFCTYPE");
-            Map<String, String> opts = rfcdes.getFields(row,
-                    "RFCOPTIONS", "RFCOPTIONT", "RFCOPTIONU", "RFCOPTIONV",
-                    "RFCOPTION1", "RFCOPTION2", "RFCOPTION3", "RFCOPTION4", "RFCOPTION5", "RFCOPTION6",
-                    "RFCOPTION7", "RFCOPTION8", "RFCOPTION9", "RFCOPTIONA", "RFCOPTIONB");
             String options = Objects.toString(opts.get("RFCOPTIONS"), "")
                     + Objects.toString(opts.get("RFCOPTIONT"), "")
                     + Objects.toString(opts.get("RFCOPTIONU"), "")
