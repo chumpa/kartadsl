@@ -2,6 +2,8 @@ package io.rsug.zatupka.abap;
 
 import io.rsug.zatupka.SE16;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 
 public class RfcDestination {
@@ -53,7 +55,7 @@ public class RfcDestination {
             U = options.get("U");
             programId = options.get("N");
             I = options.get("I");
-            if (I!=null && I.matches("[0-9]+")) {
+            if (I != null && I.matches("[0-9]+")) {
                 port = Integer.parseInt(I);
             } else {
                 port = -1;
@@ -131,7 +133,8 @@ public class RfcDestination {
             case 'T':
                 switch (explainedType) {
                     case TFRONTEND -> s += String.format("\nStart on Front-End workstation, Program=%s", programId);
-                    case TINBOUND -> s += String.format("\nRegistered Server Program, ProgramID=%s, gatewayHost=%s, gatewayService=%s", programId, G, g);
+                    case TINBOUND ->
+                            s += String.format("\nRegistered Server Program, ProgramID=%s, gatewayHost=%s, gatewayService=%s", programId, G, g);
                     case TEXPLICIT -> s += String.format("\nStart on Explicit Host, Program=%s", programId);
                     case TAPPLICATION -> s += String.format("\nStart on Application server, Program=%s", programId);
                     default -> throw new IllegalStateException();
@@ -182,5 +185,35 @@ public class RfcDestination {
             rez.add(dest);
         }
         return rez;
+    }
+
+    public static RfcDestination newInstanceG(String name, String docu, String url, String uname) throws URISyntaxException {
+        URI uri = new URI(Objects.requireNonNull(url));
+        String scheme = uri.getScheme();
+        int port = uri.getPort();
+        if (port == -1) {
+            port = "https".equals(scheme) ? 443 : 80;
+        }
+        String path = uri.getPath();
+        if (uri.getQuery() != null) path += "?" + uri.getQuery();
+
+        String options = String.format("H=%s,I=%d,N=%s,s=%s,D=%s",
+                uri.getHost(),
+                port,
+                path,
+                "https".equals(scheme) ? "Y" : "N",
+                uname
+        );
+        return new RfcDestination(name, 'G', options, docu);
+    }
+
+    public static RfcDestination newInstanceT(String name, String docu, String programId) {
+        String options = String.format("N=%s", Objects.requireNonNull(programId));
+        return new RfcDestination(name, 'T', options, docu);
+    }
+
+    public static RfcDestination newInstanceT(String name, String docu, String programId, String gatewayHost, String gatewayService) {
+        String options = String.format("N=%s,G=%s,g=%s", Objects.requireNonNull(programId), Objects.requireNonNull(gatewayHost), Objects.requireNonNull(gatewayService));
+        return new RfcDestination(name, 'T', options, docu);
     }
 }

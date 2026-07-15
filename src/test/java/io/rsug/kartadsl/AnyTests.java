@@ -243,6 +243,16 @@ public class AnyTests {
         SE16 sxmsconfdf = new SE16(getInputStream("/se16/SXMSCONFDF.txt"));
     }
 
+    @Test
+    public void rfcDestinationTests() throws Exception {
+        RfcDestination g1 = RfcDestination.newInstanceG("SLD_CL_POD", null, "https://hostpod:44301/sld/cimom?azaza=zaza", "SLD_CL_POD_USER");
+        System.out.println(g1.toPrettyString());
+        RfcDestination t1 = RfcDestination.newInstanceT("SLD_UC", null, "SLD_UC");
+        System.out.println(t1.toPrettyString());
+        RfcDestination t2 = RfcDestination.newInstanceT("PO_IDOC_JXD", "отправка IDOC", "XI_IDOC_ABD", "hostabd", "sapgw3300");
+        System.out.println(t2.toPrettyString());
+    }
+
     static InputStream getInputStream(String name) throws IOException {
         return Objects.requireNonNull(AnyTests.class.getResourceAsStream(name));
     }
