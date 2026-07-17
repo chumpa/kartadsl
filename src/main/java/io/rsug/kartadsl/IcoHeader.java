@@ -5,7 +5,8 @@ import java.util.Objects;
 
 public class IcoHeader {
     public final String fromParty, fromService, ifaceNS, ifaceName, toParty, toService;
-    public SenderConnectivity senderCC = null;
+    private String senderCC = null;
+    private IcoReceiverDetermination receiverDetermination = null;
 
     public IcoHeader(String fromParty, String fromService, String ifaceNS, String ifaceName, String toParty, String toService) {
         this.fromParty = fromParty;
@@ -35,9 +36,9 @@ public class IcoHeader {
         toService = header.size() > 5 ? header.get(5) : null;
     }
 
-    public SenderConnectivity setSenderChannel(String name) {
-        Objects.requireNonNull(name);
-        this.senderCC = new SenderConnectivity(name);
-        return this.senderCC;
+    public IcoReceiverDetermination setSenderChannel(String name) {
+        this.senderCC = Objects.requireNonNull(name);
+        this.receiverDetermination = new IcoReceiverDetermination(this);
+        return this.receiverDetermination;
     }
 }

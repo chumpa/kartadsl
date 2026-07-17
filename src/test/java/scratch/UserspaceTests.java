@@ -59,4 +59,17 @@ public class UserspaceTests {
             MWPO.extractComponentFromCC("||CC");
         });
     }
+
+    @Test
+    public void icoTests() throws Exception {
+        var ico1 = new IcoHeader(null, "BC_FROM", "urn:dummy", "SI_OutAsync")
+                .setSenderChannel("CC_RESTSender")
+                .addReceiver(null, "BC_TO")
+                .addInterfaceDetermination(null, "BC_TO")
+                .setReceiverInterface("urn:receiver", "SI_InAsync")
+                //.setReceiverChannel(null, "BC_TO", "urn:receiver", "SI_InAsync", "CC_RESTReceiver")
+                ;
+
+
+    }
 }

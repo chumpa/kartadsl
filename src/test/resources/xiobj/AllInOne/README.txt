@@ -6,6 +6,7 @@ Ico4.xml - version 100, missing noReceiverBehaviour
 Ico5.xml - version 130, extended RD
 Ico6.xml - version 100, //ReceiverConnectivityList/ReceiverConnectivity пустой -- странная икоха, может быть битая
 Ico7.xml - version 110, нет //ReceiverAssignmentList/@mode
+Ico8.xml - version 130, multi operation interface
 
 makexsd.bat - генерация схем через Microsoft Windows SDK .Net xsd.exe, удобно смотреть варианты
 trang.bat - генерация одной схемы по списку файлов через trang.jar, работает отлично но для xs:import требует напильника

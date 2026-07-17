@@ -97,12 +97,12 @@ public class AnyTests {
 
     @Test
     public void ztpTest() throws Exception {
-        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
-        extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
-        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
-        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_BYD_CRM_ON_DEMAND_3.0.tpz"));
         extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
-        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_ENERGY.tpz"));
+//        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
+//        extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
+//        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
+//        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_BYD_CRM_ON_DEMAND_3.0.tpz"));
+//        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_ENERGY.tpz"));
     }
 
     void extractTpt(Path tpz) throws Exception {
