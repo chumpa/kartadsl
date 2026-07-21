@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="4104ac2122af11de83d6001b78e0f918">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="ifmtypedef" oid="02b8097265863496bd9518ec654f67c1">
+			<p1:elem>EPM_PurchaseOrderItemScheduleLine</p1:elem>
+			<p1:elem>http://sap.com/xi/NWDemo</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2009-04-07 18:05:15.883</p1:modifAt>
+			<modifAtLong>1239120315883</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:lnks>
+			<p1:lnkRole role="_original" kpos="0">
+				<p1:lnk rMode="A">
+					<p1:vc vcType="S" swcGuid="e9c8dba0d75f11d98a48c9bb0a1551e5" sp="-1" caption="SAPGLOBAL 2.0">
+						<p1:clCxt consider="A"/>
+					</p1:vc>
+					<p1:key typeID="ifmtypedef" oid="12cbe168bd0d36db8ca9cb80fb3140a1">
+						<p1:elem>PurchaseOrderItemScheduleLine</p1:elem>
+						<p1:elem>http://sap.com/xi/SAPGlobal/Template</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="4">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="a99e79a984a8323bae5e5dba08a84af2">
+						<p1:elem>EPM_BusinessTransactionDocumentItemScheduleLineID</p1:elem>
+						<p1:elem>http://sap.com/xi/NWDemo</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="3">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="4bd98a8b25eb30788cb316ba489ab91e">
+						<p1:elem>EPM_Quantity</p1:elem>
+						<p1:elem>http://sap.com/xi/NWDemo</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="2">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="70caf1e08b5f33ccb7d5cfc3b880da90">
+						<p1:elem>EPM_UPPEROPEN_LOCALNORMALISED_DateTimePeriod</p1:elem>
+						<p1:elem>http://sap.com/xi/NWDemo</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="1">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="ba178a6bbbc83e43982590739066eefb">
+						<p1:elem>EPM_QuantityTypeCode</p1:elem>
+						<p1:elem>http://sap.com/xi/NWDemo</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="PARENT_FOLDER" kpos="0">
+				<p1:lnk rMode="R">
+					<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+						<p1:clCxt consider="A"/>
+					</p1:vc>
+					<p1:key typeID="FOLDER" oid="0165c8a0c04f11ddb8f8001b78e0f918">
+						<p1:elem>14####4#####k##</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+		</p1:lnks>
+		<p1:textInfo>
+			<p1:textObj id="4104ac2122af11de83d6001b78e0f918" type="0" masterL="EN">
+				<p1:texts lang="DE">
+					<p1:text label=""/>
+					<p1:text label="e185a45330b711d89b7fdae70a134b1e">Bestellmenge</p1:text>
+					<p1:text label="c9b0db90158b11db9659001185648741"/>
+					<p1:text label="e185a45130b711d89008dae70a134b1e">Vom Verkaufssystem vergebene Nummer der ScheduleLine</p1:text>
+					<p1:text label="e185a45030b711d8afc1dae70a134b1e">Vom Einkaufssystem vergebene Nummer der ScheduleLine</p1:text>
+					<p1:text label="e185a45230b711d8b96cdae70a134b1e">Zeitspanne, in der der Einkäufer eine Lieferung oder die Erbringung einer Leistung erwartet.</p1:text>
+				</p1:texts>
+				<p1:texts lang="EN">
+					<p1:text label=""/>
+					<p1:text label="e185a45330b711d89b7fdae70a134b1e"/>
+					<p1:text label="e185a45130b711d89008dae70a134b1e"/>
+					<p1:text label="e185a45030b711d8afc1dae70a134b1e"/>
+					<p1:text label="e185a45230b711d8b96cdae70a134b1e"/>
+				</p1:texts>
+			</p1:textObj>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+</p1:xiObj>

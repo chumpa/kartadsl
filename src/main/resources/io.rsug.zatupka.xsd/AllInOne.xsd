@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:p2="http://sap.com/xi/ib/prefix">
   <xs:import namespace="http://sap.com/xi/ib/prefix" schemaLocation="NSM.xsd"/>
+  <xs:include schemaLocation="enum.xsd"/>
+
   <xs:element name="AllInOne">
     <xs:complexType>
       <xs:sequence>
@@ -139,32 +141,6 @@
   <xs:element name="Counter" type="xs:integer"/>
   <xs:element name="Operation" type="xs:NCName"/>
   <xs:element name="MappingRequired" type="xs:integer"/>
-  <xs:element name="Binding">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="properties"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="properties">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="property"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="property">
-    <xs:complexType mixed="true">
-      <xs:attribute name="counter" use="required" type="xs:integer"/>
-      <xs:attribute name="direction" use="required"/>
-      <xs:attribute name="guid" use="required"/>
-      <xs:attribute name="id" use="required" type="xs:integer"/>
-      <xs:attribute name="name" use="required" type="xs:NCName"/>
-      <xs:attribute name="parentguid" use="required"/>
-      <xs:attribute name="type" use="required" type="xs:NCName"/>
-      <xs:attribute name="valueType" use="required"/>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Condition">
     <xs:complexType>
       <xs:sequence>
@@ -215,6 +191,9 @@
   </xs:element>
   <xs:element name="DynamicalRouting">
     <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="Binding"/>
+      </xs:sequence>
       <xs:attribute name="counter" use="required" type="xs:integer"/>
       <xs:attribute name="isOpSpecific" use="required" type="xs:boolean"/>
       <xs:attribute name="version" use="required" type="xs:integer"/>
@@ -342,7 +321,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="EXTRACTORID"/>
-        <xs:element ref="TYPE"/>
+<xs:element name="TYPE" type="TRD_EXTRACTOR_TYPEENUM"/>
         <xs:element ref="VALUE"/>
         <xs:element ref="DATATYPE"/>
         <xs:element ref="MULTLINE"/>
@@ -352,13 +331,38 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="EXTRACTORID" type="xs:string"/>
-  <xs:element name="TYPE" type="TRD_EXTRACTOR_TYPEENUM"/>
   <xs:element name="VALUE" type="xs:anyURI"/>
   <xs:element name="DATATYPE" type="xs:NMTOKEN"/>
   <xs:element name="MULTLINE" type="xs:string"/>
   <xs:element name="COBJNS" type="xs:anyURI"/>
   <xs:element name="COBJNAME" type="xs:string"/>
   <xs:element name="ReceiverConnectivityId" type="xs:string"/>
+  <xs:element name="Binding">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="properties"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="properties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="property"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="property">
+    <xs:complexType mixed="true">
+      <xs:attribute name="counter" use="required" type="xs:integer"/>
+      <xs:attribute name="direction" use="required"/>
+      <xs:attribute name="guid" use="required"/>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="parentguid" use="required"/>
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+      <xs:attribute name="valueType" use="required"/>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RDS_CONDSHORT">
     <xs:complexType>
       <xs:sequence>
@@ -373,7 +377,7 @@
       <xs:sequence>
         <xs:element ref="COMPGROUP"/>
         <xs:element ref="COUNTER"/>
-        <xs:element ref="COMPOP"/>
+<xs:element name="COMPOP" type="CONDLINE_COMPOP_ENUM"/>
         <xs:element ref="LEXTRACTOR"/>
         <xs:element ref="REXTRACTOR"/>
       </xs:sequence>
@@ -381,7 +385,6 @@
   </xs:element>
   <xs:element name="COMPGROUP" type="xs:integer"/>
   <xs:element name="COUNTER" type="xs:integer"/>
-<xs:element name="COMPOP" type="CONDLINE_COMPOP_ENUM"/>
   <xs:element name="LEXTRACTOR" type="TRD_EXTRACTOR"/>
   <xs:element name="REXTRACTOR" type="TRD_EXTRACTOR"/>
   <xs:element name="Value">

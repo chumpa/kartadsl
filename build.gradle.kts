@@ -18,6 +18,7 @@ java {
 
 dependencies {
     implementation("commons-io:commons-io:2.22.0")
+    implementation("org.apache.commons:commons-text:1.12.0")
 //    implementation("xerces:xercesImpl:2.12.2")
 //    runtimeOnly("org.relaxng:trang:20241231")
     implementation("javax.xml.bind:jaxb-api:2.3.1")

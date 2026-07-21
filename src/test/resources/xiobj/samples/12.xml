@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="60b129f1237611de9102001b78e0f918">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="ifmtypedef" oid="030b92e5df2f336a9ae48763ae70eb15">
+			<p1:elem>EPM_IntegerValue</p1:elem>
+			<p1:elem>http://sap.com/xi/NWDemo</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2009-04-07 15:17:00.29</p1:modifAt>
+			<modifAtLong>1239110220290</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:lnks>
+			<p1:lnkRole role="PARENT_FOLDER" kpos="0">
+				<p1:lnk rMode="R">
+					<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+						<p1:clCxt consider="A"/>
+					</p1:vc>
+					<p1:key typeID="FOLDER" oid="0165c8a0c04f11ddb8f8001b78e0f918">
+						<p1:elem>14####4#####k##</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+		</p1:lnks>
+		<p1:textInfo>
+			<p1:textObj id="60b129f1237611de9102001b78e0f918" type="0" masterL="EN">
+				<p1:texts lang="DE">
+					<p1:text label="">IntegerValue ist eine ganze Zahl</p1:text>
+				</p1:texts>
+				<p1:texts lang="EN">
+					<p1:text label=""/>
+				</p1:texts>
+			</p1:textObj>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+</p1:xiObj>

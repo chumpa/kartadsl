@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="e9fe28fe0c2611e0aac600000fff767a">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="ifmtypedef" oid="407891bfdf0237608dfdc6bfc4c7bc07">
+			<p1:elem>XiPatternDataType2Response</p1:elem>
+			<p1:elem>http://sap.com/xi/XI/System/Patterns</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2010-12-20 11:50:09.093</p1:modifAt>
+			<modifAtLong>1292842209093</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:textInfo loadedL="EN">
+			<p1:textObj id="e9fe28fe0c2611e0aac600000fff767a" type="0" masterL="EN">
+				<p1:texts lang="EN">
+					<p1:text label="">XI Patterns: Data Type 2 Response</p1:text>
+				</p1:texts>
+			</p1:textObj>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+</p1:xiObj>

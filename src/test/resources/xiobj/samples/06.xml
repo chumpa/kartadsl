@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="82fbdf41108111d8a4c90002b3ca4e60">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="XI_TRAFO" oid="414343569ef73fec962a8f5e0a7893cd">
+			<p1:elem>BpmPatternCollectMerge</p1:elem>
+			<p1:elem>http://sap.com/xi/XI/System/Patterns</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2003-11-06 19:02:56.0</p1:modifAt>
+			<modifAtLong>1068141776000</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:lnks>
+			<p1:lnkRole role="TARGET_IFR_MESS" kpos="1">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmmessage" oid="95692fdfd3f13eb4bf192280d1403032">
+						<p1:elem>BpmPatternCollectMessageToBeCollected</p1:elem>
+						<p1:elem>http://sap.com/xi/XI/System/Patterns</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="SOURCE_IFR_MESS" kpos="1">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmmessage" oid="95692fdfd3f13eb4bf192280d1403032">
+						<p1:elem>BpmPatternCollectMessageToBeCollected</p1:elem>
+						<p1:elem>http://sap.com/xi/XI/System/Patterns</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+		</p1:lnks>
+		<p1:textInfo loadedL="EN">
+			<p1:textObj id="82fbdf41108111d8a4c90002b3ca4e60" type="0" masterL="EN">
+				<p1:texts lang="EN">
+					<p1:text label=""/>
+				</p1:texts>
+			</p1:textObj>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+</p1:xiObj>

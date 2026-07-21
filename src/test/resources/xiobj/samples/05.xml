@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="35b03dd089ff11dba686001321070899">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="ifmtypedef" oid="414094c41f8432fbaf42f74bcb75ef15">
+			<p1:elem>ValueMapping</p1:elem>
+			<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2006-12-12 17:46:34.703</p1:modifAt>
+			<modifAtLong>1165941994703</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:lnks>
+			<p1:lnkRole role="TYPE" kpos="6">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="c4dbf0aa7bc93313808a0cb697a85137">
+						<p1:elem>ValueMappingID</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="5">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="bd918bc8f59d3c70b1bbf7638a5f0aa1">
+						<p1:elem>LANGUAGEINDEPENDENT_MEDIUM_Name</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS/Global</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="4">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="6791232645db3bb6b7cff4ad3232f8c8">
+						<p1:elem>LanguageCode</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS/Global</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="3">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="818539299d3834e8b5d39daec25bc8a8">
+						<p1:elem>ObjectAdministrativeData</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="2">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="45f159cb538a3015b8a03fac38b07eae">
+						<p1:elem>ValueMappingRepresentation</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="TYPE" kpos="1">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="34a9bd36e29d341ebe16e59b0c1e4722">
+						<p1:elem>LONG_Description</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS/Global</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="PARENT_FOLDER" kpos="0">
+				<p1:lnk rMode="R">
+					<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+						<p1:clCxt consider="A"/>
+					</p1:vc>
+					<p1:key typeID="FOLDER" oid="7177b8b0798e11dbb2ce001321070899">
+						<p1:elem>1uf###4#####k##</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+		</p1:lnks>
+		<p1:textInfo loadedL="EN">
+			<p1:textObj id="35b03dd089ff11dba686001321070899" type="0" masterL="EN">
+				<p1:texts lang="EN">
+					<p1:text label="a5f1b1b0635211dbabe00011857d65de"/>
+					<p1:text label="5a8654f0635311dbc6f80011857d65de"/>
+					<p1:text label="773ee400635211db91130011857d65de"/>
+					<p1:text label="a5f1b1b1635211dbb99f0011857d65de"/>
+					<p1:text label="a5f1b1b3635211dbc0640011857d65de"/>
+					<p1:text label="eabbdcd0635211db97b00011857d65de"/>
+					<p1:text label="e37f4b00635211db9a600011857d65de"/>
+					<p1:text label="a5f1b1b2635211db8e320011857d65de"/>
+				</p1:texts>
+			</p1:textObj>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+</p1:xiObj>

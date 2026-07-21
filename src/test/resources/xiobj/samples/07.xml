@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="c57d98a2ae3311dcc54a0017a44cb001">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="ifmtypedef" oid="414ee31f1ca73bccab1de5e93edae95b">
+			<p1:elem>QualityOfService</p1:elem>
+			<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2007-12-19 14:10:29.29</p1:modifAt>
+			<modifAtLong>1198069829290</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:lnks>
+			<p1:lnkRole role="PARENT_FOLDER" kpos="0">
+				<p1:lnk rMode="R">
+					<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+						<p1:clCxt consider="A"/>
+					</p1:vc>
+					<p1:key typeID="FOLDER" oid="fdbd07206a8511dbcdf1001321070899">
+						<p1:elem>3o5###4#####k##</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+		</p1:lnks>
+		<p1:textInfo>
+			<p1:textObj id="c57d98a2ae3311dcc54a0017a44cb001" type="0" masterL="EN"/>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+</p1:xiObj>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="2c10d081a5b611d8aa3f0002b3ca4e60">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="ifmmessif" oid="0363d13373083373ab2a91879e46bcf9">
+			<p1:elem>BookingOrderInformation_Out</p1:elem>
+			<p1:elem>http://sap.com/xi/XI/Demo/Agency</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2004-05-14 17:51:25.0</p1:modifAt>
+			<modifAtLong>1084549885000</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:lnks>
+			<p1:lnkRole role="_inner" kpos="0">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="98bc980b2af038df8ed4b7fccc439484">
+						<p1:elem>BookingOrderInformation_Out</p1:elem>
+						<p1:elem>http://sap.com/xi/XI/Demo/Agency</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+		</p1:lnks>
+		<p1:textInfo>
+			<p1:textObj id="2c10d081a5b611d8aa3f0002b3ca4e60" type="0" masterL="EN">
+				<p1:texts lang="DE">
+					<p1:text label="">Buchungsdaten - Ausgang (nur für XI-Demo)</p1:text>
+				</p1:texts>
+				<p1:texts lang="EN">
+					<p1:text label="">Booking order information - Out (only for use in XI Demo)</p1:text>
+				</p1:texts>
+			</p1:textObj>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+	<p1:inner>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="98bc980b2af038df8ed4b7fccc439484">
+					<p1:elem>BookingOrderInformation_Out</p1:elem>
+					<p1:elem>http://sap.com/xi/XI/Demo/Agency</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmopmess" oid="dad04db2ed2f35a3928d5d461f9ed6be">
+								<p1:elem>BookingOrderInformation_Out</p1:elem>
+								<p1:elem>http://sap.com/xi/XI/Demo/Agency</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="3dcfaa0a2d4a3021990721e8b9269310">
+								<p1:elem>BookingOrderInformation</p1:elem>
+								<p1:elem>http://sap.com/xi/XI/Demo/Agency</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo>
+					<p1:textObj id="2c10d081a5b611d8aa3f0002b3ca4e60" type="0" masterL="EN">
+						<p1:texts lang="DE">
+							<p1:text label="">Buchungsdaten - Ausgang (nur für XI-Demo)</p1:text>
+						</p1:texts>
+						<p1:texts lang="EN">
+							<p1:text label="">Booking order information - Out (only for use in XI Demo)</p1:text>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+	</p1:inner>
+</p1:xiObj>

@@ -10,11 +10,17 @@ import io.rsug.zatupka.dir.Service;
 import io.rsug.zatupka.hmi.HmiRequest;
 import io.rsug.zatupka.hmi.HmiResponse;
 import io.rsug.zatupka.hmi.Instance;
+import io.rsug.zatupka.xiobj.Text;
 import io.rsug.zatupka.xiobj.Texts;
 import io.rsug.zatupka.xiobj.XiObj;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.stringtemplate.v4.ST;
+import org.stringtemplate.v4.STErrorListener;
+import org.stringtemplate.v4.STGroup;
+import org.stringtemplate.v4.STGroupDir;
+import org.stringtemplate.v4.misc.STMessage;
 import org.xml.sax.SAXParseException;
 
 import javax.xml.bind.JAXBContext;
@@ -33,6 +39,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class AnyTests {
     @Test
@@ -45,9 +52,17 @@ public class AnyTests {
                 XiObjParser xiObjParser = new XiObjParser();
                 XiObj xiObj = xiObjParser.parse(Files.newInputStream(pathXiObj));
                 String typeID = xiObj.getIdInfo().getKey().getTypeID();
-                Texts texts = xiObj.getGeneric().getTextInfo().getTextObj().getTexts();
-                String text = (texts == null) ? "" : texts.getText().getValue();
-                if (text.length() > 40) text = text.substring(0, 40).trim();
+
+                String masterL = xiObj.getGeneric().getTextInfo().getTextObj().getMasterL();
+                List<Texts> texts = xiObj.getGeneric().getTextInfo().getTextObj().getTexts();
+                Optional<Texts> optionalTextL = texts.stream().filter(t -> masterL.equals(t.getLang())).findFirst();
+                String text = "";
+                if (optionalTextL.isPresent()) {
+                    if (!optionalTextL.get().getText().isEmpty()) {
+                        text = optionalTextL.get().getText().getFirst().getContent();
+                    }
+                }
+                if (text.length()>40) text = text.substring(0,40).trim();
 
                 String dynamic = xiObjParser.dynamicContent;
                 Path pathDynamic = pathXiObj.resolveSibling(pathXiObj.getFileName() + "." + typeID + ".xml");
@@ -98,10 +113,10 @@ public class AnyTests {
     @Test
     public void ztpTest() throws Exception {
         extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
-//        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
 //        extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
-//        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_BYD_CRM_ON_DEMAND_3.0.tpz"));
+//        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
+        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_ENERGY.tpz"));
     }
 
@@ -112,16 +127,22 @@ public class AnyTests {
         TpzContainer tpzContainer = new TpzContainer();
         if (tpzContainer.unzip(tpz)) {
             tpzContainer.extractFragments(false);
+            // sourcesystem == hostpodci_POD_00
+            String sourceSystem = tpzContainer.metadataProperties.getProperty("sourcesystem");
+            // exportXiRelease == NW750EXT_35_REL
+            String exportXiRelease = tpzContainer.metadataProperties.getProperty("exportXiRelease");
             for (Path pathXiObj : tpzContainer.listXiObjFiles) {
                 XiObjParser xiObjParser = new XiObjParser();
                 XiObj xiObj = xiObjParser.parse(Files.newInputStream(pathXiObj));
                 String typeID = xiObj.getIdInfo().getKey().getTypeID();
-//                String dynamic = xiObjParser.dynamicContent;
                 if (typeID.equals("AllInOne")) {
                     try {
                         AllInOne aio = xiObjParser.parseAllInOne(xiObj.getContent().dynamicContent);
-                        Iconeer iconeer = new Iconeer(aio, xiObj.getIdInfo().getKey().getElem());
-                        System.out.println("linter: " + iconeer.linter());
+                        IcoHeader icoHeader = new IcoHeader(xiObj, aio);
+                        Path pathHtml = pathXiObj.resolveSibling(pathXiObj.getFileName().toString().replace(".xml", ".html"));
+                        String s = icoHeader.toHtml(sourceSystem);
+                        System.out.println(s + "\n*****************************");
+                        IOUtils.write(s, Files.newOutputStream(pathHtml), StandardCharsets.UTF_8);
                     } catch (Exception e) {
                         System.err.println(pathXiObj);
                         throw e;
@@ -136,7 +157,7 @@ public class AnyTests {
         } else {
             throw new IllegalStateException();
         }
-        tpzContainer.clear();
+//        tpzContainer.clear();
     }
 
     @Test
@@ -256,4 +277,39 @@ public class AnyTests {
     static InputStream getInputStream(String name) throws IOException {
         return Objects.requireNonNull(AnyTests.class.getResourceAsStream(name));
     }
+
+    @Test
+    public void stTests() {
+        // Путь указывается относительно корня проекта или через абсолютный
+        STGroup group = new STGroupDir("src/main/resources/templates", '$', '$');
+        group.setListener(new STErrorListener() {
+            @Override
+            public void compileTimeError(STMessage msg) {
+                throw new RuntimeException("compileTimeError: " + msg);
+            }
+
+            @Override
+            public void runTimeError(STMessage msg) {
+                throw new RuntimeException("runTimeError: " + msg);
+            }
+
+            @Override
+            public void IOError(STMessage msg) {
+                throw new RuntimeException(msg.cause);
+            }
+
+            @Override
+            public void internalError(STMessage msg) {
+                throw new RuntimeException(msg.cause);
+            }
+        });
+        // HTML escaping
+        group.registerRenderer(String.class, new HtmlEscapeStringRenderer());
+        ST layoutTemplate = group.getInstanceOf("layout");
+        layoutTemplate.add("title", "Добро&пожаловать!");
+        layoutTemplate.add("content", "<p>Это содержимое моей главной страницы.</p>");
+        String htmlOutput = layoutTemplate.render();
+        System.out.println(htmlOutput);
+    }
+
 }

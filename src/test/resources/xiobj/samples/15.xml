@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="46060141c34511dbb3e20017a44cb001">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="ifmmessif" oid="4870a6a02ecb3c82824bd9bbcd955196">
+			<p1:elem>CommunicationChannelIn</p1:elem>
+			<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2007-02-23 14:53:43.19</p1:modifAt>
+			<modifAtLong>1172238823190</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:lnks>
+			<p1:lnkRole role="_inner" kpos="16">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="60d4dfe0e5063bac93483c283d5586ba">
+						<p1:elem>CommunicationChannelIn.OpenForEdit</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="_inner" kpos="15">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="1222af08924e3c56be9e263259855926">
+						<p1:elem>CommunicationChannelIn.Check</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="_inner" kpos="14">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="2fb35d39aa73347caf7d82f2f2b28a19">
+						<p1:elem>CommunicationChannelIn.Query</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="_inner" kpos="13">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="8c38b9bb326f373a804dab39ccec6eed">
+						<p1:elem>CommunicationChannelIn.Delete</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="_inner" kpos="12">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="d3c12a0ffb0b38cab4017e134db9d6ca">
+						<p1:elem>CommunicationChannelIn.Read</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="_inner" kpos="11">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="fb25080db3823e39b26567d48e82a700">
+						<p1:elem>CommunicationChannelIn.Change</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="_inner" kpos="10">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="24370a9d88423cb09f1c3f3bc8ea72fb">
+						<p1:elem>CommunicationChannelIn.CreateFromTemplate</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="_inner" kpos="9">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="933fa1ab69cc3608acc0e022bc1649d0">
+						<p1:elem>CommunicationChannelIn.Create</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="_inner" kpos="17">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmoper" oid="b143f662f30f3a318cf1324fa6f3ecfb">
+						<p1:elem>CommunicationChannelIn.Revert</p1:elem>
+						<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+			<p1:lnkRole role="PARENT_FOLDER" kpos="0">
+				<p1:lnk rMode="R">
+					<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+						<p1:clCxt consider="A"/>
+					</p1:vc>
+					<p1:key typeID="FOLDER" oid="d60a4ac0796811dbbcbe001321070899">
+						<p1:elem>3en###4#####k##</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+		</p1:lnks>
+		<p1:textInfo loadedL="EN">
+			<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+				<p1:texts lang="EN">
+					<p1:text label=""/>
+				</p1:texts>
+			</p1:textObj>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+	<p1:inner>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="933fa1ab69cc3608acc0e022bc1649d0">
+					<p1:elem>CommunicationChannelIn.Create</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Create</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="31c3d6fdc7b139fe8d5e72f268be5628">
+								<p1:elem>CommunicationChannelCreateRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="afda37eae7b430d3b7050bddef855dbd">
+								<p1:elem>ConfigurationObjectModifyResponse</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Create</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="24370a9d88423cb09f1c3f3bc8ea72fb">
+					<p1:elem>CommunicationChannelIn.CreateFromTemplate</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.CreateFromTemplate</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="f6e949e372d73f7a8da06093694a2386">
+								<p1:elem>CommunicationChannelCreateFromTemplateRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="afda37eae7b430d3b7050bddef855dbd">
+								<p1:elem>ConfigurationObjectModifyResponse</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.CreateFromTemplate</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="fb25080db3823e39b26567d48e82a700">
+					<p1:elem>CommunicationChannelIn.Change</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Change</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="dfec07ec738b348380fffdc245b791c9">
+								<p1:elem>CommunicationChannelChangeRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="afda37eae7b430d3b7050bddef855dbd">
+								<p1:elem>ConfigurationObjectModifyResponse</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Change</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="d3c12a0ffb0b38cab4017e134db9d6ca">
+					<p1:elem>CommunicationChannelIn.Read</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Read</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="51e545c47f453637915042b21a886e41">
+								<p1:elem>CommunicationChannelReadRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="4d6a133cf8eb3adbbc091343b23295f3">
+								<p1:elem>CommunicationChannelReadResponse</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Read</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="8c38b9bb326f373a804dab39ccec6eed">
+					<p1:elem>CommunicationChannelIn.Delete</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Delete</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="2c886b9da31c3972b0ffd419e4e5da9e">
+								<p1:elem>CommunicationChannelDeleteRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="afda37eae7b430d3b7050bddef855dbd">
+								<p1:elem>ConfigurationObjectModifyResponse</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Delete</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="2fb35d39aa73347caf7d82f2f2b28a19">
+					<p1:elem>CommunicationChannelIn.Query</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Query</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="287d8f15248d3791b2b84502ff3ebd56">
+								<p1:elem>CommunicationChannelQueryRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="50b49e29cdb13d7da5dacc0b7f1f7f1f">
+								<p1:elem>CommunicationChannelQueryResponse</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Query</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="1222af08924e3c56be9e263259855926">
+					<p1:elem>CommunicationChannelIn.Check</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Check</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="ce0b96684fa83695b77f5c26397c8629">
+								<p1:elem>CommunicationChannelCheckRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="1d41c3b933ff3bc59fda069d1bc8e9e8">
+								<p1:elem>LogMessageCollection</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Check</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="60d4dfe0e5063bac93483c283d5586ba">
+					<p1:elem>CommunicationChannelIn.OpenForEdit</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.OpenForEdit</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="9636bbe69084315199673388185394fe">
+								<p1:elem>CommunicationChannelOpenForEditRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="b22484dc66863b3faf8df00e35f69a37">
+								<p1:elem>CommunicationChannelOpenForEditResponse</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.OpenForEdit</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+		<p1:xiObj>
+			<p1:idInfo>
+				<p1:key typeID="ifmoper" oid="b143f662f30f3a318cf1324fa6f3ecfb">
+					<p1:elem>CommunicationChannelIn.Revert</p1:elem>
+					<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+				</p1:key>
+			</p1:idInfo>
+			<p1:generic>
+				<p1:lnks>
+					<p1:lnkRole role="_inner" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Revert</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Request</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="REQUEST" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="e264873515cb384f852b29805ccb07dc">
+								<p1:elem>CommunicationChannelRevertRequest</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="RESPONSE" kpos="0">
+						<p1:lnk rMode="R">
+							<p1:key typeID="ifmmessage" oid="1d41c3b933ff3bc59fda069d1bc8e9e8">
+								<p1:elem>LogMessageCollection</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+					<p1:lnkRole role="_inner" kpos="1">
+						<p1:lnk rMode="R">
+							<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+								<p1:clCxt consider="A"/>
+							</p1:vc>
+							<p1:key typeID="ifmopmess">
+								<p1:elem>CommunicationChannelIn.Revert</p1:elem>
+								<p1:elem>http://sap.com/xi/BASIS</p1:elem>
+								<p1:elem>Response</p1:elem>
+							</p1:key>
+						</p1:lnk>
+					</p1:lnkRole>
+				</p1:lnks>
+				<p1:textInfo loadedL="EN">
+					<p1:textObj id="46060141c34511dbb3e20017a44cb001" type="0" masterL="EN">
+						<p1:texts lang="EN">
+							<p1:text label=""/>
+						</p1:texts>
+					</p1:textObj>
+				</p1:textInfo>
+			</p1:generic>
+			<p1:content>
+			</p1:content>
+			<p1:inner/>
+		</p1:xiObj>
+	</p1:inner>
+</p1:xiObj>

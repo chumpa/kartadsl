@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="a6ff9db1057611d9af870002b3ca4e60">
+		<p1:vc vcType="S" swcGuid="0050568f0aac1ed4a6e56926325e2eb3" sp="-1" caption="SAP BASIS 7.50">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="ifmtypedef" oid="01adbe7a0287354c89ec900d74c89278">
+			<p1:elem>ExchangeFaultData</p1:elem>
+			<p1:elem>http://sap.com/xi/XI/Demo/Agency</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>sap</p1:modifBy>
+			<p1:modifAt>2004-09-13 14:18:34.873</p1:modifAt>
+			<modifAtLong>1095077914873</modifAtLong>
+			<p1:owner>sap</p1:owner>
+		</p1:admInf>
+		<p1:lnks>
+			<p1:lnkRole role="TYPE" kpos="1">
+				<p1:lnk rMode="R">
+					<p1:key typeID="ifmtypedef" oid="7a73e9deec003e8ca6741482a22fdf98">
+						<p1:elem>ExchangeLogData</p1:elem>
+						<p1:elem>http://sap.com/xi/XI/Demo/Agency</p1:elem>
+					</p1:key>
+				</p1:lnk>
+			</p1:lnkRole>
+		</p1:lnks>
+		<p1:textInfo>
+			<p1:textObj id="a6ff9db1057611d9af870002b3ca4e60" type="0" masterL="DE">
+				<p1:texts lang="DE">
+					<p1:text label=""/>
+				</p1:texts>
+				<p1:texts lang="EN">
+					<p1:text label=""/>
+				</p1:texts>
+			</p1:textObj>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+</p1:xiObj>

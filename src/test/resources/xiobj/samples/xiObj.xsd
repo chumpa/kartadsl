@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:sap-com:xi" xmlns:p1="urn:sap-com:xi">
+  <xs:element name="xiObj">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element ref="p1:idInfo"/>
+        <xs:element ref="p1:generic"/>
+        <xs:element ref="p1:content"/>
+        <xs:element ref="p1:inner"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="content">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="generic">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="p1:admInf"/>
+        <xs:element minOccurs="0" ref="p1:lnks"/>
+        <xs:element ref="p1:textInfo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="admInf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="p1:modifBy"/>
+        <xs:element ref="p1:modifAt"/>
+        <xs:element name="modifAtLong" form="unqualified" type="xs:integer"/>
+        <xs:element ref="p1:owner"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modifBy" type="xs:NCName"/>
+  <xs:element name="modifAt" type="xs:string"/>
+  <xs:element name="owner" type="xs:NCName"/>
+  <xs:element name="lnks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="p1:lnkRole"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lnkRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="p1:lnk"/>
+      </xs:sequence>
+      <xs:attribute name="kpos" use="required" type="xs:integer"/>
+      <xs:attribute name="role" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lnk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="p1:vc"/>
+        <xs:element ref="p1:key"/>
+      </xs:sequence>
+      <xs:attribute name="rMode" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="textInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="p1:textObj"/>
+      </xs:sequence>
+      <xs:attribute name="loadedL" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="textObj">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p1:texts"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="masterL" use="required" type="xs:NCName"/>
+      <xs:attribute name="type" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="texts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="p1:text"/>
+      </xs:sequence>
+      <xs:attribute name="lang" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="text">
+    <xs:complexType mixed="true">
+      <xs:attribute name="label" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="idInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="p1:vc"/>
+        <xs:element ref="p1:key"/>
+      </xs:sequence>
+      <xs:attribute name="VID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="inner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="p1:xiObj"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="p1:clCxt"/>
+      </xs:sequence>
+      <xs:attribute name="caption" use="required"/>
+      <xs:attribute name="sp" use="required" type="xs:integer"/>
+      <xs:attribute name="swcGuid" use="required"/>
+      <xs:attribute name="vcType" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="clCxt">
+    <xs:complexType>
+      <xs:attribute name="consider" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="p1:elem"/>
+      </xs:sequence>
+      <xs:attribute name="oid"/>
+      <xs:attribute name="typeID" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="elem" type="xs:string"/>
+</xs:schema>

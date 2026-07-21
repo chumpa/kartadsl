@@ -1,0 +1,222 @@
+/* Общие настройки в стиле старых окон Windows/SAP */
+body {
+    background-color: #f0f0f0;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    margin: 10px;
+    color: #000;
+}
+
+.sap-window {
+    background-color: #d4d0c8;
+    border: 1px solid #666;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    min-width: 900px;
+}
+
+/* Верхний статус бар */
+.top-status-bar {
+    background: linear-gradient(to bottom, #f2f2f2, #dcdcdc);
+    border-bottom: 1px solid #999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8px;
+}
+
+.top-status-bar .title {
+    font-weight: bold;
+    color: #000;
+}
+
+.status-fields label {
+    margin-left: 15px;
+}
+
+.status-fields input {
+    background-color: #bfdbff;
+    border: 1px solid #7a96df;
+    padding: 2px 5px;
+    font-size: 11px;
+    width: 100px;
+}
+
+/* Сетка для форм */
+.form-section {
+    padding: 10px;
+    background-color: #f6f6f6;
+}
+
+.header-section {
+    background-color: #e3ebf7;
+    border-bottom: 1px solid #b5cbef;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #002d96;
+    margin-bottom: 4px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3px 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.form-grid .label {
+    text-align: left;
+    color: #333;
+}
+
+.form-grid .label.required {
+    font-weight: bold;
+}
+
+.form-grid input[type="text"] {
+    width: 100px;
+    max-width: 600px;
+    border: 1px solid #b0b0b0;
+    padding: 2px 4px;
+    font-size: 11px;
+    background-color: #fff;
+}
+
+/* Одинаковая ширина для полей верхнего блока */
+.header-section input[type="text"] {
+    width: 300px;
+}
+
+/* Вкладки (Tabs) */
+.tabs-container {
+    display: flex;
+    background-color: #d4d0c8;
+    padding-left: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid #999;
+}
+
+.tab {
+    background: linear-gradient(to bottom, #f0f0f0, #d4d0c8);
+    border: 1px solid #999;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    padding: 4px 12px;
+    margin-right: 2px;
+    cursor: pointer;
+    color: #444;
+}
+
+.tab.active {
+    background: #fff;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+    top: 1px;
+    border-bottom: 1px solid #fff;
+}
+
+/* Содержимое вкладки */
+.tab-content {
+    background-color: #fff;
+    border: 1px solid #999;
+    border-top: none;
+    padding: 12px;
+    min-height: 400px;
+}
+
+.content-subtitle {
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.content-subtitle.font-small {
+    font-size: 11px;
+    color: #000;
+    margin: 10px 0;
+}
+
+/* Таблицы SAP */
+.sap-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.sap-table th {
+    background-color: #ffe4b5; /* Характерный песочный цвет SAP */
+    border: 1px solid #ccb28a;
+    text-align: left;
+    padding: 4px 6px;
+    font-weight: normal;
+    color: #000;
+}
+
+.sap-table td {
+    border: 1px solid #e0e0e0;
+    padding: 3px 6px;
+    background-color: #fff;
+}
+
+/* Выделенная строка в таблице */
+.sap-table tr.selected-row td {
+    background-color: #adcedd; 
+    border-color: #8daab7;
+}
+
+/* Нижняя форма */
+.bottom-form input[type="text"] {
+    width: 100%;
+}
+
+.flex-row {
+    display: flex;
+    gap: 5px;
+}
+
+.flex-row input {
+    flex: 1;
+}
+
+/* Стили для заблокированных элементов */
+.disabled-text {
+    color: #808080;
+}
+
+.disabled-input {
+    background-color: #e0e0e0 !important;
+    color: #555;
+    border: 1px solid #c0c0c0 !important;
+}
+
+.radio-group label {
+    margin-right: 15px;
+    color: #555;
+}
+
+/* Разделительные линии и боксы */
+.section-divider {
+    border-top: 2px dotted #999;
+    margin: 15px 0;
+    height: 1px;
+}
+
+.fieldset-box {
+    margin-top: 15px;
+    border-top: 1px solid #d0d0d0;
+    padding-top: 10px;
+}
+
+.fieldset-title {
+    font-weight: bold;
+    color: #002d96;
+    margin-bottom: 8px;
+}
+
+.padding-left {
+    padding-left: 15px;
+}

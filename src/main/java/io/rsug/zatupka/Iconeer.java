@@ -15,7 +15,6 @@ public class Iconeer {
     public final int noReceiverBehaviour;
     public final Map<String, ReceiverConfiguration> receiverMapById = new LinkedHashMap<>();
     public final ReceiverConfiguration receiverWhenNotFound;
-    public final Set<String> qos = new HashSet<>();
     public final int version;
 
     public Iconeer(AllInOne allInOne, List<String> header) {
@@ -34,7 +33,6 @@ public class Iconeer {
         noReceiverBehaviour = ico.getNoReceiverBehaviour() == null ? 0 : ico.getNoReceiverBehaviour().getIfNoReceiverFound().intValue();
         for (ReceiverConfiguration recvConf : ico.getReceiverConfigurations().getReceiverConfiguration()) {
             receiverMapById.put(recvConf.getReceiverId(), recvConf);
-            qos.add(recvConf.getQualityOfService());
         }
         if (noReceiverBehaviour == 2) {
             receiverWhenNotFound = getReceiverWhenNotFound();
@@ -47,14 +45,11 @@ public class Iconeer {
         if (noReceiverBehaviour < 0 || noReceiverBehaviour > 2) {
             throw new IllegalStateException("noReceiverBehaviour=" + noReceiverBehaviour);
         }
-        if (qos.size() != 1) {
-            throw new IllegalStateException("wrong QoS set=" + qos);
-        }
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         pw.println("version=" + version);
+        pw.printf("%s|%s|{%s}%s|%s|%s\n", fromParty, fromService, ifaceNS, ifaceName, toParty, toService);
         pw.println("noReceiverBehaviour=" + noReceiverBehaviour);
-        pw.println("QoS=" + qos);
         String s = receiverMapById.values().stream()
                 .map(entry -> simpleReceiverAddress(entry.getReceiver()))
                 .collect(Collectors.joining(", ", "", ""));

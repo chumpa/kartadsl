@@ -1,0 +1,9 @@
+
+<jxb:bindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              version="2.1">
+    <jxb:globalBindings>
+        <!-- для xs:integer нужно генерировать java.lang.Long а не BigInt -->
+        <jxb:javaType xmlType="xs:integer" name="java.lang.Long"/>
+    </jxb:globalBindings>
+</jxb:bindings>

@@ -137,7 +137,7 @@ public class XiObjParser {
         return ico;
     }
 
-    public AllInOne parseAllInOne(org.w3c.dom.Element element) throws JAXBException, XMLStreamException, IOException, SAXException {
+    public AllInOne parseAllInOne(org.w3c.dom.Element element) throws JAXBException, IOException, SAXException {
         JAXBContext jc = JAXBContext.newInstance(AllInOne.class);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         DOMSource src = new DOMSource(element);
