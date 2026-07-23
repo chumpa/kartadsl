@@ -1,9 +1,27 @@
+<jxb:bindings version="3.0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:jxb="https://jakarta.ee/xml/ns/jaxb"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  xmlns:ci="http://jaxb.dev.java.net/plugin/code-injector"
+  jxb:extensionBindingPrefixes="xjc ci"
+  >
 
-<jxb:bindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
-              xmlns:xs="http://www.w3.org/2001/XMLSchema"
-              version="2.1">
-    <jxb:globalBindings>
-        <!-- для xs:integer нужно генерировать java.lang.Long а не BigInt -->
-        <jxb:javaType xmlType="xs:integer" name="java.lang.Long"/>
-    </jxb:globalBindings>
+  <jxb:globalBindings>
+    <!-- для xs:integer по умолчанию java.lang.Long а не BigInt -->
+    <jxb:javaType xmlType="xs:integer" name="long"/>
+  </jxb:globalBindings>
+
+
+  <jxb:bindings schemaLocation="xiObj.xsd">
+    <!--jxb:bindings node="//xs:attribute[@name='kpos']">
+      <xjc:javaType name="long" xmlType="xs:integer"
+        parseMethod="java.lang.Long.parseLong"
+        printMethod="java.lang.Long.toString" />
+    </jxb:bindings-->
+
+    <jxb:bindings node="//xs:element[@name='content']">
+      <jxb:class ref="io.rsug.zatupka.xiobj.ContentDynamic"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
 </jxb:bindings>

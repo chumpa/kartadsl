@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:sap-com:xi:xiParty" xmlns:cp="urn:sap-com:xi:xiParty">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" 
+  xmlns:cp="urn:sap-com:xi:xiParty"
+  targetNamespace="urn:sap-com:xi:xiParty" 
+  >
     <xs:element name="Party">
         <xs:complexType>
             <xs:sequence>

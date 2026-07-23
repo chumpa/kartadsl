@@ -1,7 +1,7 @@
 package io.rsug.zatupka;
 
 import io.rsug.zatupka.allinone.AllInOne;
-import io.rsug.zatupka.channel.Channel;
+import io.rsug.zatupka.dir.Channel;
 import io.rsug.zatupka.dir.Party;
 import io.rsug.zatupka.dir.Service;
 import io.rsug.zatupka.xiobj.XiObj;
@@ -9,7 +9,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
-import javax.xml.bind.*;
+import jakarta.xml.bind.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -34,16 +34,18 @@ import java.util.Objects;
 public class XiObjParser {
     static final String namespace = "urn:sap-com:xi";
     static final SchemaFactory factory;
-    static final Schema schemas;
-    static final javax.xml.validation.Validator validator;
+    static final Schema schemaAllInOne, schemaXiObj;
+    static final javax.xml.validation.Validator validatorAllInOne, validatorXiObj;
 
     static {
         factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         InputStream is1 = XiObjParser.class.getResourceAsStream("/io.rsug.zatupka.xsd/AllInOne.xsd");
         InputStream is2 = XiObjParser.class.getResourceAsStream("/io.rsug.zatupka.xsd/NSM.xsd");
+        InputStream is4 = XiObjParser.class.getResourceAsStream("/io.rsug.zatupka.xsd/xiObj.xsd");
         try {
             Document ds1 = parseDocument(Objects.requireNonNull(is1));
             Document ds2 = parseDocument(Objects.requireNonNull(is2));
+            Document ds4 = parseDocument(Objects.requireNonNull(is4));
 //            пример резолвера с LSInput, может пригодиться в сложных схемах
 //            Map<String, Document> schemaMap = new HashMap<>();
 //            schemaMap.put("AllInOne.xsd", ds1);
@@ -61,8 +63,10 @@ public class XiObjParser {
 //                }
 //            });
             // ds2 идёт в массиве первым, это важно!
-            schemas = factory.newSchema(new DOMSource[]{new DOMSource(ds2), new DOMSource(ds1)});
-            validator = schemas.newValidator();
+            schemaAllInOne = factory.newSchema(new DOMSource[]{new DOMSource(ds2), new DOMSource(ds1)});
+            validatorAllInOne = schemaAllInOne.newValidator();
+            schemaXiObj = factory.newSchema(new DOMSource[]{new DOMSource(ds4)});
+            validatorXiObj = schemaXiObj.newValidator();
         } catch (SAXException | ParserConfigurationException | IOException e) {
             throw new RuntimeException(e);
         }
@@ -95,12 +99,17 @@ public class XiObjParser {
     public final List<ValidationEvent> validationEvents = new LinkedList<>();
     public String dynamicContent = null;
 
+    //TODO переделать на предварительную валидацию
     public XiObj parse(InputStream is) throws Exception {
         JAXBContext jc = JAXBContext.newInstance(XiObj.class);
         XMLStreamReader xsr = xif.createXMLStreamReader(is);
+
+        // DOMSource src = new DOMSource(parseDocument(is));
+        // validatorXiObj.validate(src);
+
         // xsr2 может понадобиться в будущем. Сейчас вместо него в Content:
         // @XmlAnyElement public org.w3c.dom.Element dynamicContent;
-//        XMLStreamReader xsr2 = xif.createFilteredReader(xsr, filterContent);
+        // XMLStreamReader xsr2 = xif.createFilteredReader(xsr, filterContent);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         unmarshaller.setEventHandler(validationEventHandler);
         XiObj xiObj = (XiObj) unmarshaller.unmarshal(xsr);
@@ -131,7 +140,7 @@ public class XiObjParser {
         // DOMSource позволяет пройтись по InputStream дважды - сперва валидация по схеме, затем JAXB
         // Если делать new StreamSource(is) то StreamSource читается лишь однажды
         DOMSource src = new DOMSource(parseDocument(is));
-        validator.validate(src);
+        validatorAllInOne.validate(src);
         AllInOne ico = (AllInOne) unmarshaller.unmarshal(src);
         Objects.requireNonNull(ico.getVersion());
         return ico;
@@ -141,7 +150,7 @@ public class XiObjParser {
         JAXBContext jc = JAXBContext.newInstance(AllInOne.class);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         DOMSource src = new DOMSource(element);
-        validator.validate(src);
+        validatorAllInOne.validate(src);
         AllInOne ico = (AllInOne) unmarshaller.unmarshal(element);
         Objects.requireNonNull(ico.getVersion());
         return ico;

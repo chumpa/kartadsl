@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:p2="http://sap.com/xi/ib/prefix">
   <xs:import namespace="http://sap.com/xi/ib/prefix" schemaLocation="NSM.xsd"/>
-  <xs:include schemaLocation="enum.xsd"/>
 
   <xs:element name="AllInOne">
     <xs:complexType>
@@ -396,7 +395,6 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-
 
 <xs:simpleType name="TRD_EXTRACTOR_TYPEENUM">
     <xs:restriction base="xs:string">

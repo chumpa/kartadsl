@@ -1,4 +1,4 @@
 package io.rsug.zatupka;
 
-public class LCond {
+public interface XiObjIf {
 }

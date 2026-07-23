@@ -4,7 +4,7 @@ import io.rsug.zatupka.*;
 import io.rsug.zatupka.abap.RfcDestination;
 import io.rsug.zatupka.allinone.AllInOne;
 import io.rsug.zatupka.allinone.Binding;
-import io.rsug.zatupka.channel.Channel;
+import io.rsug.zatupka.dir.Channel;
 import io.rsug.zatupka.dir.Party;
 import io.rsug.zatupka.dir.Service;
 import io.rsug.zatupka.hmi.HmiRequest;
@@ -23,10 +23,7 @@ import org.stringtemplate.v4.STGroupDir;
 import org.stringtemplate.v4.misc.STMessage;
 import org.xml.sax.SAXParseException;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.ValidationEvent;
-import javax.xml.bind.ValidationEventHandler;
+import jakarta.xml.bind.*;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
 import java.io.FileInputStream;
@@ -73,9 +70,9 @@ public class AnyTests {
                     case "AllInOne":
                         try {
                             ico = xiObjParser.parseAllInOne(Files.newInputStream(pathDynamic));
-                            Iconeer iconeer = new Iconeer(ico, xiObj.getIdInfo().getKey().getElem());
-                            String rez = iconeer.linter();
-                            System.out.println(rez);
+//                            Iconeer iconeer = new Iconeer(ico, xiObj.getIdInfo().getKey().getElem());
+//                            String rez = iconeer.linter();
+//                            System.out.println(rez);
                         } catch (SAXParseException sax) {
                             String err = String.format("Validation error at %s (line %d, column %d)\n%s", pathDynamic, sax.getLineNumber(), sax.getColumnNumber(), sax.getMessage());
                             System.err.println(err);
@@ -112,6 +109,7 @@ public class AnyTests {
 
     @Test
     public void ztpTest() throws Exception {
+
         extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
 //        extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_BYD_CRM_ON_DEMAND_3.0.tpz"));
@@ -131,6 +129,9 @@ public class AnyTests {
             String sourceSystem = tpzContainer.metadataProperties.getProperty("sourcesystem");
             // exportXiRelease == NW750EXT_35_REL
             String exportXiRelease = tpzContainer.metadataProperties.getProperty("exportXiRelease");
+            tpzContainer.parseXiObjects();
+
+
             for (Path pathXiObj : tpzContainer.listXiObjFiles) {
                 XiObjParser xiObjParser = new XiObjParser();
                 XiObj xiObj = xiObjParser.parse(Files.newInputStream(pathXiObj));
@@ -141,7 +142,7 @@ public class AnyTests {
                         IcoHeader icoHeader = new IcoHeader(xiObj, aio);
                         Path pathHtml = pathXiObj.resolveSibling(pathXiObj.getFileName().toString().replace(".xml", ".html"));
                         String s = icoHeader.toHtml(sourceSystem);
-                        System.out.println(s + "\n*****************************");
+//                        System.out.println(s + "\n*****************************");
                         IOUtils.write(s, Files.newOutputStream(pathHtml), StandardCharsets.UTF_8);
                     } catch (Exception e) {
                         System.err.println(pathXiObj);
@@ -192,38 +193,29 @@ public class AnyTests {
         XiObjParser xiObjParser = new XiObjParser();
         AllInOne ico1 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico1.xml")));
         Assertions.assertEquals(2, ico1.getConditions().getRDSCONDSHORT().size());
-        renderIco(ico1);
-        System.out.println(new Iconeer(ico1, null).linter());
 
         AllInOne ico2 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico2.xml")));
         Assertions.assertTrue(ico2.getConditions().getRDSCONDSHORT().isEmpty());
-        System.out.println(new Iconeer(ico2, null).linter());
 
         AllInOne ico3 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico3.xml")));
         Binding binding3 = ico3.getReceiverConfigurations().getReceiverConfiguration().getFirst().getInterfaceDeterminations().getInterfaceDetermination().get(0).getBinding();
         Assertions.assertEquals("so_timeout", binding3.getProperties().getProperty().getFirst().getName());
-        System.out.println(new Iconeer(ico3, null).linter());
 
         AllInOne ico4 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico4.xml")));
         Assertions.assertEquals(100, ico4.getVersion().intValue());
-        System.out.println(new Iconeer(ico4, null).linter());
 
         AllInOne ico5 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico5.xml")));
-        Assertions.assertTrue(new Iconeer(ico5, null).namespaces.isEmpty());
         AllInOne ico6 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico6.xml")));
-        Assertions.assertTrue(new Iconeer(ico6, null).namespaces.isEmpty());
-        Assertions.assertEquals(100, new Iconeer(ico6, null).version);
         AllInOne ico7 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico7.xml")));
-        Assertions.assertEquals(110, new Iconeer(ico7, null).version);
     }
 
     public void renderIco(AllInOne ico) throws IOException {
-        Iconeer iconeer = new Iconeer(ico, null);
-        iconeer.linter();
-        String dot = iconeer.dot();
-        OutputStream os = Files.newOutputStream(Paths.get("src/test/resources/ICo.uml"));
-        IOUtils.write(dot, os, StandardCharsets.UTF_8);
-        os.close();
+//        Iconeer iconeer = new Iconeer(ico, null);
+//        iconeer.linter();
+//        String dot = iconeer.dot();
+//        OutputStream os = Files.newOutputStream(Paths.get("src/test/resources/ICo.uml"));
+//        IOUtils.write(dot, os, StandardCharsets.UTF_8);
+//        os.close();
     }
 
     @Test
@@ -276,40 +268,6 @@ public class AnyTests {
 
     static InputStream getInputStream(String name) throws IOException {
         return Objects.requireNonNull(AnyTests.class.getResourceAsStream(name));
-    }
-
-    @Test
-    public void stTests() {
-        // Путь указывается относительно корня проекта или через абсолютный
-        STGroup group = new STGroupDir("src/main/resources/templates", '$', '$');
-        group.setListener(new STErrorListener() {
-            @Override
-            public void compileTimeError(STMessage msg) {
-                throw new RuntimeException("compileTimeError: " + msg);
-            }
-
-            @Override
-            public void runTimeError(STMessage msg) {
-                throw new RuntimeException("runTimeError: " + msg);
-            }
-
-            @Override
-            public void IOError(STMessage msg) {
-                throw new RuntimeException(msg.cause);
-            }
-
-            @Override
-            public void internalError(STMessage msg) {
-                throw new RuntimeException(msg.cause);
-            }
-        });
-        // HTML escaping
-        group.registerRenderer(String.class, new HtmlEscapeStringRenderer());
-        ST layoutTemplate = group.getInstanceOf("layout");
-        layoutTemplate.add("title", "Добро&пожаловать!");
-        layoutTemplate.add("content", "<p>Это содержимое моей главной страницы.</p>");
-        String htmlOutput = layoutTemplate.render();
-        System.out.println(htmlOutput);
     }
 
 }

@@ -1,5 +1,6 @@
 package io.rsug.zatupka;
 
+import io.rsug.zatupka.xiobj.XiObj;
 import org.apache.commons.io.IOUtils;
 
 import javax.xml.stream.XMLStreamException;
@@ -20,6 +21,8 @@ public class TpzContainer {
     public final Properties metadataProperties = new Properties();
     public final List<String> listTptFiles = new LinkedList<>();
     public final List<Path> listXiObjFiles = new LinkedList<>();
+
+    record Task(XiObj xiObj, String typeID, Path pathXml, Path pathHtml) {}
 
     public TpzContainer() throws IOException {
         this.pathTmpDir = Files.createTempDirectory("Zatupka_");
@@ -60,9 +63,15 @@ public class TpzContainer {
     }
 
     public void extractFragments(boolean alsoBinaries) throws XMLStreamException, IOException {
-        TptFragments ztp2 = new TptFragments(Objects.requireNonNull(pathTpt));
-        ztp2.extractFragments(alsoBinaries);
-        listXiObjFiles.addAll(ztp2.xiObjects);
+        TptFragments tptFragments = new TptFragments(Objects.requireNonNull(pathTpt));
+        tptFragments.extractFragments(alsoBinaries);
+        listXiObjFiles.addAll(tptFragments.xiObjects);
+    }
+
+    public void parseXiObjects() {
+        for (Path p: listXiObjFiles) {
+            //XiObj xiObj = XiObjParser.parseDocument();
+        }
     }
 
     public void clear() throws IOException {

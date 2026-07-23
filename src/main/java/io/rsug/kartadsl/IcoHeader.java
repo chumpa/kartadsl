@@ -1,15 +1,9 @@
 package io.rsug.kartadsl;
 
 import io.rsug.zatupka.allinone.*;
-import io.rsug.zatupka.xiobj.Key;
-import io.rsug.zatupka.xiobj.LnkRole;
-import io.rsug.zatupka.xiobj.TextObj;
-import io.rsug.zatupka.xiobj.XiObj;
+import io.rsug.zatupka.xiobj.*;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STErrorListener;
@@ -19,10 +13,11 @@ import org.stringtemplate.v4.misc.STMessage;
 
 public class IcoHeader {
     public final String fromParty, fromService, ifaceNS, ifaceName, toParty, toService;
-    private String senderCC = null;
+    public String senderCC = null, senderCCoid;
     private IcoReceiverDetermination receiverDetermination = null;
     private List<LnkRole> linksWithRoles = new LinkedList<>();
     private LnkRole routingProgram = null;
+    public String description = null, masterL = null;
 
     public IcoHeader(String fromParty, String fromService, String ifaceNS, String ifaceName, String toParty, String toService) {
         this.fromParty = Objects.requireNonNull(fromParty);
@@ -55,8 +50,15 @@ public class IcoHeader {
         ifaceName = Objects.requireNonNull(header.get(3));
         toParty = Objects.requireNonNull(header.get(4));
         toService = Objects.requireNonNull(header.get(5));
-        TextObj textObj = xiObj.getGeneric().getTextInfo().getTextObj();
 
+        this.masterL = xiObj.getGeneric().getTextInfo().getTextObj().getMasterL();
+        List<Texts> texts = xiObj.getGeneric().getTextInfo().getTextObj().getTexts();
+        Optional<Texts> optionalTextL = texts.stream().filter(t -> this.masterL.equals(t.getLang())).findFirst();
+        if (optionalTextL.isPresent()) {
+            if (!optionalTextL.get().getText().isEmpty()) {
+                this.description = optionalTextL.get().getText().getFirst().getContent();
+            }
+        }
         this.setLinkRoles(xiObj.getGeneric().getLnks().getLnkRole());
         this.receiverDetermination = this.setSenderChannelFromLinks();
         for (NSM.Definition def : allInOne.getNamespaceMapping().getNSM().getDefinition()) {

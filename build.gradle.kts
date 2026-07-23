@@ -20,10 +20,16 @@ dependencies {
     implementation("commons-io:commons-io:2.22.0")
     implementation("org.apache.commons:commons-text:1.12.0")
 //    implementation("xerces:xercesImpl:2.12.2")
-//    runtimeOnly("org.relaxng:trang:20241231")
-    implementation("javax.xml.bind:jaxb-api:2.3.1")
-    implementation("com.sun.xml.bind:jaxb-impl:2.3.1")
-    implementation("com.sun.xml.bind:jaxb-core:2.3.0.1")
+
+    // современный JAXB
+    implementation("jakarta.xml.bind:jakarta.xml.bind-api:4.0.5")
+    implementation("org.glassfish.jaxb:jaxb-runtime:4.0.5")
+//    implementation("jakarta.activation:jakarta.activation-api:2.1.4")
+
+//    implementation("javax.xml.bind:jaxb-api:2.3.1")
+//    implementation("com.sun.xml.bind:jaxb-impl:2.3.1")
+//    implementation("com.sun.xml.bind:jaxb-core:2.3.0.1")
+
     implementation(
         fileTree(
             mapOf(

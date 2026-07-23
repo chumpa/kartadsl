@@ -124,7 +124,8 @@ body {
     border: 1px solid #999;
     border-top: none;
     padding: 12px;
-    min-height: 400px;
+    /*min-height: 400px;*/
+    min-height: 100px;
 }
 
 .content-subtitle {

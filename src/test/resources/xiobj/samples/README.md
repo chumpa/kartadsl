@@ -1,5 +1,4 @@
-﻿
-  <xs:element name="xiObj">
+﻿  <xs:element name="xiObj">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="1">
         <xs:element ref="p1:idInfo"/>
@@ -9,4 +8,3 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-

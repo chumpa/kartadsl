@@ -1,0 +1,25 @@
+<jxb:bindings version="3.0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:jxb="https://jakarta.ee/xml/ns/jaxb"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  xmlns:ci="http://jaxb.dev.java.net/plugin/code-injector"
+  jxb:extensionBindingPrefixes="xjc ci"
+  >
+  
+  <jxb:globalBindings>
+    <jxb:javaType xmlType="xs:integer" name="java.lang.Integer"/>
+  </jxb:globalBindings>
+
+  <jxb:bindings schemaLocation="Channel.xsd" node="//xs:element[@name='Channel']/xs:complexType">
+      <!--ci:code> implements com.example.MyInterface </ci:code-->
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="Party.xsd" node="//xs:element[@name='Party']">
+      <!--ci:code implements com.example.MyInterface </ci:code-->
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="Service.xsd" node="//xs:element[@name='Service']">
+      <!--ci:code implements com.example.MyInterface </ci:code-->
+  </jxb:bindings>
+
+</jxb:bindings>

@@ -1,10 +1,3 @@
 @echo off
-set xjc=D:\bin\sapjvm_8\bin\xjc.exe
 set target=..\..\..\main\java
-
-rem %xjc% -d %target% -p io.rsug.zatupka.xiobj xobj.xsd
-rem echo После генерации в классе io.rsug.zatupka.xiobj.Content внутри вручную добавить:
-rem echo "@XmlAnyElement public org.w3c.dom.Element dynamicContent;"
-
-rem %xjc% -d %target% -p io.rsug.zatupka.dir Party.xsd Service.xsd
-rem %xjc% -d %target% -p io.rsug.zatupka.channel Channel.xsd
+xjc -d %target% -p io.rsug.zatupka.dir -extension -b bindings.xjb -Xinject-code Party.xsd Service.xsd Channel.xsd
