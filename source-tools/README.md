@@ -17,3 +17,7 @@ implementation("com.sun.istack:istack-commons-runtime:4.2.0")
 
 kartadsl\src\test\resources\hmi\generate-source.bat 	HMI
 kartadsl\src\test\resources\xiobj\generate-source.bat	directory
+
+## плагины к XJC
+### jaxb2-basics-runtime-2.0.16.jar
+https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb2-basics-runtime/2.0.16

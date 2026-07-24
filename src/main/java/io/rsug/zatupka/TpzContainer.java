@@ -75,12 +75,20 @@ public class TpzContainer {
     public void parseXiObjects() throws IOException, JAXBException, ParserConfigurationException, SAXException {
         for (Path p: listXiObjFiles) {
             XiObjParser xiObjParser = new XiObjParser();
-            DOMSource src = XiObjParser.parseDOMSource(Files.newInputStream(p));
+            DOMSource src = XiObjParser.parseDOMSource(Objects.requireNonNull(Files.newInputStream(p)));
             try {
                 XiObj xiObj = xiObjParser.parseXiObj(src);
                 String typeID = xiObj.getIdInfo().getKey().getTypeID();
-                XiObjFile xiObjFile = new XiObjFile(xiObj, typeID, p, null);
+                String oid = xiObj.getIdInfo().getKey().getOid();
+                Object o = xiObjParser.parseDynamicContent(xiObj);
+                if (o==null) {
+                    System.out.printf("Empty dynamic for typeID=%s\n", typeID);
+                } else if (o instanceof String) {
+                    System.out.printf("No handler for typeID=%s\n", typeID);
+                }
+                new XiObjFile(xiObj, typeID, oid, o, p);
             } catch (SAXParseException se) {
+                // только ошибки валидации по схеме
                 System.err.println(p);
                 se.printStackTrace();
                 throw se;

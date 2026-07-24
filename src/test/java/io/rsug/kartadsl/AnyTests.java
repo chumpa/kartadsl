@@ -34,11 +34,12 @@ import java.util.Optional;
 public class AnyTests {
     @Test
     public void ztpTest() throws Exception {
-        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
-//        extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
+        extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
+        extractTpt(Paths.get("../XI7_1_FOLDERS.tpz"));
+//        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
 //        extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_BYD_CRM_ON_DEMAND_3.0.tpz"));
-//        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
+        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_ENERGY.tpz"));
     }
 
@@ -54,29 +55,15 @@ public class AnyTests {
             // exportXiRelease == NW750EXT_35_REL
             String exportXiRelease = tpzContainer.metadataProperties.getProperty("exportXiRelease");
             tpzContainer.parseXiObjects();
-
-            for (Path pathXiObj : tpzContainer.listXiObjFiles) {
-                XiObjParser xiObjParser = new XiObjParser();
-//                XiObj xiObj = xiObjParser.parseXiObj(Files.newInputStream(pathXiObj));
-//                String typeID = xiObj.getIdInfo().getKey().getTypeID();
-//                if (typeID.equals("AllInOne")) {
-//                    try {
-//                        AllInOne aio = xiObjParser.parseAllInOne(xiObj.getContent().dynamicContent);
-//                        IcoHeader icoHeader = new IcoHeader(xiObj, aio);
-//                        Path pathHtml = pathXiObj.resolveSibling(pathXiObj.getFileName().toString().replace(".xml", ".html"));
-//                        String s = icoHeader.toHtml(sourceSystem);
-////                        System.out.println(s + "\n*****************************");
-//                        IOUtils.write(s, Files.newOutputStream(pathHtml), StandardCharsets.UTF_8);
-//                    } catch (Exception e) {
-//                        System.err.println(pathXiObj);
-//                        throw e;
-//                    }
-//                }
-            }
+//            AllInOne aio = xiObjParser.parseAllInOne(xiObj.getContent().dynamicContent);
+//            IcoHeader icoHeader = new IcoHeader(xiObj, aio);
+//            Path pathHtml = pathXiObj.resolveSibling(pathXiObj.getFileName().toString().replace(".xml", ".html"));
+//            String s = icoHeader.toHtml(sourceSystem);
+//            IOUtils.write(s, Files.newOutputStream(pathHtml), StandardCharsets.UTF_8);
         } else {
             throw new IllegalStateException();
         }
-        tpzContainer.clear();
+//        tpzContainer.clear();
     }
 
     @Test

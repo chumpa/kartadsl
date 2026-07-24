@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:sap-com:xi" xmlns:p1="urn:sap-com:xi">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="urn:sap-com:xi" xmlns:p1="urn:sap-com:xi">
   <xs:element name="xiObj">
     <xs:complexType>
       <xs:sequence>
@@ -11,7 +11,13 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="content" type="xs:anyType"/>
-
+  <xs:element name="inner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p1:xiObj"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 
   <xs:element name="generic">
     <xs:complexType>
@@ -32,9 +38,9 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="modifBy" type="xs:string"/>
+  <xs:element name="modifBy" type="xs:NMTOKEN"/>
   <xs:element name="modifAt" type="xs:string"/>
-  <xs:element name="owner" type="xs:string"/>
+  <xs:element name="owner" type="xs:NMTOKEN"/>
   <xs:element name="lnks">
     <xs:complexType>
       <xs:sequence>
@@ -98,13 +104,6 @@
         <xs:element ref="p1:key"/>
       </xs:sequence>
       <xs:attribute name="VID"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="inner">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p1:xiObj"/>
-      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="vc">

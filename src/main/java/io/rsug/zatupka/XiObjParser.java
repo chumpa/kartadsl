@@ -1,6 +1,9 @@
 package io.rsug.zatupka;
 
+import io.rsug.zatupka.allinone.AlertRule;
 import io.rsug.zatupka.allinone.AllInOne;
+import io.rsug.zatupka.allinone.Attribs;
+import io.rsug.zatupka.allinone.Valuemapping;
 import io.rsug.zatupka.dir.Channel;
 import io.rsug.zatupka.dir.Party;
 import io.rsug.zatupka.dir.Service;
@@ -60,23 +63,23 @@ public class XiObjParser {
 
     public Object parseDynamicContent(XiObj xiObj) throws JAXBException, IOException, SAXException {
         String typeID = Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(xiObj).getIdInfo()).getKey()).getTypeID();
-        org.w3c.dom.Element dynamic = Objects.requireNonNull(xiObj.getContent().dynamicContent);
-        DOMSource src = new DOMSource(dynamic);
-        switch (Objects.requireNonNull(typeID)) {
-            case "AllInOne":
-                AllInOne allInOne = parseAllInOne(src);
-                break;
-            case "Channel":
-                Channel channel = parseChannel(src);
-                break;
-            case "Party":
-                Party party = parseParty(src);
-                break;
-            default:
-                throw new RuntimeException(typeID);
+        org.w3c.dom.Element dynamic = xiObj.getContent().dynamicContent;
+        switch (typeID) {
+            // для этих объектов нет динамики
+            case "DOCU", "DirectoryView":
+                return new Object();
         }
-
-        return null;
+        DOMSource src = new DOMSource(Objects.requireNonNull(dynamic, typeID));
+        return switch (typeID) {
+            case "AllInOne" -> parseAllInOne(src);
+            case "Channel" -> parseChannel(src);
+            case "Party" -> parseParty(src);
+            case "Service" -> parseService(src);
+            case "AlertRule" -> parseAlertRule(src);
+            case "FOLDER" -> parseFolder(src);
+            case "ValueMapping" -> parseValueMapping(src);
+            default -> typeID;
+        };
     }
 
     public XiObj parseXiObj(Source src) throws JAXBException, IOException, SAXException {
@@ -118,6 +121,30 @@ public class XiObjParser {
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         Service service = (Service) unmarshaller.unmarshal(src);
         return Objects.requireNonNull(service);
+    }
+
+    public AlertRule parseAlertRule(Source src) throws JAXBException {
+        Objects.requireNonNull(src);
+        JAXBContext jc = JAXBContext.newInstance(AlertRule.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        AlertRule alertRule = (AlertRule) unmarshaller.unmarshal(src);
+        return Objects.requireNonNull(alertRule);
+    }
+
+    public Attribs parseFolder(Source src) throws JAXBException {
+        Objects.requireNonNull(src);
+        JAXBContext jc = JAXBContext.newInstance(Attribs.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        Attribs folder = (Attribs) unmarshaller.unmarshal(src);
+        return Objects.requireNonNull(folder);
+    }
+
+    public Valuemapping parseValueMapping(Source src) throws JAXBException {
+        Objects.requireNonNull(src);
+        JAXBContext jc = JAXBContext.newInstance(Valuemapping.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        Valuemapping valuemapping = (Valuemapping) unmarshaller.unmarshal(src);
+        return Objects.requireNonNull(valuemapping);
     }
 
     public static String elementToString(org.w3c.dom.Element element) throws TransformerException {

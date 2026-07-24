@@ -11,10 +11,7 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -27,9 +24,15 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element ref="{}UseGlobal"/>
- *         <element ref="{}Name"/>
- *         <element ref="{}Value"/>
+ *         <element name="name" type="{http://www.w3.org/2001/XMLSchema}string" form="unqualified"/>
+ *         <element name="ns" form="unqualified">
+ *           <complexType>
+ *             <complexContent>
+ *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *               </restriction>
+ *             </complexContent>
+ *           </complexType>
+ *         </element>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
@@ -40,37 +43,16 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "useGlobal",
     "name",
-    "value"
+    "ns"
 })
-@XmlRootElement(name = "Parameter")
-public class Parameter {
+@XmlRootElement(name = "attribs")
+public class Attribs {
 
-    @XmlElement(name = "UseGlobal")
-    protected boolean useGlobal;
-    @XmlElement(name = "Name", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NMTOKEN")
+    @XmlElement(required = true)
     protected String name;
-    @XmlElement(name = "Value", required = true)
-    protected Value value;
-
-    /**
-     * Gets the value of the useGlobal property.
-     * 
-     */
-    public boolean isUseGlobal() {
-        return useGlobal;
-    }
-
-    /**
-     * Sets the value of the useGlobal property.
-     * 
-     */
-    public void setUseGlobal(boolean value) {
-        this.useGlobal = value;
-    }
+    @XmlElement(required = true)
+    protected Attribs.Ns ns;
 
     /**
      * Gets the value of the name property.
@@ -97,27 +79,51 @@ public class Parameter {
     }
 
     /**
-     * Gets the value of the value property.
+     * Gets the value of the ns property.
      * 
      * @return
      *     possible object is
-     *     {@link Value }
+     *     {@link Attribs.Ns }
      *     
      */
-    public Value getValue() {
-        return value;
+    public Attribs.Ns getNs() {
+        return ns;
     }
 
     /**
-     * Sets the value of the value property.
+     * Sets the value of the ns property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Value }
+     *     {@link Attribs.Ns }
      *     
      */
-    public void setValue(Value value) {
-        this.value = value;
+    public void setNs(Attribs.Ns value) {
+        this.ns = value;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type</p>.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.</p>
+     * 
+     * <pre>{@code
+     * <complexType>
+     *   <complexContent>
+     *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *     </restriction>
+     *   </complexContent>
+     * </complexType>
+     * }</pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "")
+    public static class Ns {
+
+
     }
 
 }
