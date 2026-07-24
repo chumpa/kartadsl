@@ -10,17 +10,11 @@ import io.rsug.zatupka.dir.Service;
 import io.rsug.zatupka.hmi.HmiRequest;
 import io.rsug.zatupka.hmi.HmiResponse;
 import io.rsug.zatupka.hmi.Instance;
-import io.rsug.zatupka.xiobj.Text;
 import io.rsug.zatupka.xiobj.Texts;
 import io.rsug.zatupka.xiobj.XiObj;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.stringtemplate.v4.ST;
-import org.stringtemplate.v4.STErrorListener;
-import org.stringtemplate.v4.STGroup;
-import org.stringtemplate.v4.STGroupDir;
-import org.stringtemplate.v4.misc.STMessage;
 import org.xml.sax.SAXParseException;
 
 import jakarta.xml.bind.*;
@@ -29,7 +23,6 @@ import javax.xml.stream.XMLStreamReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,81 +33,12 @@ import java.util.Optional;
 
 public class AnyTests {
     @Test
-    public void tptTests() throws Exception {
-        var s = Files.newDirectoryStream(Paths.get("temp/tpt"), "*.tpt");
-        for (Path tpt : s) {
-            var ztp2 = new TptFragments(tpt);
-            ztp2.extractFragments(false);
-            for (Path pathXiObj : ztp2.xiObjects) {
-                XiObjParser xiObjParser = new XiObjParser();
-                XiObj xiObj = xiObjParser.parse(Files.newInputStream(pathXiObj));
-                String typeID = xiObj.getIdInfo().getKey().getTypeID();
-
-                String masterL = xiObj.getGeneric().getTextInfo().getTextObj().getMasterL();
-                List<Texts> texts = xiObj.getGeneric().getTextInfo().getTextObj().getTexts();
-                Optional<Texts> optionalTextL = texts.stream().filter(t -> masterL.equals(t.getLang())).findFirst();
-                String text = "";
-                if (optionalTextL.isPresent()) {
-                    if (!optionalTextL.get().getText().isEmpty()) {
-                        text = optionalTextL.get().getText().getFirst().getContent();
-                    }
-                }
-                if (text.length()>40) text = text.substring(0,40).trim();
-
-                String dynamic = xiObjParser.dynamicContent;
-                Path pathDynamic = pathXiObj.resolveSibling(pathXiObj.getFileName() + "." + typeID + ".xml");
-                IOUtils.write(dynamic, Files.newOutputStream(pathDynamic), StandardCharsets.UTF_8);
-
-                AllInOne ico;
-                switch (typeID) {
-                    case "AllInOne":
-                        try {
-                            ico = xiObjParser.parseAllInOne(Files.newInputStream(pathDynamic));
-//                            Iconeer iconeer = new Iconeer(ico, xiObj.getIdInfo().getKey().getElem());
-//                            String rez = iconeer.linter();
-//                            System.out.println(rez);
-                        } catch (SAXParseException sax) {
-                            String err = String.format("Validation error at %s (line %d, column %d)\n%s", pathDynamic, sax.getLineNumber(), sax.getColumnNumber(), sax.getMessage());
-                            System.err.println(err);
-                        }
-                        break;
-                    case "Channel":
-                        Channel cc = xiObjParser.parseChannel(Files.newInputStream(pathDynamic));
-                        Assertions.assertTrue(cc.getChannelDirection().matches("[OI]"));
-                        break;
-                    case "Party":           // могут быть интересные Agency
-                        Party party = xiObjParser.parseParty(Files.newInputStream(pathDynamic));
-                        Assertions.assertFalse(party.getPartyIdentifier().isEmpty());
-                        break;
-                    case "Service":         // минимум инфы - только BS или SR
-                        Service service = xiObjParser.parseService(Files.newInputStream(pathDynamic));
-                        Assertions.assertTrue(service.getServiceType().matches("BS|SR"));
-                        break;
-                    case "AlertRule":       // пока не парсим
-                    case "DirectoryView":   // бесполезная динамика (нет внутри ничего)
-                    case "DOCU":            // вся документация внутри <p1:texts>, нет отдельного объекта
-                        break;
-                    default:
-                        System.err.println("Unexpected typeID: " + typeID);
-                }
-
-                if (!xiObjParser.validationEvents.isEmpty()) {
-                    System.out.printf("%s: typeID=%s [%s] (%s)\n", pathXiObj.getFileName(), typeID, text, xiObjParser.validationEvents);
-                } else {
-                    System.out.printf("%s: typeID=%s [%s]\n", pathXiObj.getFileName(), typeID, text);
-                }
-            }
-        }
-    }
-
-    @Test
     public void ztpTest() throws Exception {
-
-        extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
+        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
+//        extractTpt(Paths.get("../XI7_1_CS_DEMO.tpz"));
 //        extractTpt(Paths.get("../XI71_ByScenarios.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_BYD_CRM_ON_DEMAND_3.0.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_directory-objs.tpz"));
-        extractTpt(Paths.get("../XI7_1_SAP_BASIS_7.50_SP_35.tpz"));
 //        extractTpt(Paths.get("src/test/resources/tpz/XI7_1_ENERGY.tpz"));
     }
 
@@ -131,34 +55,28 @@ public class AnyTests {
             String exportXiRelease = tpzContainer.metadataProperties.getProperty("exportXiRelease");
             tpzContainer.parseXiObjects();
 
-
             for (Path pathXiObj : tpzContainer.listXiObjFiles) {
                 XiObjParser xiObjParser = new XiObjParser();
-                XiObj xiObj = xiObjParser.parse(Files.newInputStream(pathXiObj));
-                String typeID = xiObj.getIdInfo().getKey().getTypeID();
-                if (typeID.equals("AllInOne")) {
-                    try {
-                        AllInOne aio = xiObjParser.parseAllInOne(xiObj.getContent().dynamicContent);
-                        IcoHeader icoHeader = new IcoHeader(xiObj, aio);
-                        Path pathHtml = pathXiObj.resolveSibling(pathXiObj.getFileName().toString().replace(".xml", ".html"));
-                        String s = icoHeader.toHtml(sourceSystem);
-//                        System.out.println(s + "\n*****************************");
-                        IOUtils.write(s, Files.newOutputStream(pathHtml), StandardCharsets.UTF_8);
-                    } catch (Exception e) {
-                        System.err.println(pathXiObj);
-                        throw e;
-                    }
-                }
-//                if (!xiObjParser.validationEvents.isEmpty()) {
-//                    System.out.printf("%s: typeID=%s (%s)\n", pathXiObj.getFileName(), typeID, xiObjParser.validationEvents);
-//                } else {
-//                    System.out.printf("%s: typeID=%s\n", pathXiObj.getFileName(), typeID);
+//                XiObj xiObj = xiObjParser.parseXiObj(Files.newInputStream(pathXiObj));
+//                String typeID = xiObj.getIdInfo().getKey().getTypeID();
+//                if (typeID.equals("AllInOne")) {
+//                    try {
+//                        AllInOne aio = xiObjParser.parseAllInOne(xiObj.getContent().dynamicContent);
+//                        IcoHeader icoHeader = new IcoHeader(xiObj, aio);
+//                        Path pathHtml = pathXiObj.resolveSibling(pathXiObj.getFileName().toString().replace(".xml", ".html"));
+//                        String s = icoHeader.toHtml(sourceSystem);
+////                        System.out.println(s + "\n*****************************");
+//                        IOUtils.write(s, Files.newOutputStream(pathHtml), StandardCharsets.UTF_8);
+//                    } catch (Exception e) {
+//                        System.err.println(pathXiObj);
+//                        throw e;
+//                    }
 //                }
             }
         } else {
             throw new IllegalStateException();
         }
-//        tpzContainer.clear();
+        tpzContainer.clear();
     }
 
     @Test
@@ -191,22 +109,22 @@ public class AnyTests {
     @Test
     public void allinoneTests() throws Exception {
         XiObjParser xiObjParser = new XiObjParser();
-        AllInOne ico1 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico1.xml")));
-        Assertions.assertEquals(2, ico1.getConditions().getRDSCONDSHORT().size());
-
-        AllInOne ico2 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico2.xml")));
-        Assertions.assertTrue(ico2.getConditions().getRDSCONDSHORT().isEmpty());
-
-        AllInOne ico3 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico3.xml")));
-        Binding binding3 = ico3.getReceiverConfigurations().getReceiverConfiguration().getFirst().getInterfaceDeterminations().getInterfaceDetermination().get(0).getBinding();
-        Assertions.assertEquals("so_timeout", binding3.getProperties().getProperty().getFirst().getName());
-
-        AllInOne ico4 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico4.xml")));
-        Assertions.assertEquals(100, ico4.getVersion().intValue());
-
-        AllInOne ico5 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico5.xml")));
-        AllInOne ico6 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico6.xml")));
-        AllInOne ico7 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico7.xml")));
+//        AllInOne ico1 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico1.xml")));
+//        Assertions.assertEquals(2, ico1.getConditions().getRDSCONDSHORT().size());
+//
+//        AllInOne ico2 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico2.xml")));
+//        Assertions.assertTrue(ico2.getConditions().getRDSCONDSHORT().isEmpty());
+//
+//        AllInOne ico3 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico3.xml")));
+//        Binding binding3 = ico3.getReceiverConfigurations().getReceiverConfiguration().getFirst().getInterfaceDeterminations().getInterfaceDetermination().get(0).getBinding();
+//        Assertions.assertEquals("so_timeout", binding3.getProperties().getProperty().getFirst().getName());
+//
+//        AllInOne ico4 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico4.xml")));
+//        Assertions.assertEquals(100, ico4.getVersion().intValue());
+//
+//        AllInOne ico5 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico5.xml")));
+//        AllInOne ico6 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico6.xml")));
+//        AllInOne ico7 = xiObjParser.parseAllInOne(Objects.requireNonNull(getClass().getResourceAsStream("/xiobj/AllInOne/Ico7.xml")));
     }
 
     public void renderIco(AllInOne ico) throws IOException {

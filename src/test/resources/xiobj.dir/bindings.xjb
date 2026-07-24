@@ -1,9 +1,9 @@
 <jxb:bindings version="3.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:jxb="https://jakarta.ee/xml/ns/jaxb"
+  xmlns:xjc1="http://jakarta.ee/xml/ns/jaxb/xjc"
   xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
-  xmlns:ci="http://jaxb.dev.java.net/plugin/code-injector"
-  jxb:extensionBindingPrefixes="xjc ci"
+  jxb:extensionBindingPrefixes="xjc"
   >
   
   <jxb:globalBindings>
@@ -11,6 +11,9 @@
   </jxb:globalBindings>
 
   <jxb:bindings schemaLocation="Channel.xsd" node="//xs:element[@name='Channel']/xs:complexType">
+    <jxb:class name="Channel" implClass="Channel"/>
+      <jxb:extends>Basic</jxb:extends>
+
       <!--ci:code> implements com.example.MyInterface </ci:code-->
   </jxb:bindings>
 

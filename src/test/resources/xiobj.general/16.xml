@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p1:xiObj xmlns:p1="urn:sap-com:xi">
+	<p1:idInfo VID="1fa2f851a84211f08b77000007572072">
+		<p1:vc vcType="D">
+			<p1:clCxt consider="A"/>
+		</p1:vc>
+		<p1:key typeID="Service" oid="0e4eba2625d531d18f04254132111f8e">
+			<p1:elem/>
+			<p1:elem>INTEGRATION_ENGINE_JAVA_POD</p1:elem>
+		</p1:key>
+	</p1:idInfo>
+	<p1:generic>
+		<p1:admInf>
+			<p1:modifBy>aa</p1:modifBy>
+			<p1:modifAt>2025-10-13 17:37:20.011</p1:modifAt>
+			<modifAtLong>1760366240011</modifAtLong>
+			<p1:owner>aa</p1:owner>
+		</p1:admInf>
+		<p1:textInfo>
+			<p1:textObj id="1fa2f851a84211f08b77000007572072" type="0" masterL="EN"/>
+		</p1:textInfo>
+	</p1:generic>
+	<p1:content>
+	</p1:content>
+</p1:xiObj>

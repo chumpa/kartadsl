@@ -1,9 +1,15 @@
 package io.rsug.zatupka;
 
 import io.rsug.zatupka.xiobj.XiObj;
+import jakarta.xml.bind.JAXBException;
 import org.apache.commons.io.IOUtils;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.dom.DOMSource;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
@@ -21,8 +27,6 @@ public class TpzContainer {
     public final Properties metadataProperties = new Properties();
     public final List<String> listTptFiles = new LinkedList<>();
     public final List<Path> listXiObjFiles = new LinkedList<>();
-
-    record Task(XiObj xiObj, String typeID, Path pathXml, Path pathHtml) {}
 
     public TpzContainer() throws IOException {
         this.pathTmpDir = Files.createTempDirectory("Zatupka_");
@@ -68,9 +72,19 @@ public class TpzContainer {
         listXiObjFiles.addAll(tptFragments.xiObjects);
     }
 
-    public void parseXiObjects() {
+    public void parseXiObjects() throws IOException, JAXBException, ParserConfigurationException, SAXException {
         for (Path p: listXiObjFiles) {
-            //XiObj xiObj = XiObjParser.parseDocument();
+            XiObjParser xiObjParser = new XiObjParser();
+            DOMSource src = XiObjParser.parseDOMSource(Files.newInputStream(p));
+            try {
+                XiObj xiObj = xiObjParser.parseXiObj(src);
+                String typeID = xiObj.getIdInfo().getKey().getTypeID();
+                XiObjFile xiObjFile = new XiObjFile(xiObj, typeID, p, null);
+            } catch (SAXParseException se) {
+                System.err.println(p);
+                se.printStackTrace();
+                throw se;
+            }
         }
     }
 
